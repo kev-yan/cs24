@@ -23,7 +23,6 @@ void rightCap(int num, string input){
 }
 
 int main(int argc, char* argv[]){
-
     if(argc == 3){
         rightCap(stoi(argv[1]), argv[2]);
     }
