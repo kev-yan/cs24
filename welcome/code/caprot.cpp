@@ -27,6 +27,27 @@ void rightCap(int num, string input){
 
 }
 
+
+int main(int argc, char* argv[]){
+    if(argc == 2){
+        rightCap(stoi(argv[0]), argv[1]);
+    }
+    else{
+        if(argc >= 2){
+            string temp = argv[1];
+            for(int i=2; i<(argc);i++){
+                temp = temp + " " + argv[i];
+            }
+            rightCap(stoi(argv[0]), temp);
+        }
+        else{
+            cout << argc << " " << argv[1] << " " << argv[2];
+            cout << "please try again";
+        }
+    }
+    
+}
+/*
 int main(int argc, char* argv[]){
     if(argc == 3){
         rightCap(stoi(argv[1]), argv[2]);
@@ -46,3 +67,4 @@ int main(int argc, char* argv[]){
     }
     
 }
+*/
