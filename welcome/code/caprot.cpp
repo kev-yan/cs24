@@ -32,7 +32,16 @@ int main(int argc, char* argv[]){
         rightCap(stoi(argv[1]), argv[2]);
     }
     else{
-        cout << "please try again" << endl;
+        if(argc >= 3){
+            string temp = argv[2];
+            for(int i=3; i<(argc);i++){
+                temp = temp + " " + argv[i];
+            }
+            rightCap(stoi(argv[1]), temp);
+        }
+        else{
+            cout << "please try again";
+        }
     }
     
 }
