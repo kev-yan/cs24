@@ -30,7 +30,7 @@ void rightCap(int num, string input){
 
 int main(int argc, char* argv[]){
     if(argc == 2){
-        rightCap(stoi(argv[0]), argv[1]);
+        rightCap(*argv[0], argv[1]);
     }
     else{
         if(argc > 2){
