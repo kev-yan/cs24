@@ -1,2 +1,7 @@
+CXX = g++
+BINARIES = caprot
+
 hellomake: caprot.cpp
-	c++ -o caprot caprot.cpp
+	g++ -o caprot caprot.cpp
+clean:
+	/bin/rm -f ${BINARIES} *.o
