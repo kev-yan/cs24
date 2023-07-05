@@ -11,12 +11,17 @@ void rightCap(int num, string input){
     for(i=0; i<length; i++){
         if(isupper(input[i])){
             int index = (i+num) % length;
+            if(index < 0){
+                index += length;
+            }
             upper.push_back(index);
             input[i] = tolower(input[i]);
         }
     }
-    for(i=0;i<upper.size();i++){
-        input[upper.at(i)] = toupper(input[upper.at(i)]);
+
+    unsigned int j;
+    for(j=0;j<upper.size();j++){
+        input[upper.at(j)] = toupper(input[upper.at(j)]);
     }
     cout << input << endl;
 
