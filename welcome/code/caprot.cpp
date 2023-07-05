@@ -40,6 +40,7 @@ int main(int argc, char* argv[]){
             rightCap(stoi(argv[1]), temp);
         }
         else{
+            cout << argv[1] << " " << argv[2];
             cout << "please try again";
         }
     }
