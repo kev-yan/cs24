@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
         rightCap(stoi(argv[0]), argv[1]);
     }
     else{
-        if(argc >= 2){
+        if(argc > 2){
             string temp = argv[1];
             for(int i=2; i<(argc);i++){
                 temp = temp + " " + argv[i];
