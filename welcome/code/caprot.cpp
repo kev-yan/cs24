@@ -4,7 +4,8 @@
 #include <vector>
 using namespace std;
 
-void rightCap(int num, string input){
+void rightCap(int num, string input1){
+    string input = input1;
     int length = input.length();
     vector<int> upper;
     int i;
@@ -27,7 +28,7 @@ void rightCap(int num, string input){
 
 }
 
-
+/*
 int main(int argc, char* argv[]){
     if(argc == 2){
         rightCap(*argv[0], argv[1]);
@@ -47,10 +48,11 @@ int main(int argc, char* argv[]){
     }
     
 }
-/*
+*/
+
 int main(int argc, char* argv[]){
     if(argc == 3){
-        rightCap(stoi(argv[1]), argv[2]);
+        rightCap(atoi(argv[1]), argv[2]);
     }
     else{
         if(argc >= 3){
@@ -61,10 +63,9 @@ int main(int argc, char* argv[]){
             rightCap(stoi(argv[1]), temp);
         }
         else{
-            cout << argc << " " << argv[1] << " " << argv[2];
+            cout << "doesn't work: " << argc << " " << argv[1] << " " << argv[2];
             cout << "please try again";
         }
     }
     
 }
-*/
