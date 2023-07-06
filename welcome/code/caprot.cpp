@@ -32,7 +32,7 @@ void rightCap(int num, string input1){
 
 
 int main(int argc, char* argv[]){
-    cout << "argc: " << argc << endl;
+    cout << "argc: " << argc << " argv[0]: " << argv[0] << " atoi: " << atoi(argv[0]) << " 2: " << argv[2] << endl;
     //if(argc == 3){
       //  rightCap(atoi(argv[1]), argv[2]);
    // }
