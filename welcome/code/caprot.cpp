@@ -32,9 +32,10 @@ void rightCap(int num, string input1){
 
 
 int main(int argc, char* argv[]){
-    if(argc == 2){
-        rightCap(atoi(argv[0]), argv[1]);
-    }
+    //if(argc == 2){
+        rightCap(atoi(argv[1]), argv[2]);
+    //}
+    /*
     else{
         if(argc > 2){
             string temp = argv[1];
@@ -47,9 +48,9 @@ int main(int argc, char* argv[]){
             cout << "doesn't work: "<< argc << " " << argv[1] << " " << argv[2];
             cout << "please try again";
         }
+        */
     }
     
-}
 
 /*
 int main(int argc, char* argv[]){
