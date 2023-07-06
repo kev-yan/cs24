@@ -26,56 +26,19 @@ void rightCap(long long int num, string input1){
         input[upper.at(j)] = toupper(input[upper.at(j)]);
     }
     cout << input << endl;
-   // cout << "num: " << num << "input: " << input1 << endl;
 
 }
 
 
 int main(int argc, char* argv[]){
-    //cout << "argc: " << argc << " argv[0]: " << argv[0] << " atoi: " << atoi(argv[0]) << " 2: " << argv[1] << endl;
     string input;
-    //getline(cin, input);
-    //cout << input << endl;
-    
     if(argc == 2){
         getline(cin, input);
         rightCap(atoi(argv[1]), input);
     }
     
-    /*
     else{
-        if(argc > 2){
-            string temp = argv[1];
-            for(int i=2; i<(argc);i++){
-                temp = temp + " " + argv[i];
-            }
-            rightCap(stoi(argv[0]), temp);
-        }
-        else{
-            cout << "doesn't work: "<< argc << " " << argv[1] << " " << argv[2];
-            cout << "please try again";
-        }
-        */
+        cout << "please try again" << endl;
     }
+}
     
-
-/*
-int main(int argc, char* argv[]){
-    if(argc == 3){
-        rightCap(atoi(argv[1]), argv[2]);
-    }
-    else{
-        if(argc >= 3){
-            string temp = argv[2];
-            for(int i=3; i<(argc);i++){
-                temp = temp + " " + argv[i];
-            }
-            rightCap(stoi(argv[1]), temp);
-        }
-        else{
-            cout << "doesn't work: " << argc << " " << argv[1] << " " << argv[2];
-            cout << "please try again";
-        }
-    }
-    */
-
