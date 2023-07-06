@@ -26,6 +26,7 @@ void rightCap(int num, string input1){
         input[upper.at(j)] = toupper(input[upper.at(j)]);
     }
     cout << input << endl;
+    cout << "num: " << num << "input: " << input1 << endl;
 
 }
 
