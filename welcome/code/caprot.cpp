@@ -7,7 +7,7 @@ using namespace std;
 
 void rightCap(int num, string input1){
     string input = input1;
-    int length = input.length();
+    long long int length = input.length();
     vector<int> upper;
     int i;
     for(i=0; i<length; i++){
