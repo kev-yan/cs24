@@ -32,9 +32,9 @@ both GitHub repos:
 - Clone the class repo somewhere on your local machine.
 - The class repo will be at a remote named `origin`; rename it to `upstream`.
 - Add a new remote for your GitHub repo; call it `origin`.  Use the SSH URL.
-- Push your local `master` branch to your GitHub repo (the `-u` option, also
+- Push your local `main` branch to your GitHub repo (the `-u` option, also
   known as `--set-upstream`, will link your local branch to the remote branch):\
-  `git push -u origin master`
+  `git push -u origin main`
 - Your files should now be visible in the GitHub web UI.
 
 Then check that you have everything set up correctly:
@@ -42,8 +42,8 @@ Then check that you have everything set up correctly:
 - Make sure the output of `git remote -v` makes sense.
 - Save the output of `git remote -v` as `welcome/remotes.txt`.
 - Add and commit this file to your local Git repo.
-- Push your changes to GitHub.  You linked your local `master` branch to the
-  `master` branch on GitHub in the previous section, so now you can simply use:\
+- Push your changes to GitHub.  You linked your local `main` branch to the
+  `main` branch on GitHub in the previous section, so now you can simply use:\
   `git push`
 
 
@@ -53,7 +53,7 @@ Now that your repo is set up, get some practice merging:
 
 - The class repo contains one extra branch:
   - `keyname`
-- Merge it into your `master` branch.
+- Merge it into your `main` branch.
 - Push your changes to GitHub.
 
 
