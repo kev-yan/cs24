@@ -62,6 +62,8 @@ represented as `size_t`s. If a function doesn't modify your vector, mark it as a
 - The `remove` function takes one argument: an index. It removes and returns
   the value at the index. If the index is invalid, it throws a `std::out_of_range`
   exception.
+- The `remove_val` function takes one argument: a value.
+  It loops through and removes all copies of that value. It returns nothing.
 
 
 ## Hints
