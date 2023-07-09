@@ -4,8 +4,12 @@
 // This provides the size_t type:
 #include <cstddef>
 
+
+
 class PauseVec {
   // Member Variables
+  int count;
+  int capacity;
 
   // Helper Functions
 
