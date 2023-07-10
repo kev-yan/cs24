@@ -1,3 +1,4 @@
+#include "LinkedList.h"
 #ifndef PAUSEVEC_H
 #define PAUSEVEC_H
 
@@ -8,15 +9,26 @@
 
 class PauseVec {
   // Member Variables
-  int count;
+  LinkedList *list;
+  size_t count;
   int capacity;
 
   // Helper Functions
 
 public:
   // Constructor and Destructor
+  PauseVec();
+  ~PauseVec();
 
   // Member Functions
+  void setCount(size_t num);
+  size_t getCount() const;
+  int getCapacity() const;
+  void push(int num);
+  int lookup(int index);
+  void mutate(int index, int value);
+  void remove(int index);
+  void remove_val(int value);
 
 };
 
