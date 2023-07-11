@@ -90,7 +90,11 @@ void PauseVec::remove(int index){
         //change capacity to n/2
     }
     count = count - 1;
+
+
+    
 }
+
 
 int main(){
     return 0;

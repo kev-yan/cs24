@@ -19,6 +19,7 @@ public:
   // Constructor and Destructor
   PauseVec();
   ~PauseVec();
+  
 
   // Member Functions
   void setCount(size_t num);
