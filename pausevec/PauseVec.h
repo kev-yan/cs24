@@ -14,7 +14,7 @@ class PauseVec {
   int capacity;
 
   // Helper Functions
-
+  Node findLast() const;
 public:
   // Constructor and Destructor
   PauseVec();
