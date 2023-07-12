@@ -5,8 +5,8 @@
 
 using namespace std;
 
-Node PauseVec::findLast(){
-    Node curr = list->head;
+Node* PauseVec::findLast() const{
+    Node *curr = list->head;
     while(curr->next != nullptr){
         curr = curr->next;
     }
@@ -15,13 +15,18 @@ Node PauseVec::findLast(){
 PauseVec::PauseVec(){
     count = 0;
     capacity = 1;
-    list = new LinkedList();
-    list->head = new Node();
-    list->head->data = 1;
+    arr = new int[1];
+    
+    //list = new LinkedList();
+    //list->head = new Node();
+    //list->head->data = 1;
 }
 PauseVec::~PauseVec(){
+    delete[] arr;
+   /*
     Node* currNode;
     Node *temp;
+    
     currNode = list->head;
     while(currNode != nullptr){
         temp = currNode->next;
@@ -29,6 +34,7 @@ PauseVec::~PauseVec(){
         currNode = temp;
     }
     delete list;
+    */
 }
 
 int PauseVec::getCapacity() const{
@@ -41,6 +47,18 @@ void PauseVec::setCount(size_t num){
     count = num;
 }
 void PauseVec::push(int num){
+    if(count == capacity){
+        int* newArr = new int[count*2];
+        for(int i=0; i<count; i++){
+            newArr[i] = arr[i];
+        }
+        delete[] arr;
+        capacity = capacity*2;
+    }
+    count++;
+    arr[count] = num;
+    
+    /*
     Node* temp = new Node();
     temp->data = num;
     if(count == capacity){
@@ -54,6 +72,7 @@ void PauseVec::push(int num){
     list->tail->next = temp;
     list->tail = temp;
     count++;
+    */
 
 }
 int PauseVec::lookup(int index){
@@ -70,7 +89,7 @@ int PauseVec::lookup(int index){
     }
     return curr->data;
 }
-void PauseVec::mutate(){
+void PauseVec::mutate(int index, int value){
 }
 
 void PauseVec::remove(int index){
@@ -81,7 +100,7 @@ void PauseVec::remove(int index){
             throw std::out_of_range("index not found");
         }
         else{
-            curr == curr->next;
+            curr = curr->next;
         }
     }
     Node *after = curr->next->next;

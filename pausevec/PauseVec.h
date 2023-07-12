@@ -10,6 +10,7 @@
 class PauseVec {
   // Member Variables
   LinkedList *list;
+  int* arr;
   size_t count;
   int capacity;
 
@@ -19,7 +20,7 @@ public:
   // Constructor and Destructor
   PauseVec();
   ~PauseVec();
-  
+
 
   // Member Functions
   void setCount(size_t num);
