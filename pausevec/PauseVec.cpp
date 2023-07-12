@@ -4,7 +4,7 @@
 
 
 using namespace std;
-
+/*
 Node* PauseVec::findLast() const{
     Node *curr = list->head;
     while(curr->next != nullptr){
@@ -12,6 +12,7 @@ Node* PauseVec::findLast() const{
     }
     return curr;
 }
+*/
 PauseVec::PauseVec(){
     count = 0;
     capacity = 1;
