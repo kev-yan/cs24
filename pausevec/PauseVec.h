@@ -10,7 +10,7 @@
 class PauseVec {
   // Member Variables
   LinkedList *list;
-  int* arr;
+  int[] arr;
   size_t count;
   int capacity;
 
