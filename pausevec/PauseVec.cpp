@@ -77,6 +77,7 @@ void PauseVec::push(int num){
 
 }
 int PauseVec::lookup(int index){
+    /*
     Node* curr;
     int i=0;
     while(i != index){
@@ -89,11 +90,13 @@ int PauseVec::lookup(int index){
         }
     }
     return curr->data;
+    */
 }
 void PauseVec::mutate(int index, int value){
 }
 
 void PauseVec::remove(int index){
+    /*
     Node* curr = list->head;
     int i=0;
     while(i != (index-1)){
@@ -112,6 +115,7 @@ void PauseVec::remove(int index){
         //change capacity to n/2
     }
     count = count - 1;
+    */
 
 
     
