@@ -4,13 +4,13 @@
 
 // This provides the size_t type:
 #include <cstddef>
-#include <vector>
+//#include <vector>
 
 
 
 class PauseVec {
   // Member Variables
-  LinkedList *list;
+  //LinkedList *list;
   int *arr;
   size_t count;
   int capacity;
