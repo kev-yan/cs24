@@ -2,6 +2,7 @@
 #include <vector>
 #include "PauseVec.h"
 
+
 using namespace std;
 
 Node PauseVec::findLast(){
@@ -9,6 +10,7 @@ Node PauseVec::findLast(){
     while(curr->next != nullptr){
         curr = curr->next;
     }
+    return curr;
 }
 PauseVec::PauseVec(){
     count = 0;
