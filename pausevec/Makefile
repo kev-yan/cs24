@@ -1,5 +1,5 @@
 CXX = g++
-BINARIES = pauseVec
+BINARIES = PauseVec
 
 hellomake: PauseVec.cpp
 	g++ -o pauseVec PauseVec.cpp
