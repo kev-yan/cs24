@@ -48,9 +48,9 @@ void PauseVec::setCount(size_t num){
 }
 void PauseVec::push(int num){
     int tempCount = static_cast<int>(count);
-    if(count == capacity){
-        int* newArr = new int[count*2];
-        for(int i=0; i<count; i++){
+    if(tempCount == capacity){
+        int* newArr = new int[tempCount*2];
+        for(int i=0; i<tempCount; i++){
             newArr[i] = arr[i];
         }
         delete[] arr;
@@ -76,7 +76,7 @@ void PauseVec::push(int num){
     */
 
 }
-int PauseVec::lookup(int index){
+//int PauseVec::lookup(int index){
     /*
     Node* curr;
     int i=0;
@@ -91,7 +91,7 @@ int PauseVec::lookup(int index){
     }
     return curr->data;
     */
-}
+//}
 void PauseVec::mutate(int index, int value){
 }
 
