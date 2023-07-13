@@ -59,6 +59,7 @@ void PauseVec::push(int num){
     count++;
     arr[count] = num;
     
+    
     /*
     Node* temp = new Node();
     temp->data = num;
