@@ -47,7 +47,7 @@ void PauseVec::setCount(size_t num){
     count = num;
 }
 void PauseVec::push(int num){
-    int tempCount = int(count);
+    int tempCount = static_cast<int>(count);
     if(count == capacity){
         int* newArr = new int[count*2];
         for(int i=0; i<count; i++){
@@ -123,5 +123,8 @@ void PauseVec::remove(int index){
 
 
 int main(){
+    PauseVec *temp = new PauseVec();
+    temp->push(2);
+    temp->push(3);
     return 0;
 }
