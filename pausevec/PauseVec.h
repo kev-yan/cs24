@@ -9,13 +9,12 @@
 
 class PauseVec {
   // Member Variables
-  //LinkedList *list;
   int *arr;
   size_t count;
   int capacity;
 
   // Helper Functions
-  Node findLast() const;
+  
 public:
   // Constructor and Destructor
   PauseVec();
@@ -23,12 +22,13 @@ public:
 
 
   // Member Functions
+  void smash();
   void setCount(size_t num);
   size_t getCount() const;
   int getCapacity() const;
   void push(int num);
-  int lookup(int index);
-  void mutate(int index, int value);
+  int lookup(unsigned long int index);
+  void mutate(size_t index, int value);
   void remove(int index);
   void remove_val(int value);
 

@@ -3,6 +3,26 @@
 
 
 using namespace std;
+void PauseVec::smash(){
+    int *temp;
+    if(capacity/4 < (static_cast<int>(count))){
+        temp = new int[count];
+    }
+    else{
+        temp = new int[count/2];
+        capacity = capacity/2;
+    }
+    int num = 0;
+    for(int i=0; i<capacity; i++){
+        if(arr[i] != -1){
+            temp[num] = arr[i];
+            num++;
+        }
+}
+    int *hold = arr;
+    arr = temp;
+    delete[] hold;
+}
 /*
 Node* PauseVec::findLast() const{
     Node *curr = list->head;
@@ -56,8 +76,10 @@ void PauseVec::push(int num){
         delete[] arr;
         capacity = capacity*2;
     }
-    count++;
-    
+    if(num != -1){
+        count++;
+    }
+
     arr[count] = num;
     
 
@@ -78,7 +100,14 @@ void PauseVec::push(int num){
     */
 
 }
-//int PauseVec::lookup(int index){
+int PauseVec::lookup(unsigned long int index){
+    if(arr[index] != -1 && index <= capacity){
+        return arr[index];
+    }
+    else{
+        throw std::out_of_range("index not found");
+    }
+    
     /*
     Node* curr;
     int i=0;
@@ -93,8 +122,14 @@ void PauseVec::push(int num){
     }
     return curr->data;
     */
-//}
-void PauseVec::mutate(int index, int value){
+}
+void PauseVec::mutate(size_t index, int value){
+    if(index <= capacity){
+        arr[index] = value;
+    }
+    else{
+        throw std::out_of_range("index not found");
+    }
 }
 
 void PauseVec::remove(int index){
@@ -126,7 +161,17 @@ void PauseVec::remove(int index){
 
 int main(){
     PauseVec *temp = new PauseVec();
+    temp->push(1);
     temp->push(2);
     temp->push(3);
+    temp->push(-1);
+ 
+    temp->smash();
+    cout << temp->getCapacity() << endl;
+    cout << temp->getCount() << endl;
+    cout << temp->lookup(2) << endl;
+    temp->mutate(2, 5);
+    cout << temp->lookup(2) << endl;
+    
     return 0;
 }
