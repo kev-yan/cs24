@@ -161,7 +161,7 @@ void PauseVec::remove_val(int value){
 
 }
 
-
+/*
 int main(){
     PauseVec *temp = new PauseVec();
     temp->push(1);
@@ -171,7 +171,6 @@ int main(){
     temp->push(3);
     cout << temp->count() << endl;
     cout << temp->capacity() << endl;
-    /*
     temp->smash();
     cout << temp->capacity() << endl;
     cout << temp->count() << endl;
@@ -180,7 +179,8 @@ int main(){
     cout << temp->lookup(2) << endl;
 
     return 0;
-
-*/
 }
+*/
+
+
 
