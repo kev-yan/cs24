@@ -62,11 +62,11 @@ void PauseVec::push(int count){
     }
     
     else{
-        smash();
         if(arr[cap-1] != 0 || arr[cap-1] != -1){
             arr[cap-1] = count;
         }
         else{
+            smash();
             arr[cap-1] = count;
         }
     }
@@ -98,6 +98,9 @@ void PauseVec::push(int count){
 
 }
 int PauseVec::lookup(unsigned long int index){
+    if(index == cap){
+        return arr[index];
+    }
     if(arr[index] != -1 && index < cap){
         return arr[index];
     }
@@ -131,26 +134,13 @@ void PauseVec::mutate(size_t index, int value){
 
 
 void PauseVec::remove(size_t index){
-    /*
-    Node* curr = list->head;
-    int i=0;
-    while(i != (index-1)){
-        if(curr == nullptr){
-            throw std::out_of_range("index not found");
-        }
-        else{
-            curr = curr->next;
-        }
+    if(index >= num){
+        throw std::out_of_range("index not found");
     }
-    Node *after = curr->next->next;
-    delete curr->next;
-    curr->next = after;
-    if(capacity % 2 == 0){
-        // cut in half and move everything
-        //change capacity to n/2
+    else{
+        smash();
+
     }
-    count = count - 1;
-    */
 }
 void PauseVec::remove_val(int value){
 
@@ -163,14 +153,13 @@ int main(){
     temp->push(1);
     temp->push(2);
     temp->push(3);
-    temp->push(4);
-    temp->push(5);
-    temp->push(-1);
-    temp->push(-1);
-    temp->push(6);
     temp->print();
+    temp->push(-1);
+    temp->print();
+    cout << "works" << endl;
     return 0;
 }
+
 */
 
 
