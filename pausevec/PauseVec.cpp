@@ -70,11 +70,12 @@ void PauseVec::setCount(size_t count){
 }
 void PauseVec::push(int count){
     if(num == cap){
-        int* newArr = new int[num];
+        int* newArr = new int[num*2];
         for(int i=0; i<static_cast<int>(num); i++){
             newArr[i] = arr[i];
         }
         delete[] arr;
+        arr = newArr;
         cap = cap*2;
     }
     if(count != -1){
@@ -160,14 +161,17 @@ void PauseVec::remove_val(int value){
 
 }
 
-/*
+
 int main(){
     PauseVec *temp = new PauseVec();
     temp->push(1);
     temp->push(2);
     temp->push(3);
-    temp->push(-1);
- 
+    temp->push(2);
+    temp->push(3);
+    cout << temp->count() << endl;
+    cout << temp->capacity() << endl;
+    /*
     temp->smash();
     cout << temp->capacity() << endl;
     cout << temp->count() << endl;
@@ -176,5 +180,7 @@ int main(){
     cout << temp->lookup(2) << endl;
 
     return 0;
-}
+
 */
+}
+
