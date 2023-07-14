@@ -160,7 +160,7 @@ void PauseVec::remove_val(int value){
 
 }
 
-
+/*
 int main(){
     PauseVec *temp = new PauseVec();
     temp->push(1);
@@ -177,3 +177,4 @@ int main(){
 
     return 0;
 }
+*/
