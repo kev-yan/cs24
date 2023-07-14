@@ -87,7 +87,6 @@ void PauseVec::push(int count){
     }
     
     else{
-        size_t i=0;
         if(arr[cap-1] != 0 || arr[cap-1] != -1){
             arr[cap-1] = count;
         }
