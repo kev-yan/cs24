@@ -8,10 +8,10 @@ PauseVec* create_pausevec(){
 void PauseVec::smash(){
     int *temp;
     if(cap/4 < num){
-        temp = new int[num];
+        temp = new int[cap];
     }
     else{
-        temp = new int[num/2];
+        temp = new int[cap/2];
         cap = cap/2;
     }
     int count = 0;
@@ -21,9 +21,8 @@ void PauseVec::smash(){
             count++;
         }
 }
-    int *hold = arr;
+    delete[] arr;
     arr = temp;
-    delete[] hold;
 }
 void PauseVec::print(){
     for(int i=0; i<static_cast<int>(cap); i++){
@@ -76,7 +75,7 @@ void PauseVec::setCount(size_t count){
 }
 void PauseVec::push(int count){
     if(num == cap){
-        int* newArr = new int[num*2];
+        int* newArr = new int[cap*2];
         for(int i=0; i<static_cast<int>(num); i++){
             newArr[i] = arr[i];
         }
