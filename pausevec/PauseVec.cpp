@@ -2,7 +2,7 @@
 #include "PauseVec.h"
 
 using namespace std;
-void create_pausevec(){
+PauseVec* create_pausevec(){
 }
 void PauseVec::smash(){
     int *temp;
