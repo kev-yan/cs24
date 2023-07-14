@@ -1,8 +1,9 @@
 #include <iostream>
 #include "PauseVec.h"
 
-
 using namespace std;
+void create_pausevec(){
+}
 void PauseVec::smash(){
     int *temp;
     if(cap/4 < num){
@@ -155,7 +156,7 @@ void PauseVec::remove(size_t index){
     */
 }
 void PauseVec::remove_val(int value){
-    
+
 }
 
 
