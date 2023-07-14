@@ -25,6 +25,12 @@ void PauseVec::smash(){
     arr = temp;
     delete[] hold;
 }
+void PauseVec::print(){
+    for(int i=0; i<static_cast<int>(cap); i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 /*
 Node* PauseVec::findLast() const{
     Node *curr = list->head;
@@ -77,12 +83,27 @@ void PauseVec::push(int count){
         delete[] arr;
         arr = newArr;
         cap = cap*2;
+        arr[num] = count;
     }
+    
+    else{
+        size_t i=0;
+        if(arr[cap-1] != 0 || arr[cap-1] != -1){
+            arr[cap-1] = count;
+        }
+        else{
+            smash();
+            arr[cap-1] = count;
+        }
+    }
+
+    //arr[num] = count;
     if(count != -1){
         num++;
     }
 
-    arr[num] = count;
+    //arr[num] = count;
+    //smash();
     
 
     /*
@@ -164,23 +185,19 @@ void PauseVec::remove_val(int value){
 /*
 int main(){
     PauseVec *temp = new PauseVec();
-    temp->push(1);
+    temp->print();
     temp->push(2);
+    temp->print(); 
+    temp->push(-1);
+    temp->print();
     temp->push(3);
-    temp->push(2);
-    temp->push(3);
-    cout << temp->count() << endl;
-    cout << temp->capacity() << endl;
-    temp->smash();
-    cout << temp->capacity() << endl;
-    cout << temp->count() << endl;
-    cout << temp->lookup(2) << endl;
-    temp->mutate(2, 5);
-    cout << temp->lookup(2) << endl;
+    temp->print();
+
 
     return 0;
 }
 */
+
 
 
 
