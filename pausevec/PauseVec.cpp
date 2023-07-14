@@ -17,10 +17,12 @@ int* PauseVec::fill(int index){
 void PauseVec::smash(){
     int *temp;
     if(cap/4 < num){
-        temp = new int[cap];
+       //temp = new int[cap];
+        temp = fill(cap);
     }
     else{
-        temp = new int[cap/2];
+        temp = fill(cap/2);
+        //temp = new int[cap/2];
     }
     int count = 0;
     for(int i=0; i<static_cast<int>(cap); i++){
@@ -42,7 +44,7 @@ void PauseVec::print(){
 PauseVec::PauseVec(){
     num = 0;
     cap = 1;
-    arr = new int[1];
+    arr = fill(1);
 }
 PauseVec::~PauseVec(){
     delete[] arr;
@@ -71,7 +73,7 @@ void PauseVec::push(int count){
     }
     
     else{
-        if(arr[cap-1] != 0 || arr[cap-1] != -1){
+        if(arr[cap-1] != -1){
             arr[cap-1] = count;
         }
         else{
@@ -85,25 +87,7 @@ void PauseVec::push(int count){
         num++;
     }
 
-    //arr[num] = count;
-    //smash();
-    
 
-    /*
-    Node* temp = new Node();
-    temp->data = num;
-    if(count == capacity){
-        for(int i=0; i<capacity; i++){
-            Node *newNode = new Node();
-            list->tail->next = newNode;   
-            list->tail = newNode;
-        }
-        capacity = capacity*2;
-    }
-    list->tail->next = temp;
-    list->tail = temp;
-    count++;
-    */
 
 }
 int PauseVec::lookup(unsigned long int index){
