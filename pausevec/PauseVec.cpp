@@ -3,6 +3,7 @@
 
 using namespace std;
 PauseVec* create_pausevec(){
+    return new PauseVec;
 }
 void PauseVec::smash(){
     int *temp;
