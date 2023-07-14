@@ -31,38 +31,13 @@ void PauseVec::print(){
     }
     cout << endl;
 }
-/*
-Node* PauseVec::findLast() const{
-    Node *curr = list->head;
-    while(curr->next != nullptr){
-        curr = curr->next;
-    }
-    return curr;
-}
-*/
 PauseVec::PauseVec(){
     num = 0;
     cap = 1;
     arr = new int[1];
-    
-    //list = new LinkedList();
-    //list->head = new Node();
-    //list->head->data = 1;
 }
 PauseVec::~PauseVec(){
     delete[] arr;
-   /*
-    Node* currNode;
-    Node *temp;
-    
-    currNode = list->head;
-    while(currNode != nullptr){
-        temp = currNode->next;
-        delete currNode;
-        currNode = temp;
-    }
-    delete list;
-    */
 }
 
 int PauseVec::capacity() const{
