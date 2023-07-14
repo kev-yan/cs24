@@ -5,6 +5,7 @@ using namespace std;
 PauseVec* create_pausevec(){
     return new PauseVec;
 }
+
 void PauseVec::smash(){
     int *temp;
     if(cap/4 < num){
@@ -86,11 +87,11 @@ void PauseVec::push(int count){
     }
     
     else{
+        smash();
         if(arr[cap-1] != 0 || arr[cap-1] != -1){
             arr[cap-1] = count;
         }
         else{
-            smash();
             arr[cap-1] = count;
         }
     }
