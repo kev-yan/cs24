@@ -5,18 +5,18 @@
 using namespace std;
 void PauseVec::smash(){
     int *temp;
-    if(capacity/4 < (static_cast<int>(count))){
-        temp = new int[count];
+    if(cap/4 < num){
+        temp = new int[num];
     }
     else{
-        temp = new int[count/2];
-        capacity = capacity/2;
+        temp = new int[num/2];
+        cap = cap/2;
     }
-    int num = 0;
-    for(int i=0; i<capacity; i++){
+    int count = 0;
+    for(int i=0; i<cap; i++){
         if(arr[i] != -1){
-            temp[num] = arr[i];
-            num++;
+            temp[count] = arr[i];
+            count++;
         }
 }
     int *hold = arr;
@@ -33,8 +33,8 @@ Node* PauseVec::findLast() const{
 }
 */
 PauseVec::PauseVec(){
-    count = 0;
-    capacity = 1;
+    num = 0;
+    cap = 1;
     arr = new int[1];
     
     //list = new LinkedList();
@@ -57,30 +57,29 @@ PauseVec::~PauseVec(){
     */
 }
 
-int PauseVec::getCapacity() const{
-    return capacity;
+int PauseVec::capacity() const{
+    return cap;
 }
-size_t PauseVec::getCount() const{
-    return count;
+size_t PauseVec::count() const{
+    return num;
 }
-void PauseVec::setCount(size_t num){
-    count = num;
+void PauseVec::setCount(size_t count){
+    num = count;
 }
-void PauseVec::push(int num){
-    int tempCount = static_cast<int>(count);
-    if(tempCount == capacity){
-        int* newArr = new int[tempCount*2];
-        for(int i=0; i<tempCount; i++){
+void PauseVec::push(int count){
+    if(num == cap){
+        int* newArr = new int[num];
+        for(int i=0; i<num; i++){
             newArr[i] = arr[i];
         }
         delete[] arr;
-        capacity = capacity*2;
+        cap = cap*2;
     }
-    if(num != -1){
-        count++;
+    if(count != -1){
+        num++;
     }
 
-    arr[count] = num;
+    arr[num] = count;
     
 
     /*
@@ -101,7 +100,7 @@ void PauseVec::push(int num){
 
 }
 int PauseVec::lookup(unsigned long int index){
-    if(arr[index] != -1 && static_cast<int>(index) <= capacity){
+    if(arr[index] != -1 && index < cap){
         return arr[index];
     }
     else{
@@ -124,7 +123,7 @@ int PauseVec::lookup(unsigned long int index){
     */
 }
 void PauseVec::mutate(size_t index, int value){
-    if(static_cast<int>(index) <= capacity){
+    if(index < cap){
         arr[index] = value;
     }
     else{
@@ -168,8 +167,8 @@ int main(){
     temp->push(-1);
  
     temp->smash();
-    cout << temp->getCapacity() << endl;
-    cout << temp->getCount() << endl;
+    cout << temp->capacity() << endl;
+    cout << temp->count() << endl;
     cout << temp->lookup(2) << endl;
     temp->mutate(2, 5);
     cout << temp->lookup(2) << endl;

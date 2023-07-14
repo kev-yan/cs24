@@ -10,11 +10,10 @@
 class PauseVec {
   // Member Variables
   int *arr;
-  size_t count;
-  int capacity;
+  size_t num;
+  size_t cap;
 
   // Helper Functions
-  
 public:
   // Constructor and Destructor
   PauseVec();
@@ -24,9 +23,9 @@ public:
   // Member Functions
   void smash();
   void setCount(size_t num);
-  size_t getCount() const;
-  int getCapacity() const;
-  void push(int num);
+  size_t count() const;
+  int capacity() const;
+  void push(int count);
   int lookup(unsigned long int index);
   void mutate(size_t index, int value);
   void remove(int index);
