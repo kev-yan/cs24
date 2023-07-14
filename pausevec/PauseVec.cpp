@@ -13,7 +13,7 @@ void PauseVec::smash(){
         cap = cap/2;
     }
     int count = 0;
-    for(int i=0; i<cap; i++){
+    for(int i=0; i<static_cast<int>(cap); i++){
         if(arr[i] != -1){
             temp[count] = arr[i];
             count++;
@@ -69,7 +69,7 @@ void PauseVec::setCount(size_t count){
 void PauseVec::push(int count){
     if(num == cap){
         int* newArr = new int[num];
-        for(int i=0; i<num; i++){
+        for(int i=0; i<static_cast<int>(num); i++){
             newArr[i] = arr[i];
         }
         delete[] arr;
