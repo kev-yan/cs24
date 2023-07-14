@@ -13,7 +13,6 @@ void PauseVec::smash(){
     }
     else{
         temp = new int[cap/2];
-        cap = cap/2;
     }
     int count = 0;
     for(int i=0; i<static_cast<int>(cap); i++){
@@ -22,6 +21,7 @@ void PauseVec::smash(){
             count++;
         }
 }
+    cap = cap/2;
     delete[] arr;
     arr = temp;
 }
