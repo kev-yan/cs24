@@ -184,18 +184,20 @@ void PauseVec::remove_val(int value){
 /*
 int main(){
     PauseVec *temp = new PauseVec();
-    temp->print();
+
+    temp->push(1);
     temp->push(2);
-    temp->print(); 
-    temp->push(-1);
-    temp->print();
     temp->push(3);
+    temp->push(4);
+    temp->push(5);
+    temp->push(-1);
+    temp->push(-1);
+    temp->push(6);
     temp->print();
-
-
     return 0;
 }
 */
+
 
 
 
