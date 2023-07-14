@@ -15,6 +15,7 @@ class PauseVec {
 
   // Helper Functions
   void smash();
+  int* fill(int size);
 public:
   // Constructor and Destructor
   PauseVec();
@@ -23,6 +24,7 @@ public:
 
   // Member Functions
   //void smash();
+  
   void print();
   void setCount(size_t num);
   size_t count() const;

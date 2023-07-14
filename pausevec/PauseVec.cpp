@@ -5,6 +5,14 @@ using namespace std;
 PauseVec* create_pausevec(){
     return new PauseVec;
 }
+int* PauseVec::fill(int index){
+    int* temp = new int[index];
+    for(int i=0; i<index; i++){
+        temp[i] = -1;
+    }
+    return temp;
+
+}
 
 void PauseVec::smash(){
     int *temp;
@@ -51,7 +59,8 @@ void PauseVec::setCount(size_t count){
 }
 void PauseVec::push(int count){
     if(num == cap){
-        int* newArr = new int[cap*2];
+        int *newArr = fill(cap*2);
+        //int* newArr = new int[cap*2];
         for(int i=0; i<static_cast<int>(num); i++){
             newArr[i] = arr[i];
         }
@@ -151,16 +160,19 @@ int main(){
     PauseVec *temp = new PauseVec();
 
     temp->push(1);
+    temp->print();
     temp->push(2);
+    temp->print();
     temp->push(3);
     temp->print();
-    temp->push(-1);
+    temp->push(4);
+    temp->push(5);
     temp->print();
-    cout << "works" << endl;
-    return 0;
+    return 0
 }
-
 */
+
+
 
 
 
