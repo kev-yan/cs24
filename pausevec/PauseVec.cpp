@@ -101,7 +101,7 @@ void PauseVec::push(int num){
 
 }
 int PauseVec::lookup(unsigned long int index){
-    if(arr[index] != -1 && index <= capacity){
+    if(arr[index] != -1 && static_cast<int>(index) <= capacity){
         return arr[index];
     }
     else{
@@ -124,13 +124,14 @@ int PauseVec::lookup(unsigned long int index){
     */
 }
 void PauseVec::mutate(size_t index, int value){
-    if(index <= capacity){
+    if(static_cast<int>(index) <= capacity){
         arr[index] = value;
     }
     else{
         throw std::out_of_range("index not found");
     }
 }
+
 
 void PauseVec::remove(int index){
     /*
@@ -172,6 +173,6 @@ int main(){
     cout << temp->lookup(2) << endl;
     temp->mutate(2, 5);
     cout << temp->lookup(2) << endl;
-    
+
     return 0;
 }
