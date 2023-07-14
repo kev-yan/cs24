@@ -26,9 +26,9 @@ public:
   size_t count() const;
   int capacity() const;
   void push(int count);
-  int lookup(unsigned long int index);
+  int lookup(size_t index);
   void mutate(size_t index, int value);
-  void remove(int index);
+  void remove(size_t index);
   void remove_val(int value);
 
 };

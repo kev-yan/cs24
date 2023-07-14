@@ -132,7 +132,7 @@ void PauseVec::mutate(size_t index, int value){
 }
 
 
-void PauseVec::remove(int index){
+void PauseVec::remove(size_t index){
     /*
     Node* curr = list->head;
     int i=0;
@@ -153,8 +153,8 @@ void PauseVec::remove(int index){
     }
     count = count - 1;
     */
-
-
+}
+void PauseVec::remove_val(int value){
     
 }
 
