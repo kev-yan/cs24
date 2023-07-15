@@ -147,9 +147,11 @@ int PauseVec::remove(size_t index){
 }
 void PauseVec::remove_val(int value){
     //bool seen = false;
+    int count;
     for(size_t i=0; i<cap; i++){
-        if(arr[i] == value){
+        if(arr[i] == value && count <= num){
             arr[i] = -1;
+            count++
             num--;
         }
         //else if(arr[i] == -1){
