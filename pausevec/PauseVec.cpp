@@ -161,7 +161,7 @@ void PauseVec::remove_val(int value){
         smash();
     }
     */
-    else if(num <= cap/4){
+    if(num <= cap/4){
         smash();
     }
 }
