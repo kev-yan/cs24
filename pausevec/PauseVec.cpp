@@ -94,7 +94,7 @@ void PauseVec::push(int count){
             arr[cap-1] = count;
         }
         else{
-            arr[cap] = count;
+            arr[num] = count;
            // smash();
         }
     }
