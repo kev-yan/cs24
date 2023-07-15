@@ -146,15 +146,15 @@ int PauseVec::remove(size_t index){
     return removed;
 }
 void PauseVec::remove_val(int value){
-    bool seen = false;
+    //bool seen = false;
     for(size_t i=0; i<cap; i++){
         if(arr[i] == value){
             arr[i] = -1;
             num--;
         }
-        else if(arr[i] == -1){
-            seen = true;
-        }
+        //else if(arr[i] == -1){
+          //  seen = true;
+        //}
     }
     /*
     if(seen){
