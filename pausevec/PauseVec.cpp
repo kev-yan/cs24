@@ -108,12 +108,16 @@ void PauseVec::mutate(size_t index, int value){
 
 
 void PauseVec::remove(size_t index){
-    if(index >= num){
+    if(index > num){
         throw std::out_of_range("index not found");
     }
     else{
         if(arr[index] == -1){
-
+            smash();
+            arr[index] = -1;
+        }
+        else{
+            arr[index] = -1;
         }
 
     }
