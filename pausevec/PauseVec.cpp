@@ -78,12 +78,10 @@ void PauseVec::push(int count){
             arr[cap-1] = count;
         }
         else{
-            smash();
             arr[cap-1] = count;
+            smash();
         }
     }
-
-    //arr[num] = count;
     if(count != -1){
         num++;
     }
@@ -101,21 +99,6 @@ int PauseVec::lookup(unsigned long int index){
     else{
         throw std::out_of_range("index not found");
     }
-    
-    /*
-    Node* curr;
-    int i=0;
-    while(i != index){
-        if(curr == nullptr){
-            throw std::out_of_range("index not found");
-        }
-        else{
-            curr = curr->next;
-            i++;
-        }
-    }
-    return curr->data;
-    */
 }
 void PauseVec::mutate(size_t index, int value){
     if(index < cap){
@@ -132,7 +115,9 @@ void PauseVec::remove(size_t index){
         throw std::out_of_range("index not found");
     }
     else{
-        smash();
+        if(arr[index] == -1){
+
+        }
 
     }
 }
@@ -146,18 +131,26 @@ int main(){
 
     temp->push(1);
     temp->print();
-    temp->push(2);
+    temp->push(1);
     temp->print();
-    temp->push(3);
+    temp->push(1);
     temp->print();
-    temp->push(4);
-    temp->push(5);
+    temp->push(1);
     temp->print();
+    temp->push(1);
+    temp->print();
+    temp->push(1);
+    temp->print();
+    temp->push(1);
+    temp->print();
+
+    
 
     return 0;
 }
-
 */
+
+
 
 
 
