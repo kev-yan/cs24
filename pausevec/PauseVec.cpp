@@ -44,12 +44,6 @@ void PauseVec::print(){
     }
     cout << endl;
 }
-void PauseVec::print1(){
-    for(int i=0; i<static_cast<int>(cap); i++){
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
 PauseVec::PauseVec(){
     num = 0;
     cap = 1;
@@ -109,7 +103,11 @@ int PauseVec::lookup(unsigned long int index){
 }
 void PauseVec::mutate(size_t index, int value){
     if(index < cap){
-        arr[index] = value;
+        if(index == -1){
+            throw std::out_of_range("index out of bounds");
+        }
+        else{
+        arr[index] = value; }
     }
     else{
         throw std::out_of_range("index not found");
@@ -148,8 +146,20 @@ void PauseVec::remove_val(int value){
     }
 }
 
+/*
 
-
+int main(){
+    PauseVec* temp = new PauseVec();
+    
+    temp->push(1);
+    temp->push(5);
+    temp->push(3);
+    temp->push(4);
+    temp->remove(1);
+    temp->mutate(1, 3);
+    temp->print();
+}
+*/
 
 
 
