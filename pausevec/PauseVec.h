@@ -17,7 +17,7 @@ class PauseVec {
   void smash();
   int* fill(int size);
   void print1();
-  
+
 public:
   // Constructor and Destructor
   PauseVec();
@@ -34,7 +34,7 @@ public:
   void push(int count);
   int lookup(size_t index);
   void mutate(size_t index, int value);
-  void remove(size_t index);
+  int remove(size_t index);
   void remove_val(int value);
 
 };

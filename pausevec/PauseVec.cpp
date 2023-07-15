@@ -118,26 +118,32 @@ void PauseVec::mutate(size_t index, int value){
 }
 
 
-void PauseVec::remove(size_t index){
+int PauseVec::remove(size_t index){
+    int removed = -1;
     if(index > num){
         throw std::out_of_range("index not found");
     }
     else{
         if(arr[index] == -1){
             smash();
+            /*
             if(arr[index] != -1){
                 arr[index] = -1;
+
                 num--;
             }
+            */
         }
-        else{
-            arr[index] = -1;
-            num--;
-        }
+        //else{
+        removed = arr[index];
+        arr[index] = -1;
+        num--;
+       // }
     }
     if(num <= cap/4){
         smash();
     }
+    return removed;
 }
 void PauseVec::remove_val(int value){
     bool seen = false;
