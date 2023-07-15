@@ -16,6 +16,8 @@ class PauseVec {
   // Helper Functions
   void smash();
   int* fill(int size);
+  void print1();
+  
 public:
   // Constructor and Destructor
   PauseVec();

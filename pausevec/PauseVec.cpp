@@ -42,6 +42,12 @@ void PauseVec::print(){
     }
     cout << endl;
 }
+void PauseVec::print1(){
+    for(int i=0; i<static_cast<int>(cap); i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 PauseVec::PauseVec(){
     num = 0;
     cap = 1;
@@ -114,6 +120,7 @@ void PauseVec::remove(size_t index){
     else{
         if(arr[index] == -1){
             smash();
+            //print1();
             arr[index] = -1;
         }
         else{
@@ -130,28 +137,18 @@ void PauseVec::remove_val(int value){
 int main(){
     PauseVec *temp = new PauseVec();
 
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-    temp->push(1);
-    temp->print();
-
-    
+   temp->push(1);
+   temp->push(2);
+   temp->push(3);
+   temp->push(4);
+   temp->remove(0);
+   temp->print();
+   temp->remove(0);
 
     return 0;
 }
+
 */
-
-
 
 
 
