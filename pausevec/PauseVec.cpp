@@ -149,7 +149,7 @@ void PauseVec::remove_val(int value){
     //bool seen = false;
     int count;
     for(size_t i=0; i<cap; i++){
-        if(arr[i] == value && count <= num){
+        if(arr[i] == value && count <= static_cast<int>(num)){
             arr[i] = -1;
             count++;
             num--;
