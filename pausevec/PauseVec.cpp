@@ -173,8 +173,9 @@ int main(){
    temp->push(2);
    temp->push(3);
    temp->push(4);
-   temp->remove(3);
-   cout << temp->lookup(3);
+   temp->remove_val(3);
+   temp->remove_val(1);
+   temp->print();
 
     return 0;
 }
