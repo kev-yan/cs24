@@ -90,9 +90,6 @@ void PauseVec::push(int count){
 
 }
 int PauseVec::lookup(unsigned long int index){
-    if(index == cap){
-        return arr[index];
-    }
     if(arr[index] != -1 && index < cap){
         return arr[index];
     }
