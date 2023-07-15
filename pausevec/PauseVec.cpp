@@ -17,7 +17,7 @@ int* PauseVec::fill(int index){
 void PauseVec::smash(){
     int *temp;
     int temp2 = cap;
-    if(cap/4 < num || cap < 2){
+    if(cap/4 < num || cap <= 2){
        //temp = new int[cap];
         temp = fill(cap);
     }
