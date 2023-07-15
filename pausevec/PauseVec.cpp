@@ -34,7 +34,7 @@ void PauseVec::smash(){
         }
         if(count > static_cast<int>(num)){
             //cout << "stops"<< endl;
-            break;
+            count = static_cast<int>(temp2);
         }
 }
     delete[] arr;
@@ -158,9 +158,11 @@ void PauseVec::remove_val(int value){
             count++;
             num--;
         }
+        /*
         else if(count >= static_cast<int>(num)){
-            break;
+            i=cap;
         }
+        */
         //else if(arr[i] == -1){
           //  seen = true;
         //}
@@ -190,8 +192,9 @@ int main(){
     return 0;
 }
 
-
 */
+
+
 
 
 
