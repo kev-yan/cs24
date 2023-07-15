@@ -25,7 +25,7 @@ void PauseVec::smash(){
     else{
         int div = cap/num;
         if(div >= 2){
-            temp = fill(cap/)
+            //temp = fill(cap/)
         }
 
         temp = fill(cap/2);
