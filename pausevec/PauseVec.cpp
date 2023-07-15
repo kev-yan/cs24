@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "PauseVec.h"
 
 using namespace std;
@@ -22,6 +23,11 @@ void PauseVec::smash(){
         temp = fill(cap);
     }
     else{
+        int div = cap/num;
+        if(div >= 2){
+            temp = fill(cap/)
+        }
+
         temp = fill(cap/2);
         cap = cap/2;
         //temp = new int[cap/2];
@@ -71,6 +77,9 @@ void PauseVec::setCount(size_t count){
     num = count;
 }
 void PauseVec::push(int count){
+    if(count == -1){
+        break;
+    }
     if(num == cap){
         int *newArr = fill(cap*2);
         //int* newArr = new int[cap*2];
