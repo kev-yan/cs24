@@ -147,14 +147,6 @@ int PauseVec::remove(size_t index){
 }
 void PauseVec::remove_val(int value){
     bool seen = false;
-    /*
-    for(size_t i=0; i<cap; i++){
-        if(arr[i] == -1 && i<num){
-            smash();
-            break;
-        }
-    }
-    */
     for(size_t i=0; i<cap; i++){
         if(arr[i] == value){
             arr[i] = -1;
