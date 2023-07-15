@@ -32,7 +32,7 @@ void PauseVec::smash(){
             temp[count] = arr[i];
             count++;
         }
-        if(count == num){
+        if(count == static_cast<int>(num)){
             break;
         }
 }
