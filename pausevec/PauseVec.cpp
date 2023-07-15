@@ -16,22 +16,23 @@ int* PauseVec::fill(int index){
 
 void PauseVec::smash(){
     int *temp;
-    if(cap/4 < num){
+    int temp2 = cap;
+    if(cap/4 < num || cap < 2){
        //temp = new int[cap];
         temp = fill(cap);
     }
     else{
         temp = fill(cap/2);
+        cap = cap/2;
         //temp = new int[cap/2];
     }
     int count = 0;
-    for(int i=0; i<static_cast<int>(cap); i++){
+    for(int i=0; i<static_cast<int>(temp2); i++){
         if(arr[i] != -1){
             temp[count] = arr[i];
             count++;
         }
 }
-    cap = cap/2;
     delete[] arr;
     arr = temp;
 }
@@ -139,7 +140,7 @@ void PauseVec::remove_val(int value){
 
 }
 
-/*
+
 int main(){
     PauseVec *temp = new PauseVec();
 
@@ -152,9 +153,10 @@ int main(){
     temp->push(4);
     temp->push(5);
     temp->print();
-    return 0
+
+    return 0;
 }
-*/
+
 
 
 
