@@ -156,9 +156,11 @@ void PauseVec::remove_val(int value){
             seen = true;
         }
     }
+    /*
     if(seen){
         smash();
     }
+    */
     else if(num <= cap/4){
         smash();
     }
