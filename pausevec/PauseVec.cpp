@@ -139,7 +139,7 @@ void PauseVec::remove_val(int value){
 
 }
 
-
+/*
 int main(){
     PauseVec *temp = new PauseVec();
 
@@ -152,7 +152,7 @@ int main(){
 
     return 0;
 }
-
+*/
 
 
 
