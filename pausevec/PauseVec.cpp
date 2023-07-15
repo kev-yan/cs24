@@ -99,8 +99,12 @@ int PauseVec::lookup(unsigned long int index){
     if(arr[index] != -1 && index < cap){
         return arr[index];
     }
-    else{
+    else if(index >= num){
         throw std::out_of_range("index not found");
+    }
+    else{
+        smash();
+        return arr[index];
     }
 }
 void PauseVec::mutate(size_t index, int value){
@@ -122,9 +126,11 @@ void PauseVec::remove(size_t index){
             smash();
             //print1();
             arr[index] = -1;
+            num--;
         }
         else{
             arr[index] = -1;
+            num--;
         }
 
     }
@@ -133,7 +139,7 @@ void PauseVec::remove_val(int value){
 
 }
 
-/*
+
 int main(){
     PauseVec *temp = new PauseVec();
 
@@ -141,14 +147,13 @@ int main(){
    temp->push(2);
    temp->push(3);
    temp->push(4);
-   temp->remove(0);
-   temp->print();
-   temp->remove(0);
+   temp->remove(3);
+   cout << temp->lookup(3);
 
     return 0;
 }
 
-*/
+
 
 
 
