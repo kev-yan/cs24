@@ -32,6 +32,9 @@ void PauseVec::smash(){
             temp[count] = arr[i];
             count++;
         }
+        if(count == num){
+            break;
+        }
 }
     delete[] arr;
     arr = temp;
@@ -149,10 +152,13 @@ void PauseVec::remove_val(int value){
     //bool seen = false;
     int count;
     for(size_t i=0; i<cap; i++){
-        if(arr[i] == value && count <= static_cast<int>(num)){
+        if(arr[i] == value){
             arr[i] = -1;
             count++;
             num--;
+        }
+        else if(count >= static_cast<int>(num)){
+            break;
         }
         //else if(arr[i] == -1){
           //  seen = true;
