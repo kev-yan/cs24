@@ -97,10 +97,7 @@ void PauseVec::push(int count){
 }
 int PauseVec::lookup(unsigned long int index){
     smash();
-    if(index < 0){
-        throw std::out_of_range("index not found");
-    }
-    else if(index >= cap){
+    if(index >= cap){
         throw std::out_of_range("index not found");
     }
     else if(arr[index] != -1){
