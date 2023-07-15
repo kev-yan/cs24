@@ -22,10 +22,8 @@ void PauseVec::smash(){
         temp = fill(cap);
     }
     else{
-
         temp = fill(cap/2);
-        cap = cap/2;
-
+        cap = cap/2;    
     }
     int count = 0;
     for(int i=0; i<static_cast<int>(temp2); i++){
@@ -36,7 +34,7 @@ void PauseVec::smash(){
         if(count > static_cast<int>(num)){
             count = static_cast<int>(temp2);
         }
-}
+    }
     delete[] arr;
     arr = temp;
 }
@@ -86,13 +84,8 @@ void PauseVec::push(int count){
     }
     
     else{
-        /*
-        if(arr[cap-1] != -1){
-            arr[cap-1] = count;
-        }
-        */
-        
-            arr[num] = count;
+
+        arr[num] = count;
         
     }
     if(count != -1){
@@ -109,7 +102,6 @@ int PauseVec::lookup(unsigned long int index){
     else if(arr[index] != -1){
         return arr[index];
     }
-
     else{
         smash();
         return arr[index];
@@ -155,11 +147,6 @@ void PauseVec::remove_val(int value){
         smash();
     }
 }
-
-
-
-
-
 
 
 
