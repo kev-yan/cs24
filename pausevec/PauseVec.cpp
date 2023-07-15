@@ -77,9 +77,6 @@ void PauseVec::setCount(size_t count){
     num = count;
 }
 void PauseVec::push(int count){
-    if(count == -1){
-        return;
-    }
     if(num == cap){
         int *newArr = fill(cap*2);
         //int* newArr = new int[cap*2];
