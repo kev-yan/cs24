@@ -126,7 +126,7 @@ void PauseVec::remove(size_t index){
             smash();
             if(arr[index] != -1){
                 arr[index] = -1;
-                num--
+                num--;
             }
         }
         else{
