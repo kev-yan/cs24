@@ -32,7 +32,8 @@ void PauseVec::smash(){
             temp[count] = arr[i];
             count++;
         }
-        if(count == static_cast<int>(num)){
+        if(count > static_cast<int>(num)){
+            //cout << "stops"<< endl;
             break;
         }
 }
@@ -174,7 +175,7 @@ void PauseVec::remove_val(int value){
     }
 }
 
-/*
+
 int main(){
     PauseVec *temp = new PauseVec();
 
@@ -188,7 +189,7 @@ int main(){
 
     return 0;
 }
-*/
+
 
 
 
