@@ -19,18 +19,13 @@ void PauseVec::smash(){
     int *temp;
     int temp2 = cap;
     if(cap/4 < num || cap <= 2){
-       //temp = new int[cap];
         temp = fill(cap);
     }
     else{
-        int div = cap/num;
-        if(div >= 2){
-            //temp = fill(cap/)
-        }
 
         temp = fill(cap/2);
         cap = cap/2;
-        //temp = new int[cap/2];
+
     }
     int count = 0;
     for(int i=0; i<static_cast<int>(temp2); i++){
@@ -39,7 +34,6 @@ void PauseVec::smash(){
             count++;
         }
         if(count > static_cast<int>(num)){
-            //cout << "stops"<< endl;
             count = static_cast<int>(temp2);
         }
 }
@@ -79,7 +73,6 @@ void PauseVec::setCount(size_t count){
 void PauseVec::push(int count){
     if(num == cap){
         int *newArr = fill(cap*2);
-        //int* newArr = new int[cap*2];
         for(int i=0; i<static_cast<int>(num); i++){
             newArr[i] = arr[i];
         }
@@ -95,7 +88,6 @@ void PauseVec::push(int count){
         }
         else{
             arr[num] = count;
-           // smash();
         }
     }
     if(count != -1){
@@ -136,19 +128,11 @@ int PauseVec::remove(size_t index){
     else{
         if(arr[index] == -1){
             smash();
-            /*
-            if(arr[index] != -1){
-                arr[index] = -1;
-
-                num--;
-            }
-            */
         }
-        //else{
         removed = arr[index];
         arr[index] = -1;
         num--;
-       // }
+       
     }
     if(num <= cap/4){
         smash();
@@ -156,49 +140,19 @@ int PauseVec::remove(size_t index){
     return removed;
 }
 void PauseVec::remove_val(int value){
-    //bool seen = false;
-    int count;
     for(size_t i=0; i<cap; i++){
         if(arr[i] == value){
             arr[i] = -1;
-            count++;
             num--;
         }
-        /*
-        else if(count >= static_cast<int>(num)){
-            i=cap;
-        }
-        */
-        //else if(arr[i] == -1){
-          //  seen = true;
-        //}
     }
-    /*
-    if(seen){
-        smash();
-    }
-    */
     if(num <= cap/4){
         smash();
     }
 }
 
-/*
-int main(){
-    PauseVec *temp = new PauseVec();
 
-   temp->push(1);
-   temp->push(2);
-   temp->push(3);
-   temp->push(4);
-   temp->remove_val(3);
-   temp->remove_val(1);
-   temp->print();
 
-    return 0;
-}
-
-*/
 
 
 
