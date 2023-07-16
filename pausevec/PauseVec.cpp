@@ -108,7 +108,6 @@ void PauseVec::mutate(size_t index, int value){
     else{
         throw std::out_of_range("index not found");
     }
-}
 
 
 int PauseVec::remove(size_t index){
