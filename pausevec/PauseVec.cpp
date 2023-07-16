@@ -145,21 +145,3 @@ void PauseVec::remove_val(int value){
         smash();
     }
 }
-
-/*
-
-int main(){
-    PauseVec* temp = new PauseVec();
-    
-    temp->push(1);
-    temp->push(5);
-    temp->push(3);
-    temp->push(4);
-    temp->remove(1);
-    temp->mutate(1, 3);
-    temp->print();
-}
-*/
-
-
-
