@@ -103,10 +103,6 @@ int PauseVec::lookup(unsigned long int index){
 }
 void PauseVec::mutate(size_t index, int value){
     if(index < cap){
-        if(index == -1){
-            throw std::out_of_range("index out of bounds");
-        }
-        else{
         arr[index] = value; }
     }
     else{
