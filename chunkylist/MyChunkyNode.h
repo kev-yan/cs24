@@ -6,7 +6,7 @@
 class MyChunkyNode: public ChunkyNode {
   // TODO: Add any member variables you need.
   private:
-  int count;
+  int num;
   int* arr[];
   MyChunkyNode* prev;
   MyChunkyNode* next;

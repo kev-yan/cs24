@@ -3,18 +3,17 @@
 // TODO: Member Function Implementation
 
 MyChunkyNode::MyChunkyNode(){
-    count = 0;
+    num = 0;
     arr = new int[0];
     this->prev = nullptr;
     this->next = nullptr;
 }
 ~MyChunkyNode::MyChunkyNode(){
     delete arr[];
-
 }
 
 int MyChunkyNode::count() const{
-    return this->count;
+    return num;
 }
 std::string* MyChunkyNode::items() const{
 
