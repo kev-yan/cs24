@@ -10,9 +10,21 @@ MyChunkyNode::MyChunkyNode(){
 }
 ~MyChunkyNode::MyChunkyNode(){
     delete arr[];
-    
+
 }
 
-int MyChunkyList::count(){
+int MyChunkyNode::count() const{
     return this->count;
 }
+std::string* MyChunkyNode::items() const{
+
+}
+
+MyChunkyNode::MyChunkyNode* prev() const{
+    return this->prev;
+}
+
+MyChunkyNode::MyChunkyNode* next() const{
+    return this->next;
+}
+
