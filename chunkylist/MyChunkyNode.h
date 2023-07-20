@@ -5,8 +5,17 @@
 
 class MyChunkyNode: public ChunkyNode {
   // TODO: Add any member variables you need.
+  private:
+  int count;
+  int* arr[];
+  MyChunkyNode* prev;
+  MyChunkyNode* next;
+
 public:
   // TODO: Constructor(s)
+  MyChunkyNode();
+  ~MyChunkyNode();
+
   // TODO: Destructor
 
   // These functions are needed by the autograder.
