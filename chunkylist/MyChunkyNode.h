@@ -7,16 +7,14 @@ class MyChunkyNode: public ChunkyNode {
   // TODO: Add any member variables you need.
   private:
   int num;
-  int* arr[];
-  MyChunkyNode* prev;
-  MyChunkyNode* next;
+  MyChunkyNode* prevPtr;
+  MyChunkyNode* nextPtr;
+  int* arr;
 
 public:
-  // TODO: Constructor(s)
   MyChunkyNode();
   ~MyChunkyNode();
 
-  // TODO: Destructor
 
   // These functions are needed by the autograder.
   // See ChunkyNode.h for their descriptions.
