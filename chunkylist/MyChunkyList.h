@@ -1,5 +1,6 @@
 #ifndef MYCHUNKYLIST_H
 #define MYCHUNKYLIST_H
+#include <string>
 
 #include "ChunkyList.h"
 #include "MyChunkyNode.h"

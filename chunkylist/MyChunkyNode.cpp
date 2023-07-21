@@ -1,5 +1,6 @@
 #include "MyChunkyNode.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -47,6 +48,7 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
     }
 }
 */
+
 void MyChunkyNode::newNode(int size){
     arr = new std::string[size];
     for(int i=0; i<size; i++){
@@ -109,14 +111,29 @@ void MyChunkyNode::setNext(MyChunkyNode* temp){
 
 /*
 int main(){
-    MyChunkyNode* temp = new MyChunkyNode();
-    std::string test = "test";
-    temp->setMax(1);
-    temp->newNode(4);
-    temp->setItem(2, test);
-    temp->setItem(2, "testing");
-    temp->print();
-    cout << temp->count();
-    cout << "works";
+    MyChunkyNode* first = new MyChunkyNode();
+    MyChunkyNode* second = new MyChunkyNode();
+
+    first->setNext(second);
+    second->setNext(first);
+
+    first->newNode(3);
+    first->setMax(4);
+
+    second->newNode(3);
+    second->setMax(4);
+
+    first->setItem(0, "A");
+    first->setItem(1, "B");
+    first->setItem(2, "C");
+
+
+    second->setItem(0, "D");
+    second->setItem(1, "E");
+    second->setItem(2, "F");
+
+    first->print();
+    second->print();
 }
 */
+

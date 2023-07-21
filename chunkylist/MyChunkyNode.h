@@ -2,6 +2,7 @@
 #define MYCHUNKYNODE_H
 
 #include "ChunkyNode.h"
+#include <string>
 
 class MyChunkyNode: public ChunkyNode {
   // TODO: Add any member variables you need.
