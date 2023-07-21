@@ -29,9 +29,13 @@ void MyChunkyNode::setItem(int index, std::string item){
 }
 
 void MyChunkyNode::print(){
-    for(int i=0; i<num; i++){
+    for(int i=0; i<max; i++){
         cout << i << ": " << arr[i] << endl;
     }
+}
+
+void MyChunkyNode::setMax(int size){
+    max = size;
 }
 
 MyChunkyNode::MyChunkyNode(){
@@ -65,3 +69,16 @@ void MyChunkyNode::setNext(MyChunkyNode* temp){
     nextPtr = temp;
 }
 
+/*
+int main(){
+    MyChunkyNode* temp = new MyChunkyNode();
+    std::string test = "test";
+    temp->setMax(4);
+    temp->newNode(4);
+    temp->setItem(2, test);
+    temp->setItem(2, "testing");
+    temp->print();
+    cout << temp->count();
+    cout << "works";
+}
+*/

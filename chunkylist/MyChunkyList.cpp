@@ -130,3 +130,12 @@ MyChunkyNode* MyChunkyList::head() const{
 MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
+
+int main(){
+    MyChunkyList* test = new MyChunkyList(3);
+    MyChunkyNode* curr;
+    test->insert(0, "test");
+    curr = test->head();
+    curr->print();
+    
+}

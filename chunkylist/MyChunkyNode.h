@@ -7,6 +7,7 @@ class MyChunkyNode: public ChunkyNode {
   // TODO: Add any member variables you need.
   private:
   int num;
+  int max;
   MyChunkyNode* prevPtr;
   MyChunkyNode* nextPtr;
   std::string* arr;
@@ -29,6 +30,7 @@ public:
   void newNode(int size);
   void print();
   void setItem(int index, std::string item);
+  void setMax(int size);
 
   // TODO: Add any other member functions you need.
 };
