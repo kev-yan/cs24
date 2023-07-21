@@ -5,7 +5,7 @@ using namespace std;
 
 
 // TODO: Member Function Implementation
-
+/*
 void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChunkyList
     if(num <= (max/2)){
         if(prevPtr->count() <= max/2){
@@ -17,7 +17,7 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
             for(int i=0; i<previous->count(); i++){
                 newNode->setItem(newNode->getItem(i));
             }
-            
+
             for(int i=0; i<num; i++){
                 newNode->setItem(arr[i+previous->count()]);
             }
@@ -46,7 +46,7 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
         //if(arr)
     }
 }
-
+*/
 void MyChunkyNode::newNode(int size){
     arr = new std::string[size];
     for(int i=0; i<size; i++){
