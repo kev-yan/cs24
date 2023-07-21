@@ -58,12 +58,12 @@ std::string& MyChunkyList::lookup(int index){
         temp = index-temp;
         item = curr->items();
         return item[temp-1];
-
     }
 }
 
 void MyChunkyList::remove(int index){
-    int temp = index;
+    max = index;
+    
 }
 
 MyChunkyNode* MyChunkyList::head() const{
