@@ -1,7 +1,6 @@
 #ifndef CHUNKYLIST_H
 #define CHUNKYLIST_H
 
-#include <string>
 #include "ChunkyNode.h"
 
 // This file describes the ChunkyList interface you need to implement.
