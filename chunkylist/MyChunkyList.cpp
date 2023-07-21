@@ -149,7 +149,7 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
@@ -161,3 +161,4 @@ int main(){
     
 }
 
+*/
