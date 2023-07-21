@@ -1,5 +1,4 @@
 #include "MyChunkyList.h"
-//#include "MyChunkyNode.h"
 #include <iostream>
 
 MyChunkyNode* MyChunkyList::findNode(int index){
@@ -66,10 +65,12 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
+    /*
     if(index < 0 || index > num){
         throw std::out_of_range("index not found");
     }
     else{
+        */
         if(headPtr == nullptr){
             headPtr = new MyChunkyNode();
             tailPtr = headPtr;
@@ -89,7 +90,7 @@ void MyChunkyList::insert(int index, const std::string& item){
         }
         */
         
-    }
+   // }
 }
 
 std::string& MyChunkyList::lookup(int index){
@@ -135,13 +136,12 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-/*
+
 int main(){
-    MyChunkyList* test = new MyChunkyList(3);
-   // MyChunkyNode* curr;
+    //MyChunkyList* test = new MyChunkyList(3);
+    MyChunkyNode* curr = new MyChunkyNode();
     //test->insert(0, "test");
     //curr = test->head();
     //curr->print();
     
 }
-*/
