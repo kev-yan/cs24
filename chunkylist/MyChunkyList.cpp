@@ -21,7 +21,7 @@ MyChunkyList::~MyChunkyList(){
 int MyChunkyList::count() const{
     int total = 0;
     MyChunkyNode* temp = headPtr;
-    while(temp != null){
+    while(temp != nullptr){
         total += temp->count();
         temp = temp->next();
     }
