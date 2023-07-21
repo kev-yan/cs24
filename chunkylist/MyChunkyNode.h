@@ -31,7 +31,7 @@ public:
   void print();
   void setItem(int index, std::string item);
   void setMax(int size);
-  std::string MyChunkyNode::getItem(int index)
+  std::string MyChunkyNode::getItem(int index);
 
   // TODO: Add any other member functions you need.
 };
