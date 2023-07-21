@@ -71,7 +71,7 @@ void MyChunkyList::insert(int index, const std::string& item){
     else{
         if(headPtr == nullptr){
             headPtr = new MyChunkyNode();
-            tail = headPtr;
+            tailPtr = headPtr;
             headPtr->newNode(max);
         }
         MyChunkyNode* curr = findNode(index);
