@@ -2,9 +2,16 @@
 
 // TODO: Member Function Implementation
 
+void MyChunkyNode::smash(){
+    int* temp = new int[num-1];
+    for(int i = 0; i<num; i++){
+        if(arr)
+    }
+}
+
 MyChunkyNode::MyChunkyNode(){
     num = 0;
-    arr = new int[1];
+    arr = nullptr;
     prevPtr = nullptr;
     nextPtr = nullptr;
 }
@@ -16,7 +23,7 @@ int MyChunkyNode::count() const{
     return num;
 }
 std::string* MyChunkyNode::items() const{
-    return nullptr;
+    return arr;
 }
 
 MyChunkyNode* MyChunkyNode::prev() const{
@@ -25,5 +32,11 @@ MyChunkyNode* MyChunkyNode::prev() const{
 
 MyChunkyNode* MyChunkyNode::next() const{
     return nextPtr;
+}
+void setPrev(MyChunkyNode* temp){
+    prevPtr = temp;
+}
+void setNext(MyChunkyNode* temp){
+    nextPtr = temp;
 }
 

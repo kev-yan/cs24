@@ -29,11 +29,37 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
-    int temp = index;
+    if(index < 0 || index > num){
+        throw std::out_of_range("index not found");
+    }
+    else{
+        //std::string* temp = item;
+    }
 }
 
 std::string& MyChunkyList::lookup(int index){
-    int temp = index;
+    if(index < 0 || index >= num){
+        throw std::out_of_range("index not found");
+    }
+    else{
+        int temp = 0;
+        bool hold= true;
+        MyChunkyNode* curr = headPtr;
+        std::string* item;
+        while(hold){
+            if((temp+curr->count()) > index){
+                hold = false;
+            }
+            else{
+                temp = temp+curr->count();
+                curr = curr->next();
+            }
+        }
+        temp = index-temp;
+        item = curr->items();
+        return item[temp-1];
+
+    }
 }
 
 void MyChunkyList::remove(int index){

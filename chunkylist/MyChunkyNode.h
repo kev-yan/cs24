@@ -9,7 +9,9 @@ class MyChunkyNode: public ChunkyNode {
   int num;
   MyChunkyNode* prevPtr;
   MyChunkyNode* nextPtr;
-  int* arr;
+  std::string* arr;
+
+  void smash();
 
 public:
   MyChunkyNode();
@@ -21,7 +23,9 @@ public:
   int           count() const;
   std::string*  items() const;
   MyChunkyNode* prev()  const;
+  void setPrev(MyChunkyNode* temp);
   MyChunkyNode* next()  const;
+  void setNext(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.
 };
