@@ -73,12 +73,15 @@ void MyChunkyList::insert(int index, const std::string& item){
             headPtr = new MyChunkyNode();
             tailPtr = headPtr;
             headPtr->newNode(max);
+            headPtr->setItem(0, item);
         }
-        MyChunkyNode* curr = findNode(index);
-        int newInd = newIndex(index);                                   //MIGHT TAKE TOO LONG TO RUN
-        std::string newItem = item;
-        if(curr->count() < max){
-            curr->setItem(newInd, newItem);
+        else{
+            MyChunkyNode* curr = findNode(index);
+            int newInd = newIndex(index);                                   //MIGHT TAKE TOO LONG TO RUN
+            std::string newItem = item;
+            if(curr->count() < max){
+                curr->setItem(newInd, newItem);
+            }
         }
     }
 }
