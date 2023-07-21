@@ -1,4 +1,5 @@
 #include "MyChunkyList.h"
+#include "MyChunkyNode.h"
 #include <iostream>
 
 MyChunkyNode* MyChunkyList::findNode(int index){
