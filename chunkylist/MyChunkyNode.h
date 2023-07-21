@@ -26,6 +26,9 @@ public:
   void setPrev(MyChunkyNode* temp);
   MyChunkyNode* next()  const;
   void setNext(MyChunkyNode* temp);
+  void newNode(int size);
+  void print();
+  void setItem(int index, std::string item);
 
   // TODO: Add any other member functions you need.
 };

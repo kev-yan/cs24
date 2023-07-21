@@ -69,9 +69,16 @@ void MyChunkyList::insert(int index, const std::string& item){
         throw std::out_of_range("index not found");
     }
     else{
+        if(headPtr == nullptr){
+            headPtr = new MyChunkyNode();
+            headPtr->newNode(max);
+        }
         MyChunkyNode* curr = findNode(index);
         int newInd = newIndex(index);                                   //MIGHT TAKE TOO LONG TO RUN
         std::string newItem = item;
+        if(curr->count() < max){
+            
+        }
     }
 }
 
@@ -110,4 +117,3 @@ MyChunkyNode* MyChunkyList::head() const{
 MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
-

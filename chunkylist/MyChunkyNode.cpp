@@ -1,4 +1,8 @@
 #include "MyChunkyNode.h"
+#include <iostream>
+
+using namespace std;
+
 
 // TODO: Member Function Implementation
 
@@ -6,6 +10,27 @@ void MyChunkyNode::smash(){
     //int* temp = new int[num-1];
     for(int i = 0; i<num; i++){
         //if(arr)
+    }
+}
+
+void MyChunkyNode::newNode(int size){
+    arr = new std::string[size];
+    for(int i=0; i<size; i++){
+        arr[i] = "";
+    }
+}
+
+void MyChunkyNode::setItem(int index, std::string item){
+    if(arr[index] == ""){
+        num++;
+    }
+    arr[index] = item;
+
+}
+
+void MyChunkyNode::print(){
+    for(int i=0; i<num; i++){
+        cout << i << ": " << arr[i] << endl;
     }
 }
 
