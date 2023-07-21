@@ -1,5 +1,5 @@
 #include "MyChunkyList.h"
-#include "MyChunkyNode.h"
+//#include "MyChunkyNode.h"
 #include <iostream>
 
 MyChunkyNode* MyChunkyList::findNode(int index){
@@ -73,8 +73,8 @@ void MyChunkyList::insert(int index, const std::string& item){
         if(headPtr == nullptr){
             headPtr = new MyChunkyNode();
             tailPtr = headPtr;
-            headPtr->newNode(1);
-            headPtr->setItem(0, item);
+            //headPtr->newNode(1);
+            //headPtr->setItem(0, item);
             num++;
         }
         /*
@@ -88,6 +88,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             }
         }
         */
+        
     }
 }
 
@@ -137,10 +138,10 @@ MyChunkyNode* MyChunkyList::tail() const{
 /*
 int main(){
     MyChunkyList* test = new MyChunkyList(3);
-    MyChunkyNode* curr;
-    test->insert(0, "test");
-    curr = test->head();
-    curr->print();
+   // MyChunkyNode* curr;
+    //test->insert(0, "test");
+    //curr = test->head();
+    //curr->print();
     
 }
 */

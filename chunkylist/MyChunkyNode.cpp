@@ -111,7 +111,7 @@ void MyChunkyNode::setNext(MyChunkyNode* temp){
 int main(){
     MyChunkyNode* temp = new MyChunkyNode();
     std::string test = "test";
-    temp->setMax(4);
+    temp->setMax(1);
     temp->newNode(4);
     temp->setItem(2, test);
     temp->setItem(2, "testing");

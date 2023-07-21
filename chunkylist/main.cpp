@@ -12,7 +12,7 @@ int main() {
   //MyChunkyList* list = new MyChunkyList(5);
 
   MyChunkyNode* temp = new MyChunkyNode();
-  temp->newNode(4);
-  temp->print();
+ // temp->newNode(4);
+  //temp->print();
 
 }
