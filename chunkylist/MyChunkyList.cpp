@@ -93,6 +93,7 @@ void MyChunkyList::insert(int index, const std::string& item){
         
    // }
 }
+}
 
 std::string& MyChunkyList::lookup(int index){
     if(index < 0 || index > num){
