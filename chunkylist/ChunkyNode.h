@@ -1,7 +1,6 @@
 #ifndef CHUNKYNODE_H
 #define CHUNKYNODE_H
 
-#include <string>
 
 // This file describes the ChunkyNode interface you need to implement.
 // Don't edit this!  Your code goes in the .cpp files.
