@@ -1,6 +1,6 @@
 # Calculator
 
-_Due Monday, July 20th, before midnight Pacific Time._
+_Due Wednesday, July 26th, before midnight Pacific Time._
 
 In this assignment you'll implement a simple calculator that understands Reverse
 Polish Notation (also known as postfix notation).  This is an alternative way to
