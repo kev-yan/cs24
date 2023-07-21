@@ -1,6 +1,41 @@
 #include "MyChunkyList.h"
 #include <iostream>
 
+MyChunkyNode* MyChunkyList::findNode(int index){
+    if(index < 0 || index >= num){
+        return nullptr;
+    }
+    int temp = 0;
+    bool hold= true;
+    MyChunkyNode* curr = headPtr;
+    while(hold){
+        if((temp+curr->count()) > index){
+            hold = false;
+        }
+        else{
+            temp = temp+curr->count();
+            curr = curr->next();
+        }
+    }
+    return curr;
+}
+
+int MyChunkyList::newIndex(int index){
+    int temp = 0;
+    bool hold= true;
+    MyChunkyNode* curr = headPtr;
+    while(hold){
+        if((temp+curr->count()) > index){
+            hold = false;
+        }
+        else{
+            temp = temp+curr->count();
+            curr = curr->next();
+        }
+    }
+    return index-temp;
+}
+
 MyChunkyList::MyChunkyList(int chunksize){
     num = 0;
     max = chunksize;
@@ -34,7 +69,9 @@ void MyChunkyList::insert(int index, const std::string& item){
         throw std::out_of_range("index not found");
     }
     else{
-        std::cout << item;
+        MyChunkyNode* curr = findNode(index);
+        int newInd = newIndex(index);                                   //MIGHT TAKE TOO LONG TO RUN
+        std::string newItem = item;
     }
 }
 
@@ -63,8 +100,7 @@ std::string& MyChunkyList::lookup(int index){
 }
 
 void MyChunkyList::remove(int index){
-    max = index;
-    
+    std::cout << index;
 }
 
 MyChunkyNode* MyChunkyList::head() const{

@@ -12,6 +12,9 @@ private:
   MyChunkyNode* headPtr;
   MyChunkyNode* tailPtr;
 
+  MyChunkyNode* findNode(int index);
+  int newIndex(int index);
+
 public:
   MyChunkyList(int chunksize);
   ~MyChunkyList();
