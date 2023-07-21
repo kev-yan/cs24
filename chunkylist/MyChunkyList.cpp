@@ -75,7 +75,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             headPtr = new MyChunkyNode();
             tailPtr = headPtr;
             headPtr->newNode(1);
-            headPtr->setItem(0, item);
+            headPtr->setItem(index, item);
             num++;
         }
         /*
@@ -136,7 +136,7 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-
+/*
 int main(){
     //MyChunkyList* test = new MyChunkyList(3);
     MyChunkyNode* curr = new MyChunkyNode();
@@ -145,3 +145,4 @@ int main(){
     //curr->print();
     
 }
+*/
