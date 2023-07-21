@@ -12,7 +12,7 @@ class MyChunkyNode: public ChunkyNode {
   MyChunkyNode* nextPtr;
   std::string* arr;
 
-  void smash();
+  void merge();
 
 public:
   MyChunkyNode();
@@ -31,6 +31,7 @@ public:
   void print();
   void setItem(int index, std::string item);
   void setMax(int size);
+  std::string MyChunkyNode::getItem(int index)
 
   // TODO: Add any other member functions you need.
 };

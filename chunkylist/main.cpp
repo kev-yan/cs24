@@ -14,5 +14,5 @@ int main() {
   MyChunkyNode* temp = new MyChunkyNode();
   temp->newNode(4);
   temp->print();
-  
+
 }

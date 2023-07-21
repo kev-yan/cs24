@@ -6,8 +6,41 @@ using namespace std;
 
 // TODO: Member Function Implementation
 
-void MyChunkyNode::smash(){
-    //int* temp = new int[num-1];
+void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChunkyList
+    if(num <= (max/2)){
+        if(prevPtr->count() <= max/2){
+            MyChunkyNode* previous = prevPtr;
+            MyChunkyNode* newNode = new MyChunkyNode();
+            newNode->setNext(nextPtr);
+            newNode->setPrev(previous->prev());
+            newNode.newNode(num+previous->count());
+            for(int i=0; i<previous->count(); i++){
+                newNode.setItem(newNode.getItem(i));
+            }
+            for(int i=0; i<num; i++){
+                newNode.setItem(arr[i+previous->count()]);
+            }
+            newNode->setMax(max);
+            return newNode();
+            //TODO: delete nodes
+            
+        }
+        else if(nextPtr->count() <= max/2){
+            MyChunkyNode* after = nextPtr;
+            MyChunkyNode* newNode = new MyChunkyNode();
+            newNode->setNext(nextPtr);
+            newNode->setPrev(after->prev());
+            newNode.newNode(num+after->count());
+            for(int i=0; i<after->count(); i++){
+                newNode.setItem(after.getItem(i));
+            }
+            for(int i=0; i<num; i++){
+                newNode.setItem(arr[i+after->count()]);
+            }
+            newNode->setMax(max);
+            return newNode;
+        }
+    }
     for(int i = 0; i<num; i++){
         //if(arr)
     }
@@ -26,6 +59,10 @@ void MyChunkyNode::setItem(int index, std::string item){
     }
     arr[index] = item;
 
+}
+
+std::string MyChunkyNode::getItem(int index){
+    return arr[index];
 }
 
 void MyChunkyNode::print(){

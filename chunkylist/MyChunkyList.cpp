@@ -41,7 +41,7 @@ MyChunkyList::MyChunkyList(int chunksize){
     num = 0;
     max = chunksize;
     headPtr = nullptr;
-    tailPtr = headPtr;
+    tailPtr = nullptr;
 }
 
 MyChunkyList::~MyChunkyList(){
