@@ -1,5 +1,6 @@
 #include "ChunkyList.h"
 #include "MyChunkyList.h"
+#include "MyChunkyNode.h"
 #include <iostream>
 
 using namespace std;
@@ -8,10 +9,10 @@ using namespace std;
 // Use it to interact with your list and make sure it works!
 
 int main() {
-  MyChunkyList* list = new MyChunkyList(5);
+  //MyChunkyList* list = new MyChunkyList(5);
 
-  // TODO: Replace this with code to test your list!
-  cout << "This program doesn't do anything yet...\n";
-
-  delete list;
+  MyChunkyNode* temp = new MyChunkyNode();
+  temp->newNode(4);
+  temp->print();
+  
 }
