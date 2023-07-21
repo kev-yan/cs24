@@ -6,6 +6,12 @@
 
 class MyChunkyList: public ChunkyList {
   // TODO: Add any member variables you need.
+private:
+  int num;
+  int max;
+  MyChunkyNode* headPtr;
+  MyChunkyNode* tailPtr;
+
 public:
   MyChunkyList(int chunksize);
   ~MyChunkyList();
