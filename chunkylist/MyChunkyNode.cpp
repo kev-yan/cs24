@@ -13,15 +13,15 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(nextPtr);
             newNode->setPrev(previous->prev());
-            newNode.newNode(num+previous->count());
+            newNode->newNode(num+previous->count());
             for(int i=0; i<previous->count(); i++){
-                newNode.setItem(newNode.getItem(i));
+                newNode->setItem(newNode.getItem(i));
             }
             for(int i=0; i<num; i++){
-                newNode.setItem(arr[i+previous->count()]);
+                newNode->setItem(arr[i+previous->count()]);
             }
             newNode->setMax(max);
-            return newNode();
+            return newNode;
             //TODO: delete nodes
             
         }
@@ -30,12 +30,12 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(nextPtr);
             newNode->setPrev(after->prev());
-            newNode.newNode(num+after->count());
+            newNode->newNode(num+after->count());
             for(int i=0; i<after->count(); i++){
-                newNode.setItem(after.getItem(i));
+                newNode->setItem(after.getItem(i));
             }
             for(int i=0; i<num; i++){
-                newNode.setItem(arr[i+after->count()]);
+                newNode->setItem(arr[i+after->count()]);
             }
             newNode->setMax(max);
             return newNode;
