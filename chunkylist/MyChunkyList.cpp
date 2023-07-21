@@ -1,4 +1,5 @@
 #include "MyChunkyList.h"
+#include <iostream>
 
 MyChunkyList::MyChunkyList(int chunksize){
     num = 0;
@@ -33,7 +34,7 @@ void MyChunkyList::insert(int index, const std::string& item){
         throw std::out_of_range("index not found");
     }
     else{
-        //std::string* temp = item;
+        std::cout << item;
     }
 }
 
