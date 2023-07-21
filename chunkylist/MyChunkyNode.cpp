@@ -3,9 +3,9 @@
 // TODO: Member Function Implementation
 
 void MyChunkyNode::smash(){
-    int* temp = new int[num-1];
+    //int* temp = new int[num-1];
     for(int i = 0; i<num; i++){
-        if(arr)
+        //if(arr)
     }
 }
 
@@ -33,10 +33,10 @@ MyChunkyNode* MyChunkyNode::prev() const{
 MyChunkyNode* MyChunkyNode::next() const{
     return nextPtr;
 }
-void setPrev(MyChunkyNode* temp){
+void MyChunkyNode::setPrev(MyChunkyNode* temp){
     prevPtr = temp;
 }
-void setNext(MyChunkyNode* temp){
+void MyChunkyNode::setNext(MyChunkyNode* temp){
     nextPtr = temp;
 }
 
