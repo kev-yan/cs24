@@ -29,15 +29,15 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
-
+    int temp = index;
 }
 
 std::string& MyChunkyList::lookup(int index){
-
+    int temp = index;
 }
 
 void MyChunkyList::remove(int index){
-
+    int temp = index;
 }
 
 MyChunkyNode* MyChunkyList::head() const{
