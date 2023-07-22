@@ -56,6 +56,9 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
             return newNode;
         }
     }
+    else{
+        return curr;
+    }
 }
 
 void MyChunkyList::split(MyChunkyNode* node2){
