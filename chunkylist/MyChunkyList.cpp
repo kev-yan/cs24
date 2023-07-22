@@ -3,6 +3,61 @@
 #include <iostream>
 using namespace std;
 
+MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
+    if(curr->count() <= (max/2)){
+        
+        if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
+            MyChunkyNode* previous = curr->prev();
+            MyChunkyNode* newNode = new MyChunkyNode();
+            newNode->setNext(curr->next());
+            newNode->setPrev(previous->prev());
+            newNode->newNode(max);
+            for(int i=0; i<previous->count(); i++){
+                newNode->setItem(i, newNode->getItem(i));
+            }
+
+            for(int i=0; i<curr->count(); i++){
+                newNode->setItem(i+previous->count(), curr->getItem(i+previous->count()));
+            }
+            newNode->setMax(max);
+            delete curr;
+            delete curr->prev();
+            if(headPtr == previous){
+                headPtr = newNode;
+            }
+            if(tailPtr == curr){
+                tailPtr = curr;
+            }
+            return newNode;
+            
+        }
+        else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
+            //MyChunkyNode* toDelete = curr;
+            MyChunkyNode* after = curr->next();
+            MyChunkyNode* newNode = new MyChunkyNode();
+            newNode->setNext(after->next());
+            newNode->setPrev(curr->prev());
+            newNode->newNode(max);
+            for(int i=0; i<curr->count(); i++){
+                newNode->setItem(i, curr->getItem(i));
+            }
+            for(int i=0; i<after->count(); i++){
+                newNode->setItem(i+curr->count(), after->getItem(i));
+            }
+            newNode->setMax(max);
+            delete curr;
+            delete after;
+            if(headPtr == curr){
+                headPtr = newNode;
+            }
+            if(tailPtr == after){
+                tailPtr = newNode;
+            }
+            return newNode;
+        }
+    }
+}
+
 void MyChunkyList::split(MyChunkyNode* node2){
     MyChunkyNode* node = node2;
     MyChunkyNode* newNode = new MyChunkyNode();
@@ -117,7 +172,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             if(curr == nullptr){
                 curr = findNode(index-1);
                 split(curr);
-                cout << "work" << endl;
+                //cout << "work" << endl;
                 newInd = newInd+(max/2);
                 if(max%2 != 0){
                     curr = curr->next();
@@ -189,7 +244,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 /*
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(5);
+    MyChunkyList* test = new MyChunkyList(6);
     MyChunkyNode* curr;
     MyChunkyNode* currTail;
     test->insert(0, "1");
@@ -199,13 +254,20 @@ int main(){
     test->insert(3, "4");
     test->insert(4, "5");
     test->insert(5, "6");
+    test->insert(6, "ASDJONFDA");
+
    // test->insert(6, "testa");
     curr = test->head();
+    curr->deleteItem(3);
     //cout << test->head() << " " << test->tail() << endl;
-    curr->print();
+   // curr->print();
     currTail = test->tail();
-    currTail->print();
+    //currTail->print();
+    curr = test->merge(curr);
+    (test->tail())->print();
+    cout << test->tail() << endl;
+    cout << curr;
 
 }
-*/
 
+*/

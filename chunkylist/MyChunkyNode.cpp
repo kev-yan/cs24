@@ -6,46 +6,9 @@ using namespace std;
 
 
 // TODO: Member Function Implementation
-/*
-void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChunkyList
-    if(num <= (max/2)){
-        if(prevPtr->count() <= max/2){
-            MyChunkyNode* previous = prevPtr;
-            MyChunkyNode* newNode = new MyChunkyNode();
-            newNode->setNext(nextPtr);
-            newNode->setPrev(previous->prev());
-            newNode->newNode(max);
-            for(int i=0; i<previous->count(); i++){
-                newNode->setItem(newNode->getItem(i));
-            }
 
-            for(int i=0; i<num; i++){
-                newNode->setItem(arr[i+previous->count()]);
-            }
-            newNode->setMax(max);
-            return newNode;
-            //TODO: delete nodes
-            
-        }
-        else if(nextPtr->count() <= max/2){
-            MyChunkyNode* after = nextPtr;
-            MyChunkyNode* newNode = new MyChunkyNode();
-            newNode->setNext(nextPtr);
-            newNode->setPrev(after->prev());
-            newNode->newNode(max);
-            for(int i=0; i<after->count(); i++){
-                newNode->setItem(i, after->getItem(i));
-            }
-            for(int i=0; i<num; i++){
-                newNode->setItem(i+after->count(), arr[i]);
-            }
-            newNode->setMax(max);
-            return newNode;
-        }
-    }
-}
 
-*/
+
 void MyChunkyNode::newNode(int size){
     arr = new std::string[size];
     for(int i=0; i<size; i++){

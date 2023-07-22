@@ -13,7 +13,6 @@ class MyChunkyNode: public ChunkyNode {
   MyChunkyNode* nextPtr;
   std::string* arr;
 
-  void merge();
 
 public:
   MyChunkyNode();
@@ -34,6 +33,7 @@ public:
   void setMax(int size);
   std::string getItem(int index);
   void deleteItem(int index);
+  //void merge();
   // TODO: Add any other member functions you need.
 };
 

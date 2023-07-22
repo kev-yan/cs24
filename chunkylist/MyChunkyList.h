@@ -28,10 +28,11 @@ public:
   void         insert(int index, const std::string& item);
   std::string& lookup(int index);
   void         remove(int index);
-
   // These functions are needed by the autograder:
   MyChunkyNode* head() const;
   MyChunkyNode* tail() const;
+
+  MyChunkyNode* merge(MyChunkyNode* curr);
   //void split(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.
