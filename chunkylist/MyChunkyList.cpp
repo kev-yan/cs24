@@ -186,7 +186,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(5);
@@ -207,4 +207,5 @@ int main(){
     currTail->print();
 
 }
+*/
 
