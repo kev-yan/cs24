@@ -39,7 +39,7 @@ void MyChunkyNode::setItem(int index, std::string item){
         }
     }
     else{
-        cout << "broken";
+        cout << "broken ";
     }
 
 }
