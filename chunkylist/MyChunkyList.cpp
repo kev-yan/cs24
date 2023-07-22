@@ -50,7 +50,7 @@ MyChunkyList::MyChunkyList(int chunksize){
 MyChunkyList::~MyChunkyList(){
     while(headPtr != tailPtr){
         MyChunkyNode* temp = headPtr->next();
-        //headPtr->~MyChunkyNode();                         FIX THIS
+        headPtr->~MyChunkyNode();                         //FIX THIS
         delete headPtr;
         headPtr = temp;
     }
@@ -112,7 +112,6 @@ void MyChunkyList::insert(int index, const std::string& item){
             }
 
             else{
-                cout << "inserting" << endl;
                 MyChunkyNode* temp = new MyChunkyNode();
                 curr->setNext(temp);
                 temp->setPrev(curr);
