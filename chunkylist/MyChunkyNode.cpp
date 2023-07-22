@@ -49,8 +49,24 @@ void MyChunkyNode::deleteItem(int index){
         cout << "broken" << endl;
     }
     else {
-        arr[index] = "";
-        num--;
+       if(arr[index] != ""){
+            int i;
+            std::string* temp = new std::string[max];
+            for(i=0;i<index;i++){
+               // cout << "i: " << arr[i] << endl;
+                temp[i] = arr[i];
+            }
+            for(i=index+1;i<max;i++){
+                //cout << "i: " << arr[i] << endl;
+                temp[i-1] = arr[i]; 
+            }
+            delete[] arr;
+            arr = temp;
+            num--;
+        }
+        else{
+            cout << "something went wrong" << endl;
+        }
     }
 }
 

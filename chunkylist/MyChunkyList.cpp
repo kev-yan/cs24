@@ -72,16 +72,17 @@ void MyChunkyList::split(MyChunkyNode* node2){
     if(max%2 == 0){
         for(int i=0;i<max/2;i++){
             newNode->setItem(i, node->getItem(i+max/2));
-            node->deleteItem(i+max/2);
+            //node->deleteItem(i+max/2);
         }
     }
     else{
         for(int i=(max-(max/2));i<max;i++){
             //cout << "i: " << i << endl;
             newNode->setItem(i-(max-(max/2)), node->getItem(i));
-            node->deleteItem(i);
+            //node->deleteItem(i);
         }
     }
+
     if(tailPtr == node){
         tailPtr = newNode;
     }
@@ -204,22 +205,18 @@ std::string& MyChunkyList::lookup(int index){
         throw std::out_of_range("index not found");
     }
     else{
-        int temp = 0;
+        int temp = newIndex(index);
         bool hold= true;
-        MyChunkyNode* curr = headPtr;
+        std::string *item;
+        MyChunkyNode* curr = findNode(index);
+        item = curr->items();
+        
+        return item[temp];
+        /*
         std::string* item;
-        while(hold){
-            if((temp+curr->count()) > index){
-                hold = false;
-            }
-            else{
-                temp = temp+curr->count();
-                curr = curr->next();
-            }
-        }
-        temp = index-temp;
         item = curr->items();
         return item[temp-1];
+        */
     }
 }
 
@@ -232,7 +229,7 @@ void MyChunkyList::remove(int index){
             throw std::out_of_range("index not found");
         }
         else{
-
+            cout << "need to fix";
         }
     }
 }
@@ -246,7 +243,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(6);
@@ -259,21 +256,22 @@ int main(){
     test->insert(3, "4");
     test->insert(4, "5");
     test->insert(5, "6");
-    test->insert(6, "ASDJONFDA");
+    //test->insert(6, "ASDJONFDA");
 
    // test->insert(6, "testa");
     curr = test->head();
-    curr->deleteItem(3);
-    curr->deleteItem(0);
+    curr->print();
+    cout <<test->lookup(2);
+    //curr->next()->print();
     //cout << test->head() << " " << test->tail() << endl;
    // curr->print();
-    currTail = test->tail();
+    //currTail = test->tail();
     //currTail->print();
-    curr = test->merge(curr);
-    (test->tail())->print();
-    cout << test->tail() << endl;
-    cout << curr;
+   // currTail = test->merge(currTail);
+    //(test->tail())->print();
+    //cout << test->tail() << endl;
+   // cout << curr;
 
 }
 
-*/
+
