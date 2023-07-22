@@ -5,7 +5,6 @@ using namespace std;
 
 MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
     if(curr->count() <= (max/2)){
-        
         if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
             MyChunkyNode* previous = curr->prev();
             MyChunkyNode* newNode = new MyChunkyNode();
@@ -54,6 +53,9 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
                 tailPtr = newNode;
             }
             return newNode;
+        }
+        else{
+            return curr;
         }
     }
     else{
@@ -262,6 +264,7 @@ int main(){
    // test->insert(6, "testa");
     curr = test->head();
     curr->deleteItem(3);
+    curr->deleteItem(0);
     //cout << test->head() << " " << test->tail() << endl;
    // curr->print();
     currTail = test->tail();
