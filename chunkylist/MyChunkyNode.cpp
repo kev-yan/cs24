@@ -55,10 +55,29 @@ void MyChunkyNode::newNode(int size){
 }
 
 void MyChunkyNode::setItem(int index, std::string item){
-    if(arr[index] == ""){
-        num++;
+    if(num<max){
+        if(arr[index] != ""){
+            int i;
+            std::string* temp = new std::string[max];
+            for(i=0;i<index;i++){
+                temp[i] = arr[i];
+            }
+            temp[index] = item;
+            for(i=index;i<max;i++){
+                temp[i+1] = arr[i]; 
+            }
+            delete[] arr;
+            arr = temp;
+            num++;
+        }
+        else{
+            arr[index] = item;
+            num++;
+        }
     }
-    arr[index] = item;
+    else{
+        cout << "broken";
+    }
 
 }
 

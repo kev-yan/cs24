@@ -112,56 +112,25 @@ void MyChunkyList::insert(int index, const std::string& item){
         }
         
         else{
-           // std::cout << "new insert" << std::endl;
             MyChunkyNode* curr = findNode(index);
             int newInd = newIndex(index);
-            //cout << "curr: " << curr << endl;
-            //cout << "new Ind: " << newInd << endl;
-                             //MIGHT TAKE TOO LONG TO RUN
-            //curr->print();
-           // std::cout << "found node" << std::endl;
             if(curr == nullptr){
                 curr = findNode(index-1);
                 split(curr);
                 cout << "work" << endl;
                 newInd = newInd+(max/2);
-                curr = curr->next();
+                //curr = curr->next();
                 curr->setItem(newInd, item);
                 num++;
                 
-                /*
-                MyChunkyNode* prevNode = findNode(index-1);
-                curr = new MyChunkyNode();
-                cout << "test" << endl;
-                prevNode->setNext(curr);
-                curr->setPrev(prevNode);
-                curr->newNode(max);
-                curr->setItem(newInd, item);
-                if(tailPtr == prevNode){
-                    tailPtr = curr;
-                }
-                */
             }
-            else if(curr->count() < max){
+            //else if(curr->count() < max){
                 //cout << "count: " << curr->count() << endl;
+            else{
                 if(curr->getItem(newInd) == ""){
                     num++;
                 }
                 curr->setItem(newInd, item);
-            }
-            else{
-                split(curr);
-                cout << "work" << endl;
-                newInd = newInd-(max/2);
-                curr = curr->next();
-                curr->setItem(newInd, item);
-                num++;
-                /*
-                MyChunkyNode* temp = new MyChunkyNode();
-                curr->setNext(temp);
-                temp->setPrev(curr);
-                curr->setItem(0, item);
-                */
             }
         }
         
@@ -200,9 +169,9 @@ void MyChunkyList::remove(int index){
         if(headPtr == nullptr){
             throw std::out_of_range("index not found");
         }
-        //else{
+        else{
 
-        //}
+        }
     }
 }
 
@@ -215,24 +184,24 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(5);
+    MyChunkyList* test = new MyChunkyList(4);
     MyChunkyNode* curr;
     MyChunkyNode* currTail;
     test->insert(0, "1");
     test->insert(1, "2");
-    test->insert(2, "3");
-    test->insert(3, "4");
-    test->insert(4, "5");
-    test->insert(5, "6");
-    test->insert(6, "a");
+    //test->insert(2, "3");
+    test->insert(2, "WORKA");
+   // test->insert(3, "4");
+    //test->insert(4, "5");
+    //test->insert(5, "6");
     curr = test->head();
     //cout << test->head() << " " << test->tail() << endl;
     curr->print();
-    currTail = test->tail();
-    currTail->print();
+    //currTail = test->tail();
+  //  currTail->print();
 
 }
-*/
+
