@@ -3,7 +3,8 @@
 #include <iostream>
 using namespace std;
 
-void MyChunkyList::split(MyChunkyNode* node){
+void MyChunkyList::split(MyChunkyNode* node2){
+    MyChunkyNode* node = node2;
     MyChunkyNode* newNode = new MyChunkyNode();
     newNode->newNode(max);
     newNode->setNext(node->next());
@@ -16,7 +17,7 @@ void MyChunkyList::split(MyChunkyNode* node){
     }
     else{
         for(int i=(max-(max/2));i<max;i++){
-            cout << "i: " << i << endl;
+            //cout << "i: " << i << endl;
             newNode->setItem(i-(max-(max/2)), node->getItem(i));
             node->deleteItem(i);
         }
@@ -30,7 +31,7 @@ void MyChunkyList::split(MyChunkyNode* node){
 
 MyChunkyNode* MyChunkyList::findNode(int index){
     int maxNum = (num/max+1)*max;
-    if(index < 0 || index > maxNum){
+    if(index < 0 || index >= maxNum){
         return nullptr;
     }
     int temp = 0;
@@ -113,11 +114,22 @@ void MyChunkyList::insert(int index, const std::string& item){
         else{
            // std::cout << "new insert" << std::endl;
             MyChunkyNode* curr = findNode(index);
-            int newInd = newIndex(index);     
+            int newInd = newIndex(index);
+            //cout << "curr: " << curr << endl;
+            //cout << "new Ind: " << newInd << endl;
                              //MIGHT TAKE TOO LONG TO RUN
             //curr->print();
            // std::cout << "found node" << std::endl;
             if(curr == nullptr){
+                curr = findNode(index-1);
+                split(curr);
+                cout << "work" << endl;
+                newInd = newInd+(max/2);
+                curr = curr->next();
+                curr->setItem(newInd, item);
+                num++;
+                
+                /*
                 MyChunkyNode* prevNode = findNode(index-1);
                 curr = new MyChunkyNode();
                 cout << "test" << endl;
@@ -128,20 +140,28 @@ void MyChunkyList::insert(int index, const std::string& item){
                 if(tailPtr == prevNode){
                     tailPtr = curr;
                 }
+                */
             }
             else if(curr->count() < max){
+                //cout << "count: " << curr->count() << endl;
                 if(curr->getItem(newInd) == ""){
                     num++;
                 }
                 curr->setItem(newInd, item);
             }
-
             else{
+                split(curr);
+                cout << "work" << endl;
+                newInd = newInd-(max/2);
+                curr = curr->next();
+                curr->setItem(newInd, item);
+                num++;
+                /*
                 MyChunkyNode* temp = new MyChunkyNode();
                 curr->setNext(temp);
                 temp->setPrev(curr);
                 curr->setItem(0, item);
-
+                */
             }
         }
         
@@ -194,8 +214,8 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-/*
 
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(5);
@@ -206,11 +226,13 @@ int main(){
     test->insert(2, "3");
     test->insert(3, "4");
     test->insert(4, "5");
+    test->insert(5, "6");
+    test->insert(6, "a");
     curr = test->head();
-    test->split(curr);
+    //cout << test->head() << " " << test->tail() << endl;
     curr->print();
-    (test->tail())->print();
+    currTail = test->tail();
+    currTail->print();
 
 }
-
 */
