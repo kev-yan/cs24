@@ -54,6 +54,7 @@ void MyChunkyNode::newNode(int size){
     for(int i=0; i<size; i++){
         arr[i] = "";
     }
+    max = size;
 }
 
 void MyChunkyNode::setItem(int index, std::string item){

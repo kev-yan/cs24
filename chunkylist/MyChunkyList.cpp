@@ -1,9 +1,11 @@
 #include "MyChunkyList.h"
 #include <string>
 #include <iostream>
+using namespace std;
 
 MyChunkyNode* MyChunkyList::findNode(int index){
-    if(index < 0 || index > num){
+    int maxNum = (num/max+1)*max;
+    if(index < 0 || index > maxNum){
         return nullptr;
     }
     int temp = 0;
@@ -48,7 +50,7 @@ MyChunkyList::MyChunkyList(int chunksize){
 MyChunkyList::~MyChunkyList(){
     while(headPtr != tailPtr){
         MyChunkyNode* temp = headPtr->next();
-        headPtr->~MyChunkyNode();
+        //headPtr->~MyChunkyNode();                         FIX THIS
         delete headPtr;
         headPtr = temp;
     }
@@ -67,7 +69,8 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
-    if(index < 0 || index > num){
+    int maxNum = (num/max+1)*max;
+    if(index < 0 || index > maxNum){
         throw std::out_of_range("index not found");
     }
     else{
@@ -85,16 +88,31 @@ void MyChunkyList::insert(int index, const std::string& item){
         else{
            // std::cout << "new insert" << std::endl;
             MyChunkyNode* curr = findNode(index);
-            int newInd = newIndex(index);                                   //MIGHT TAKE TOO LONG TO RUN
-            curr->print();
+            int newInd = newIndex(index);     
+                             //MIGHT TAKE TOO LONG TO RUN
+            //curr->print();
            // std::cout << "found node" << std::endl;
-            if(curr->count() < max){
-                    //std::cout << "new Node insert" << std::endl;
+            if(curr == nullptr){
+                MyChunkyNode* prevNode = findNode(index-1);
+                curr = new MyChunkyNode();
+                cout << "test" << endl;
+                prevNode->setNext(curr);
+                curr->setPrev(prevNode);
+                curr->newNode(max);
                 curr->setItem(newInd, item);
-                num++;
+                if(tailPtr == prevNode){
+                    tailPtr = curr;
+                }
             }
+            else if(curr->count() < max){
+                if(curr->getItem(newInd) == ""){
+                    num++;
+                }
+                curr->setItem(newInd, item);
+            }
+
             else{
-                //std::cout << "inserting" << std::endl;
+                cout << "inserting" << endl;
                 MyChunkyNode* temp = new MyChunkyNode();
                 curr->setNext(temp);
                 temp->setPrev(curr);
@@ -153,12 +171,18 @@ MyChunkyNode* MyChunkyList::tail() const{
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
-    MyChunkyNode* curr = new MyChunkyNode();
-    test->insert(0, "test");
-    test->insert(1, "testing");
+    MyChunkyNode* curr;
+    MyChunkyNode* currTail;
+    test->insert(0, "1");
+    test->insert(1, "2");
+    test->insert(2, "3");
+    test->insert(3, "4");
+    test->insert(4, "5");
     curr = test->head();
+    currTail = test->tail();
+    cout << test->tail() << endl;
     curr->print();
+    currTail->print();
     
 }
-
 */
