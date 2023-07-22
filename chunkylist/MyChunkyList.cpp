@@ -3,6 +3,31 @@
 #include <iostream>
 using namespace std;
 
+void MyChunkyList::split(MyChunkyNode* node){
+    MyChunkyNode* newNode = new MyChunkyNode();
+    newNode->newNode(max);
+    newNode->setNext(node->next());
+    node->setNext(newNode);
+    if(max%2 == 0){
+        for(int i=0;i<max/2;i++){
+            newNode->setItem(i, node->getItem(i+max/2));
+            node->deleteItem(i+max/2);
+        }
+    }
+    else{
+        for(int i=(max-(max/2));i<max;i++){
+            cout << "i: " << i << endl;
+            newNode->setItem(i-(max-(max/2)), node->getItem(i));
+            node->deleteItem(i);
+        }
+    }
+    if(tailPtr == node){
+        tailPtr = newNode;
+    }
+
+}
+
+
 MyChunkyNode* MyChunkyList::findNode(int index){
     int maxNum = (num/max+1)*max;
     if(index < 0 || index > maxNum){
@@ -79,7 +104,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             headPtr = new MyChunkyNode();
             tailPtr = headPtr;
             headPtr->setMax(max);
-            headPtr->newNode(4);
+            headPtr->newNode(max);
             headPtr->setItem(0, item);
             //std::cout << "beginning" << std::endl;
             num++;
@@ -155,6 +180,9 @@ void MyChunkyList::remove(int index){
         if(headPtr == nullptr){
             throw std::out_of_range("index not found");
         }
+        //else{
+
+        //}
     }
 }
 
@@ -167,9 +195,10 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 /*
+
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(4);
+    MyChunkyList* test = new MyChunkyList(5);
     MyChunkyNode* curr;
     MyChunkyNode* currTail;
     test->insert(0, "1");
@@ -178,10 +207,10 @@ int main(){
     test->insert(3, "4");
     test->insert(4, "5");
     curr = test->head();
-    currTail = test->tail();
-    cout << test->tail() << endl;
+    test->split(curr);
     curr->print();
-    currTail->print();
-    
+    (test->tail())->print();
+
 }
+
 */

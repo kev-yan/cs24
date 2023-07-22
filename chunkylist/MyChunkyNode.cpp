@@ -14,7 +14,7 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(nextPtr);
             newNode->setPrev(previous->prev());
-            newNode->newNode(num+previous->count());
+            newNode->newNode(max);
             for(int i=0; i<previous->count(); i++){
                 newNode->setItem(newNode->getItem(i));
             }
@@ -32,23 +32,20 @@ void MyChunkyNode::merge(){ // might have to be MyChunkyNode* or be in the MyChu
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(nextPtr);
             newNode->setPrev(after->prev());
-            newNode->newNode(num+after->count());
+            newNode->newNode(max);
             for(int i=0; i<after->count(); i++){
-                newNode->setItem(after->getItem(i));
+                newNode->setItem(i, after->getItem(i));
             }
             for(int i=0; i<num; i++){
-                newNode->setItem(arr[i+after->count()]);
+                newNode->setItem(i+after->count(), arr[i]);
             }
             newNode->setMax(max);
             return newNode;
         }
     }
-    for(int i = 0; i<num; i++){
-        //if(arr)
-    }
 }
-*/
 
+*/
 void MyChunkyNode::newNode(int size){
     arr = new std::string[size];
     for(int i=0; i<size; i++){
@@ -65,11 +62,23 @@ void MyChunkyNode::setItem(int index, std::string item){
 
 }
 
+void MyChunkyNode::deleteItem(int index){
+    if(index < 0 || index >= max){
+        cout << "broken" << endl;
+    }
+    else {
+        arr[index] = "";
+        num--;
+    }
+}
+
 std::string MyChunkyNode::getItem(int index){
     return arr[index];
 }
 
 void MyChunkyNode::print(){
+    cout << "max: " << max << endl;
+    cout << "count: " << num << endl;
     for(int i=0; i<max; i++){
         cout << i << ": " << arr[i] << endl;
     }

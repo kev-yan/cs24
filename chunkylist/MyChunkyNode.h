@@ -33,7 +33,7 @@ public:
   void setItem(int index, std::string item);
   void setMax(int size);
   std::string getItem(int index);
-
+  void deleteItem(int index);
   // TODO: Add any other member functions you need.
 };
 

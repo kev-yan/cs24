@@ -15,6 +15,7 @@ private:
 
   MyChunkyNode* findNode(int index);
   int newIndex(int index);
+ // void split(MyChunkyNode* temp);
 
 public:
   MyChunkyList(int chunksize);
@@ -30,6 +31,7 @@ public:
   // These functions are needed by the autograder:
   MyChunkyNode* head() const;
   MyChunkyNode* tail() const;
+  void split(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.
 };
