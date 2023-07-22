@@ -119,7 +119,9 @@ void MyChunkyList::insert(int index, const std::string& item){
                 split(curr);
                 cout << "work" << endl;
                 newInd = newInd+(max/2);
-                //curr = curr->next();
+                if(max%2 != 0){
+                    curr = curr->next();
+                }
                 curr->setItem(newInd, item);
                 num++;
                 
@@ -187,21 +189,22 @@ MyChunkyNode* MyChunkyList::tail() const{
 
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(4);
+    MyChunkyList* test = new MyChunkyList(5);
     MyChunkyNode* curr;
     MyChunkyNode* currTail;
     test->insert(0, "1");
     test->insert(1, "2");
-    //test->insert(2, "3");
-    test->insert(2, "WORKA");
-   // test->insert(3, "4");
-    //test->insert(4, "5");
-    //test->insert(5, "6");
+    test->insert(2, "3");
+    //test->insert(2, "WORKA");
+    test->insert(3, "4");
+    test->insert(4, "5");
+    test->insert(5, "6");
+   // test->insert(6, "testa");
     curr = test->head();
     //cout << test->head() << " " << test->tail() << endl;
     curr->print();
-    //currTail = test->tail();
-  //  currTail->print();
+    currTail = test->tail();
+    currTail->print();
 
 }
 
