@@ -206,17 +206,10 @@ std::string& MyChunkyList::lookup(int index){
     }
     else{
         int temp = newIndex(index);
-        bool hold= true;
         std::string *item;
         MyChunkyNode* curr = findNode(index);
-        item = curr->items();
-        
+        item = curr->items();   
         return item[temp];
-        /*
-        std::string* item;
-        item = curr->items();
-        return item[temp-1];
-        */
     }
 }
 
@@ -243,7 +236,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(6);
@@ -275,3 +268,4 @@ int main(){
 }
 
 
+*/
