@@ -80,7 +80,9 @@ void MyChunkyList::split(MyChunkyNode* node2){
     MyChunkyNode* newNode = new MyChunkyNode();
     newNode->newNode(max);
     newNode->setNext(node->next());
+    newNode->setPrev(node);
     node->setNext(newNode);
+    newNode->next()->setPrev(newNode);
     if(max%2 == 0){
         for(int i=0;i<max/2;i++){
             newNode->setItem(i, node->getItem(i+max/2));
