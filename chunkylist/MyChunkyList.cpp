@@ -112,6 +112,88 @@ void MyChunkyList::split(MyChunkyNode* node2){
 
 }
 
+void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
+    //MyChunkyNode* node = node2;
+    MyChunkyNode* newNode = new MyChunkyNode();
+    newNode->newNode(max);
+    newNode->setNext(node->next());
+    newNode->setPrev(node);
+    node->setNext(newNode);
+    newNode->printMax();
+    if(newNode->next() != nullptr){
+        newNode->next()->setPrev(newNode);
+    }
+    if(max%2 == 0){
+        if(index <= max/2){
+            for(int i=max/2; i<max; i++){
+                newNode->setItem(i-(max/2), node->getItem(i));
+            }
+            for(int i=max/2; i<max; i++){
+                node->deleteItem(max/2-1);
+            }
+            node->setItem(index, item);
+        }
+        else{
+            for(int i=(max/2+1); i<max; i++){
+                newNode->setItem(i-(max/2+1), node->getItem(i));
+            }
+            for(int i=(max/2+1); i<max; i++){
+                newNode->deleteItem(max/2+1);
+            }
+            newNode->setItem(index-node->count(), item);
+        }
+    }
+    //HERE
+    else{
+        if(index <= max/2){
+            for(int i=max/2; i<max; i++){
+                cout << "here " << endl;
+                newNode->setItem(i-max/2, node->getItem(i));
+                newNode->print();
+
+            }
+            for(int i=max/2; i<max; i++){
+                node->deleteItem(max/2);
+            }
+            //cout << "left" << endl;
+            node->setItem(index, item);
+            node->print();
+            cout << "inbetween " << endl;
+            newNode->print();
+        }
+        else{
+            for(int i=max/2+1; i<max; i++){
+                newNode->setItem(i-(max/2+1), node->getItem(i));
+            }
+            for(int i=max/2+1; i<max; i++){
+                node->deleteItem(max/2+1);
+            }
+            newNode->setItem(index-node->count(), item);
+        }
+        /*
+        for(int i=(max-(max/2));i<max;i++){
+            //cout << "i: " << i << endl;
+            newNode->setItem(i-(max-(max/2)), node->getItem(i));
+            //node->deleteItem(i);
+        }
+        for(int i=(max-(max/2));i<max;i++){
+            node->deleteItem(max-(max/2));
+        }
+        */
+    }
+
+    newNode->print();
+    cout << node->next()  << endl;
+    cout << node->prev() << endl;
+    cout << "here" << endl;
+    cout << newNode->next() << endl;
+    cout << newNode->prev() << endl;
+    if(tailPtr == node){
+        tailPtr = newNode;
+    }
+
+}
+
 
 MyChunkyNode* MyChunkyList::findNode(int index){
     //int maxNum = (num/max+1)*max;
@@ -236,6 +318,7 @@ int MyChunkyList::count() const{
 
 void MyChunkyList::insert(int index, const std::string& item){
     int maxNum = ((num-1)/max+1)*max;
+    
     //cout << maxNum << endl;
     if(index < 0 || index > num){
         throw std::out_of_range("index not found");
@@ -253,23 +336,25 @@ void MyChunkyList::insert(int index, const std::string& item){
         
         else{
             MyChunkyNode* curr = findNode(index);
-            int newInd = newIndex(index);
-           // cout << index << " " <<newInd << " " << curr << endl;
+            //cout << index << " " <<newInd << " " << curr << endl;
+            //cout << maxNum << endl;
+            //cout << "current curr: " << curr << endl;
             if(curr->count() == max){
                 if(headPtr == curr && index == 0){
+                    int newInd = newIndex(index);
+                    //cout << "entered" << endl;
                     MyChunkyNode* newNode = new MyChunkyNode();
-                    if(curr->next() != nullptr){
-                        curr->next()->setPrev(newNode);
-                    }
                     newNode->setMax(max);
-                    newNode->setNext(curr->next());
-                    newNode->setPrev(curr);
-                    curr->setNext(newNode);
+                    newNode->setNext(curr);
+                    newNode->setPrev(curr->prev());
+                    curr->setPrev(newNode);
                     newNode->newNode(max);
                     newNode->setItem(0, item);
                     num++;
+                    headPtr = newNode;
                 }
                 else if(tailPtr == curr && index == maxNum){
+                    int newInd = newIndex(index);
                     MyChunkyNode* newNode = new MyChunkyNode();
                     newNode->setMax(max);
                     newNode->setNext(curr->next());
@@ -280,20 +365,27 @@ void MyChunkyList::insert(int index, const std::string& item){
                     num++;
                 }
                 else{
+                    int newInd = newIndex(index);
+                    split2(curr, newInd, item);
+                    /*
                     //urr = findNode(index-1);
                     split(curr);
+                    MyChunkyNode* curr = findNode(index);
+                    int newInd = newIndex(index);
                     //newInd = newInd+(max/2);
                     if(max%2 != 0){
                         curr = curr->next();
                     }
-                    curr->setItem(max/2, item);
+                    cout << curr << endl;
+                    curr->setItem(newInd, item);
                     //curr->next()->print();
                     num++;
+                    */
                 }
             }   
             else{
                 //curr->print();
-
+                int newInd = newIndex(index);
                 curr->setItem(newInd, item);
                 num++;
             }
@@ -338,28 +430,37 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(5);
+    MyChunkyList* test = new MyChunkyList(4);
     MyChunkyNode* curr;
     //delete test;
     
     test->insert(0, "A");
-    test->insert(1, "A");
-    test->insert(1, "A");
-    test->insert(1, "A");
-    test->insert(1, "A");
-    test->insert(0, "A");
-    test->insert(5, "A");
+    test->insert(1, "B");
+    test->insert(2, "C");
+    test->insert(3, "D");
+    test->insert(3, "E");
+    test->print();
+    cout << endl << endl << endl;
+    //test->insert(1, "TEST");
+    //curr = test->head();
+    //curr->print();
+
+    //cout << "here" << endl;
+    //test->tail()->deleteItem(1);
+    //test->insert(1, "A");
+    //test->insert(1, "A");
+    //test->insert(2, "A");
+    //test->insert(2, "A");
+    //test->insert(2, "A");
+   
 
     //test->insert(1, "A");
     //test->insert(1, "A");
     //test->insert(1, "A");
     //test->insert(1, "A");
-
-
-    
 
     test->print();
 
@@ -381,4 +482,3 @@ int main(){
    // cout << curr;
 }
 
-*/

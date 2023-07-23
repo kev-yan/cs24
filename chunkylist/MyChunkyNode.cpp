@@ -7,7 +7,9 @@ using namespace std;
 
 // TODO: Member Function Implementation
 
-
+void MyChunkyNode::printMax(){
+    cout << "Max: " << max;
+}
 
 void MyChunkyNode::newNode(int size){
     arr = new std::string[size];
@@ -37,6 +39,7 @@ void MyChunkyNode::setItem(int index, std::string item){
             arr[index] = item;
             num++;
         }
+       // cout << arr[index] << endl;
     }
     
 

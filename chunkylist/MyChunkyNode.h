@@ -33,6 +33,7 @@ public:
   void setMax(int size);
   std::string getItem(int index);
   void deleteItem(int index);
+  void printMax();
   //void merge();
   // TODO: Add any other member functions you need.
 };

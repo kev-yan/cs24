@@ -16,6 +16,7 @@ private:
   MyChunkyNode* findNode(int index);
   int newIndex(int index);
   void split(MyChunkyNode* temp);
+  void split2(MyChunkyNode* temp, int index, std::string item);
  // void split(MyChunkyNode* temp);
 
 public:
