@@ -119,7 +119,7 @@ MyChunkyNode* MyChunkyList::findNode(int index){
     if(index < 0 || index > num){
         return nullptr;
     }
-    int temp = 0;
+   // int temp = 0;
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){
@@ -153,7 +153,7 @@ MyChunkyNode* MyChunkyList::findNode(int index){
 }
 
 int MyChunkyList::newIndex(int index){
-    int temp = 0;
+    //int temp = 0;
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){      
