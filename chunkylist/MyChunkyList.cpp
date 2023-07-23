@@ -181,30 +181,32 @@ void MyChunkyList::insert(int index, const std::string& item){
             MyChunkyNode* curr = findNode(index);
             int newInd = newIndex(index);
             //cout << newInd;
-            if(curr->count() == max && headPtr == curr){
-                MyChunkyNode* newNode = new MyChunkyNode();
-                if(curr->next() != nullptr){
-                    newNode->next()->setPrev(newNode);
+            if(curr->count() == max){
+                if(headPtr == curr && index == maxNum){
+                    MyChunkyNode* newNode = new MyChunkyNode();
+                    if(curr->next() != nullptr){
+                        newNode->next()->setPrev(newNode);
+                    }
+                    newNode->setMax(max);
+                    newNode->setNext(curr->next());
+                    newNode->setPrev(curr);
+                    curr->setNext(newNode);
+                    newNode->newNode(max);
+                    newNode->print();
+                    newNode->setItem(0, item);
+                    num++;
                 }
-                newNode->setMax(max);
-                newNode->setNext(curr->next());
-                newNode->setPrev(curr);
-                curr->setNext(newNode);
-                newNode->newNode(max);
-                newNode->print();
-                newNode->setItem(0, item);
-                num++;
-            }
-            else if(curr->count() == max && tailPtr == curr){
-                MyChunkyNode* newNode = new MyChunkyNode();
-                newNode->setMax(max);
-                newNode->setNext(curr->next());
-                newNode->setPrev(curr);
-                curr->setNext(newNode);
-                newNode->newNode(max);
-                newNode->print();
-                newNode->setItem(0, item);
-                num++;
+                else if(tailPtr == curr && index == count()){
+                    MyChunkyNode* newNode = new MyChunkyNode();
+                    newNode->setMax(max);
+                    newNode->setNext(curr->next());
+                    newNode->setPrev(curr);
+                    curr->setNext(newNode);
+                    newNode->newNode(max);
+                    newNode->print();
+                    newNode->setItem(0, item);
+                    num++;
+                }
             }   
             else if(curr == nullptr){
                 curr = findNode(index-1);
