@@ -106,11 +106,11 @@ MyChunkyNode* MyChunkyList::findNode(int index){
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){
-        if((temp+max) > index || curr == nullptr){
+        if((temp+curr->count()) > index || curr == nullptr){
             hold = false;
         }
         else{
-            temp = temp+max;
+            temp = temp+curr->count();
             curr = curr->next();
         }
     }
