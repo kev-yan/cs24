@@ -98,8 +98,8 @@ void MyChunkyList::split(MyChunkyNode* node2){
 
 
 MyChunkyNode* MyChunkyList::findNode(int index){
-    int maxNum = (num/max+1)*max;
-    if(index < 0 || index >= maxNum){
+    //int maxNum = (num/max+1)*max;
+    if(index < 0 || index >= num){
         return nullptr;
     }
     int temp = 0;
@@ -271,7 +271,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(5);
@@ -286,7 +286,7 @@ int main(){
     test->insert(0, "A");
     test->insert(0, "a");
 
-    
+    /*
     test->insert(0, "1");
     test->insert(1, "2");
     test->insert(2, "3");
@@ -303,7 +303,7 @@ int main(){
     test->insert(5, "7");
     test->insert(3, "ASD");
     test->insert(3, "AD");
-    
+    */
     //curr = test->head();
     //curr->print();
     //test->tail()->print();
@@ -321,4 +321,4 @@ int main(){
    // cout << curr;
 }
 
-*/
+
