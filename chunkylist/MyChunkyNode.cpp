@@ -63,7 +63,7 @@ void MyChunkyNode::deleteItem(int index){
             num--;
         }
         else{
-            cout << "something went wrong" << endl;
+            //cout << "something went wrong" << endl;
         }
     }
 }

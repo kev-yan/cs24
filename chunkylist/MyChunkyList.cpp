@@ -3,6 +3,18 @@
 #include <iostream>
 using namespace std;
 
+void MyChunkyList::print(){
+    MyChunkyNode* temp = headPtr;
+    cout << "listNum: " << num << endl;
+    int i = 0;
+    while(temp != nullptr){
+        cout << "---------------NODE " << i << "---------------" << endl;
+        temp->print();
+        temp = temp->next();
+        i++;
+    }
+
+}
 MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
     if(curr->count() <= (max/2)){
         if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
@@ -99,19 +111,25 @@ void MyChunkyList::split(MyChunkyNode* node2){
 
 MyChunkyNode* MyChunkyList::findNode(int index){
     //int maxNum = (num/max+1)*max;
-    if(index < 0 || index >= num){
+
+    if(index < 0 || index > num){
         return nullptr;
     }
     int temp = 0;
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){
-        if((temp+curr->count()) > index || curr == nullptr){
-            hold = false;
+        if(curr != nullptr){
+            if((temp+curr->count()) >= index || curr != nullptr){
+                hold = false;
+            }
+            else{
+                temp = temp+curr->count();
+                curr = curr->next();
+            }
         }
         else{
-            temp = temp+curr->count();
-            curr = curr->next();
+            hold = false;
         }
     }
     return curr;
@@ -123,12 +141,17 @@ int MyChunkyList::newIndex(int index){
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){
-        if((temp+max) > index || curr == nullptr){
-            hold = false;
+        if(curr != nullptr){
+            if((temp+curr->count()) >= index || curr == nullptr){
+                hold = false;
+            }
+            else{
+                temp = temp+curr->count();
+                curr = curr->next();
+            }
         }
         else{
-            temp = temp+max;
-            curr = curr->next();
+            hold = false;
         }
     }
     return index-temp;
@@ -161,9 +184,9 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
-    int maxNum = (num/max+1)*max;
+    int maxNum = ((num-1)/max+1)*max;
     //cout << maxNum << endl;
-    if(index < 0 || index > maxNum){
+    if(index < 0 || index > num){
         throw std::out_of_range("index not found");
     }
     else{
@@ -180,34 +203,43 @@ void MyChunkyList::insert(int index, const std::string& item){
         else{
             MyChunkyNode* curr = findNode(index);
             int newInd = newIndex(index);
-            //cout << newInd;
             if(curr->count() == max){
-                if(headPtr == curr && index == maxNum){
+                if(headPtr == curr && index == 0){
                     MyChunkyNode* newNode = new MyChunkyNode();
                     if(curr->next() != nullptr){
-                        newNode->next()->setPrev(newNode);
+                        curr->next()->setPrev(newNode);
                     }
                     newNode->setMax(max);
                     newNode->setNext(curr->next());
                     newNode->setPrev(curr);
                     curr->setNext(newNode);
                     newNode->newNode(max);
-                    newNode->print();
                     newNode->setItem(0, item);
                     num++;
                 }
-                else if(tailPtr == curr && index == count()){
+                else if(tailPtr == curr && index == maxNum){
                     MyChunkyNode* newNode = new MyChunkyNode();
                     newNode->setMax(max);
                     newNode->setNext(curr->next());
                     newNode->setPrev(curr);
                     curr->setNext(newNode);
                     newNode->newNode(max);
-                    newNode->print();
                     newNode->setItem(0, item);
                     num++;
                 }
+                else{
+                    //urr = findNode(index-1);
+                    split(curr);
+                    //newInd = newInd+(max/2);
+                    if(max%2 != 0){
+                        curr = curr->next();
+                    }
+                    curr->setItem(max/2, item);
+                    //curr->next()->print();
+                    num++;
+                }
             }   
+            /*
             else if(curr == nullptr){
                 curr = findNode(index-1);
                 
@@ -221,9 +253,7 @@ void MyChunkyList::insert(int index, const std::string& item){
                     num++;
                 
             }
-
-            //else if(curr->count() < max){
-                //cout << "count: " << curr->count() << endl;
+            */
             else{
                 if(curr->getItem(newInd) == ""){
                     num++;
@@ -232,7 +262,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             }
         }
         
-        }
+    }
 }
 
 std::string& MyChunkyList::lookup(int index){
@@ -257,7 +287,7 @@ void MyChunkyList::remove(int index){
             throw std::out_of_range("index not found");
         }
         else{
-            cout << "need to fix";
+           // cout << "need to fix";
         }
     }
 }
@@ -271,39 +301,32 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(5);
     MyChunkyNode* curr;
-    MyChunkyNode* currTail;
-    delete test;
+    //delete test;
     
-    test->insert(0, "E");
-    test->insert(0, "D");
-    test->insert(0, "C");
-    test->insert(0, "B");
     test->insert(0, "A");
-    test->insert(0, "a");
+    test->insert(1, "B");
+    test->insert(2, "C"); 
+    test->insert(3, "D");
+    test->insert(3, "asd");
+    test->insert(1, "asdasd");
+    test->head()->deleteItem(2);
+    //test->tail()->deleteItem(1);
+    //test->merge(test->head());
+    //test->insert(0, "asd");
+    //test->insert(4, "asd");
+    //test->head()->deleteItem(3);
+    //test->insert(4, "xcv");
+    //test->insert(4, "A");
+    //test->insert(2, "a");
 
-    /*
-    test->insert(0, "1");
-    test->insert(1, "2");
-    test->insert(2, "3");
-    //test->insert(2, "WORKA");
-    test->insert(3, "4");
-    test->insert(4, "5");
-    //test->insert(5, "6");
-    //test->insert(6, "ASDJONFDA");
+    test->print();
 
-   // test->insert(6, "testa");
-    curr = test->head();
-    //curr->print();
-    test->lookup(2) = "A";
-    test->insert(5, "7");
-    test->insert(3, "ASD");
-    test->insert(3, "AD");
-    */
+    
     //curr = test->head();
     //curr->print();
     //test->tail()->print();
@@ -321,4 +344,4 @@ int main(){
    // cout << curr;
 }
 
-
+*/

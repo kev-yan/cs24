@@ -33,6 +33,7 @@ public:
   MyChunkyNode* tail() const;
 
   MyChunkyNode* merge(MyChunkyNode* curr);
+  void print();
   //void split(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.
