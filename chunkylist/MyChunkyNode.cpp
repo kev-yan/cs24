@@ -38,15 +38,13 @@ void MyChunkyNode::setItem(int index, std::string item){
             num++;
         }
     }
-    else{
-        cout << "broken ";
-    }
+    
 
 }
 
 void MyChunkyNode::deleteItem(int index){
     if(index < 0 || index >= max){
-        cout << "broken" << endl;
+        //cout << "broken" << endl;
     }
     else {
        if(arr[index] != ""){

@@ -142,14 +142,14 @@ MyChunkyList::MyChunkyList(int chunksize){
 }
 
 MyChunkyList::~MyChunkyList(){
-    while(headPtr != tailPtr){
-        MyChunkyNode* temp = headPtr->next();
-        headPtr->~MyChunkyNode();                         //FIX THIS
+    delete headPtr;
+    while(headPtr != nullptr){
+        MyChunkyNode* temp = headPtr->next();                      //FIX THIS
         delete headPtr;
         headPtr = temp;
     }
-    tailPtr->~MyChunkyNode();
-    delete tailPtr;
+    
+    
 }
 
 int MyChunkyList::count() const{
@@ -164,7 +164,7 @@ int MyChunkyList::count() const{
 
 void MyChunkyList::insert(int index, const std::string& item){
     int maxNum = (num/max+1)*max;
-    cout << maxNum << endl;
+    //cout << maxNum << endl;
     if(index < 0 || index > maxNum){
         throw std::out_of_range("index not found");
     }
@@ -182,21 +182,20 @@ void MyChunkyList::insert(int index, const std::string& item){
         else{
             MyChunkyNode* curr = findNode(index);
             int newInd = newIndex(index);
-            cout << newInd;
+            //cout << newInd;
             if(curr->count() == max && headPtr == curr){
-                cout << "entered" << endl;
                 MyChunkyNode* newNode = new MyChunkyNode();
+                if(curr->next() != nullptr){
+                    newNode->next()->setPrev(newNode);
+                }
                 newNode->setMax(max);
                 newNode->setNext(curr->next());
                 newNode->setPrev(curr);
                 curr->setNext(newNode);
-                if(curr->next() != nullptr){
-                    newNode->next()->setPrev(newNode);
-                }
                 newNode->newNode(max);
+                newNode->print();
                 newNode->setItem(0, item);
                 num++;
-                cout << "final" << endl;
             }
             else if(curr->count() == max && tailPtr == curr){
                 MyChunkyNode* newNode = new MyChunkyNode();
@@ -204,8 +203,9 @@ void MyChunkyList::insert(int index, const std::string& item){
                 newNode->setNext(curr->next());
                 newNode->setPrev(curr);
                 curr->setNext(newNode);
+                newNode->newNode(max);
+                newNode->print();
                 newNode->setItem(0, item);
-                tailPtr = newNode;
                 num++;
             }   
             else if(curr == nullptr){
@@ -277,6 +277,8 @@ int main(){
     MyChunkyList* test = new MyChunkyList(5);
     MyChunkyNode* curr;
     MyChunkyNode* currTail;
+    delete test;
+    /*
     test->insert(0, "E");
     test->insert(0, "D");
     test->insert(0, "C");
@@ -302,9 +304,9 @@ int main(){
     test->insert(3, "ASD");
     test->insert(3, "AD");
     */
-    curr = test->head();
-    curr->print();
-    test->tail()->print();
+    //curr = test->head();
+    //curr->print();
+    //test->tail()->print();
    // test->insert(4, "a");
     //test->insert(4, "a");
     //test->insert(4, "a");
