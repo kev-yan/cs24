@@ -119,11 +119,13 @@ MyChunkyNode* MyChunkyList::findNode(int index){
     if(index < 0 || index > num){
         return nullptr;
     }
+    if(index == num){
+        return tailPtr;
+    }
    // int temp = 0;
     bool hold= true;
     MyChunkyNode* curr = headPtr;
     while(hold){
-        
             if((curr->count()) > index || curr == nullptr){
                 hold = false;
             }
@@ -252,7 +254,7 @@ void MyChunkyList::insert(int index, const std::string& item){
         else{
             MyChunkyNode* curr = findNode(index);
             int newInd = newIndex(index);
-            //cout << newInd << " " << curr << endl;
+           // cout << index << " " <<newInd << " " << curr << endl;
             if(curr->count() == max){
                 if(headPtr == curr && index == 0){
                     MyChunkyNode* newNode = new MyChunkyNode();
@@ -291,10 +293,9 @@ void MyChunkyList::insert(int index, const std::string& item){
             }   
             else{
                 //curr->print();
-                if(curr->getItem(newInd) == ""){
-                    num++;
-                }
+
                 curr->setItem(newInd, item);
+                num++;
             }
         }
         
@@ -345,21 +346,20 @@ int main(){
     //delete test;
     
     test->insert(0, "A");
-    test->insert(1, "B");
-    test->insert(2, "C"); 
-    test->insert(3, "D");
-    test->insert(4, "asd");
-    test->insert(1, "asdasd");
-    test->insert(6, "test");
-    //test->head()->deleteItem(2);
-    //test->tail()->deleteItem(1);
-    //test->merge(test->head());
-    //test->insert(0, "asd");
-    //test->insert(4, "asd");s
-    //test->head()->deleteItem(3);
-    //test->insert(4, "xcv");
-    //test->insert(4, "A");
-    //test->insert(2, "a");
+    test->insert(1, "A");
+    test->insert(1, "A");
+    test->insert(1, "A");
+    test->insert(1, "A");
+    test->insert(0, "A");
+    test->insert(5, "A");
+
+    //test->insert(1, "A");
+    //test->insert(1, "A");
+    //test->insert(1, "A");
+    //test->insert(1, "A");
+
+
+    
 
     test->print();
 
@@ -380,6 +380,5 @@ int main(){
     //cout << test->tail() << endl;
    // cout << curr;
 }
-
 
 */
