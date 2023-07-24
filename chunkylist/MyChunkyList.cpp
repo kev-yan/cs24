@@ -9,10 +9,23 @@ void MyChunkyList::print(){
     int i = 0;
     while(temp != nullptr){
         cout << "---------------NODE " << i << "---------------" << endl;
+        cout << "address: " << temp << endl;
         temp->print();
         temp = temp->next();
         i++;
     }
+}
+void MyChunkyList::printBack(){
+    MyChunkyNode* temp = tailPtr;
+    cout << "listNum: " << num << endl;
+    int i = 0;
+    while(temp != nullptr){
+        cout << "---------------NODE " << i << "---------------" << endl;
+        cout << "address: " << temp << endl;
+        temp->print();
+        temp = temp->prev();
+        i++;
+    }    
 
 }
 MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
@@ -362,6 +375,7 @@ void MyChunkyList::insert(int index, const std::string& item){
                     curr->setNext(newNode);
                     newNode->newNode(max);
                     newNode->setItem(0, item);
+                    tailPtr = newNode;
                     num++;
                 }
                 else{
@@ -402,7 +416,11 @@ void MyChunkyList::remove(int index){
             throw std::out_of_range("index not found");
         }
         else{
-           // cout << "need to fix";
+           MyChunkyNode* curr = new MyChunkyNode();
+           int newInd = newIndex(index);
+           curr->deleteItem(newInd);
+           num--;
+
         }
     }
 }
@@ -416,71 +434,47 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
     MyChunkyNode* curr;
     //delete test;
-    
+    test->insert(0, "A");
+    test->insert(0, "b");
+    test->insert(0, "c");
+    test->insert(0, "d");
+    test->insert(4, "e");
+    test->insert(4, "f");
+    test->insert(4, "g");
+    test->insert(4, "h");
+    test->insert(8, "i");
+    test->print();
+
+    /*
     test->insert(0, "A");
     test->insert(1, "B");
     test->insert(2, "C");
     test->insert(3, "D");
-    //test->insert(4, "E");
-   //test->head()->deleteItem(2);
-    //test->insert(2, "E");
-    //test->print();
+
     cout << endl << endl << endl;
-    test->insert(2, "TEST");
-    test->insert(2, "TEST");
-    test->insert(2, "TEST");
-    test->insert(2, "TEST");
-    test->insert(5, "TEST");
-    test->insert(5, "TEST");
-    test->insert(8, "HOLD ON");
-    test->insert(8, "TEST");
-    test->insert(5, "BREAK");
-    //test->insert(5, "TEST");
-    //test->insert(8, "TEST");
-    //test->insert(8, "TEST");
-
-    test->print();
-    //curr = test->head();
-    //curr->print();
-
-    //cout << "here" << endl;
-    //test->tail()->deleteItem(1);
-    //test->insert(1, "A");
-    //test->insert(1, "A");
-    //test->insert(2, "A");
-    //test->insert(2, "A");
-    //test->insert(2, "A");
-   
-
-    //test->insert(1, "A");
-    //test->insert(1, "A");
-    //test->insert(1, "A");
-    //test->insert(1, "A");
-
+    test->insert(2, "TESTa");
+    test->insert(2, "TESTb");
+    test->insert(2, "TESTc");
+    test->insert(2, "TESTd");
+    test->insert(5, "TESTe");
     //test->print();
-
-    
-    //curr = test->head();
-    //curr->print();
-    //test->tail()->print();
-   // test->insert(4, "a");
-    //test->insert(4, "a");
-    //test->insert(4, "a");
-    //curr->next()->print();
-    //cout << test->head() << " " << test->tail() << endl;
-   // curr->print();
-    //currTail = test->tail();
-    //currTail->print();
-   // currTail = test->merge(currTail);
-    //(test->tail())->print();
-    //cout << test->tail() << endl;
-   // cout << curr;
+    test->insert(5, "TESTf");
+    test->insert(8, "HOLD ON");
+    test->insert(8, "TESTg");
+    test->insert(5, "BREAK");
+    test->printBack();
+    test->print();
+    //cout << test->lookup(9);
+    //test->remove(9);
+    cout << endl << endl << endl;
+    //test->print();
+    */
+ 
 }
 
-*/

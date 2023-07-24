@@ -35,6 +35,7 @@ public:
 
   MyChunkyNode* merge(MyChunkyNode* curr);
   void print();
+  void printBack();
   //void split(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.
