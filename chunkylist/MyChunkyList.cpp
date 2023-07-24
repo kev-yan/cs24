@@ -439,7 +439,7 @@ void MyChunkyList::remove(int index){
            if(curr->count() <= max/2){
                 merge(curr);
            }
-           if(curr->isEmpty()){
+           else if(curr->isEmpty()){
                 //cout << "entered" << endl;
                 clearNode(curr);
            }
@@ -457,8 +457,8 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-/*
 
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
