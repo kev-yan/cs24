@@ -94,6 +94,7 @@ MyChunkyNode::MyChunkyNode(){
     nextPtr = nullptr;
 }
 MyChunkyNode::~MyChunkyNode(){
+    cout << "destructed " << endl;
     delete[] arr;
 }
 

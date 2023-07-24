@@ -123,6 +123,7 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
     if(newNode->next() != nullptr){
         newNode->next()->setPrev(newNode);
     }
+    cout << newNode << " ASDAI" << endl;
     if(max%2 == 0){
         if(index <= max/2){
             for(int i=max/2; i<max; i++){
@@ -138,8 +139,9 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
                 newNode->setItem(i-(max/2+1), node->getItem(i));
             }
             for(int i=(max/2+1); i<max; i++){
-                newNode->deleteItem(max/2+1);
+                node->deleteItem(max/2+1);
             }
+            node->print();
             newNode->setItem(index-node->count(), item);
         }
     }
@@ -149,13 +151,15 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
             for(int i=max/2; i<max; i++){
                 cout << "here " << endl;
                 newNode->setItem(i-max/2, node->getItem(i));
-                newNode->print();
+                //newNode->print();
 
             }
             for(int i=max/2; i<max; i++){
                 node->deleteItem(max/2);
+                newNode->print();
             }
             //cout << "left" << endl;
+            cout << newNode << "HEREHERHERHE" << endl;
             node->setItem(index, item);
             node->print();
             cout << "inbetween " << endl;
@@ -181,12 +185,13 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
         }
         */
     }
-
+    cout << "HEREHERHER " << newNode << endl;
     newNode->print();
     cout << node->next()  << endl;
     cout << node->prev() << endl;
     cout << "here" << endl;
-    cout << newNode->next() << endl;
+    cout << newNode->count() << endl;
+    cout << "new" << endl;
     cout << newNode->prev() << endl;
     if(tailPtr == node){
         tailPtr = newNode;
@@ -433,7 +438,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 
 int main(){
     //std::cout << "test";
-    MyChunkyList* test = new MyChunkyList(4);
+    MyChunkyList* test = new MyChunkyList(5);
     MyChunkyNode* curr;
     //delete test;
     
@@ -441,10 +446,11 @@ int main(){
     test->insert(1, "B");
     test->insert(2, "C");
     test->insert(3, "D");
-    test->insert(3, "E");
-    test->print();
+    test->insert(4, "E");
+    //test->print();
     cout << endl << endl << endl;
-    //test->insert(1, "TEST");
+    test->insert(1, "TEST");
+    test->print();
     //curr = test->head();
     //curr->print();
 
@@ -462,7 +468,7 @@ int main(){
     //test->insert(1, "A");
     //test->insert(1, "A");
 
-    test->print();
+    //test->print();
 
     
     //curr = test->head();
