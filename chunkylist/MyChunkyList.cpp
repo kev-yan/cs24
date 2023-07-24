@@ -346,7 +346,7 @@ MyChunkyList::~MyChunkyList(){
     while(temp != nullptr){
         temp2 = temp->next();
         delete temp;
-        MyChunkyNode* temp = temp2;                      //FIX THIS
+        temp = temp2;                      //FIX THIS
     }  
 }
 
