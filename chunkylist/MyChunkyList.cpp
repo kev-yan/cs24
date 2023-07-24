@@ -342,9 +342,11 @@ MyChunkyList::MyChunkyList(int chunksize){
 MyChunkyList::~MyChunkyList(){
     //delete headPtr;
     MyChunkyNode* temp = headPtr;
-    while(temp != nullptr){
+    MyChunkyNode* temp2;
+    while(temp->next() != nullptr){
+        temp2 = temp->next();
         delete temp;
-        MyChunkyNode* temp = temp->next();                      //FIX THIS
+        MyChunkyNode* temp = temp2;                      //FIX THIS
     }  
 }
 
@@ -496,13 +498,11 @@ int main(){
     test->insert(12, "a");
 
     //test->print();
-    test->remove(0);
-    test->remove(0);
-    test->remove(0);
-    test->remove(0);
+
     test->print();
 
- 
+    delete test;
+
 }
 
 */
