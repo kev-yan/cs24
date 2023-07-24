@@ -28,7 +28,7 @@ void MyChunkyNode::setItem(int index, std::string item){
                 temp[i] = arr[i];
             }
             temp[index] = item;
-            for(i=index;i<max;i++){
+            for(i=index;i<max-1;i++){
                 temp[i+1] = arr[i]; 
             }
             delete[] arr;
@@ -57,9 +57,8 @@ void MyChunkyNode::deleteItem(int index){
                // cout << "i: " << arr[i] << endl;
                 temp[i] = arr[i];
             }
-            for(i=index+1;i<max-1;i++){
-                //cout << "i: " << arr[i] << endl;
-                temp[i-1] = arr[i]; 
+            for(i=index;i<max-1;i++){
+                temp[i] = arr[i+1]; 
             }
             delete[] arr;
             arr = temp;
@@ -94,7 +93,7 @@ MyChunkyNode::MyChunkyNode(){
     nextPtr = nullptr;
 }
 MyChunkyNode::~MyChunkyNode(){
-    cout << "destructed " << endl;
+    //cout << "destructed " << endl;
     delete[] arr;
 }
 
@@ -122,28 +121,21 @@ void MyChunkyNode::setNext(MyChunkyNode* temp){
 /*
 int main(){
     MyChunkyNode* first = new MyChunkyNode();
-    MyChunkyNode* second = new MyChunkyNode();
 
-    first->setNext(second);
-    second->setNext(first);
 
-    first->newNode(3);
-    first->setMax(4);
+    first->newNode(5);
+    //first->setMax(5);
 
-    second->newNode(3);
-    second->setMax(4);
+    
 
     first->setItem(0, "A");
     first->setItem(1, "B");
-    first->setItem(2, "C");
+    first->setItem(3, "C");
+    //first->setItem(2, "ASF");
 
-
-    second->setItem(0, "D");
-    second->setItem(1, "E");
-    second->setItem(2, "F");
 
     first->print();
-    second->print();
 }
-*/
 
+
+*/
