@@ -453,7 +453,7 @@ void MyChunkyList::remove(int index){
                 merge(curr);
            }
            if(curr->isEmpty()){
-                cout << "entered" << endl;
+                //cout << "entered" << endl;
                 clearNode(curr);
            }
            num--;
