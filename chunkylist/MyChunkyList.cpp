@@ -505,6 +505,7 @@ int main(){
     test->remove(4);
     test->remove(4);
     test->remove(8);
+    test->print();
     test->remove(8);
 
     //test->print();

@@ -72,7 +72,6 @@ void MyChunkyNode::deleteItem(int index){
             for(i=index;i<max-1;i++){
                 temp[i] = arr[i+1]; 
             }
-            if()
             delete[] arr;
             arr = temp;
             num--;
