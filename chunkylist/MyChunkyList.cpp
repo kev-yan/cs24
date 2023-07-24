@@ -69,7 +69,6 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             for(int i=0; i<previous->count(); i++){
                 newNode->setItem(i, previous->getItem(i));
             }
-            cout << "here" << endl;
             for(int i=0; i<curr->count(); i++){
                 newNode->setItem(i+previous->count(), curr->getItem(i));
             }
@@ -82,7 +81,6 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             }
             delete curr;
             delete previous;
-            cout << "here";
             //return newNode;
             
         }
@@ -105,13 +103,16 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             for(int i=0; i<after->count(); i++){
                 newNode->setItem(i+curr->count(), after->getItem(i));
             }
+            cout << "here" << endl;
             newNode->setMax(max);
             if(headPtr == curr){
                 headPtr = newNode;
             }
             if(tailPtr == after){
+                cout << "triggered" << endl;
                 tailPtr = newNode;
             }
+            cout << "heasdasdre" << endl;
             delete curr;
             delete after;
             
@@ -308,29 +309,7 @@ int MyChunkyList::newIndex(int index){
         }
         */
     }
-    /*
-    while(hold){
-        if(curr != nullptr){
-            if((temp+curr->count()) >= index || curr == nullptr){
-                hold = false;
-            }
-            else{
-                temp = temp+curr->count();
-                
-                if(temp != index){
-                    curr = curr->next();
-                }
-                else{
-                    hold = false;
-                }
-                
-            }
-        }
-        else{
-            hold = false;
-        }
-        */
-    
+
     return index;
 }
 
@@ -475,7 +454,7 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-
+/*
 
 int main(){
     //std::cout << "test";
@@ -507,11 +486,13 @@ int main(){
     test->remove(8);
     test->print();
     test->remove(8);
+    cout << "maybe" << endl;
 
     //test->print();
 
-    test->print();
+    //test->print();
 
 
 }
 
+*/
