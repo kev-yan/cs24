@@ -341,7 +341,7 @@ void MyChunkyList::insert(int index, const std::string& item){
             //cout << "current curr: " << curr << endl;
             if(curr->count() == max){
                 if(headPtr == curr && index == 0){
-                    int newInd = newIndex(index);
+                    //int newInd = newIndex(index);
                     //cout << "entered" << endl;
                     MyChunkyNode* newNode = new MyChunkyNode();
                     newNode->setMax(max);
@@ -354,7 +354,7 @@ void MyChunkyList::insert(int index, const std::string& item){
                     headPtr = newNode;
                 }
                 else if(tailPtr == curr && index == maxNum){
-                    int newInd = newIndex(index);
+                    //int newInd = newIndex(index);
                     MyChunkyNode* newNode = new MyChunkyNode();
                     newNode->setMax(max);
                     newNode->setNext(curr->next());
@@ -432,7 +432,7 @@ int main(){
     //test->insert(2, "E");
     //test->print();
     cout << endl << endl << endl;
-    test->insert(4, "TEST");
+    test->insert(2, "TEST");
     test->print();
     //curr = test->head();
     //curr->print();
