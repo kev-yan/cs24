@@ -86,33 +86,33 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
         }
         else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
             //MyChunkyNode* toDelete = curr;
+            //curr->print();
             MyChunkyNode* after = curr->next();
             MyChunkyNode* newNode = new MyChunkyNode();
-            newNode->setNext(after->next());
-            newNode->setPrev(curr->prev());
-            newNode->newNode(max);
             if(curr->prev() != nullptr){
                 curr->prev()->setNext(newNode);
             }
             if(after->next() != nullptr){
                 after->next()->setPrev(newNode);
             }
+            newNode->setNext(after->next());
+            newNode->setPrev(curr->prev());
+            newNode->newNode(max);
             for(int i=0; i<curr->count(); i++){
                 newNode->setItem(i, curr->getItem(i));
             }
             for(int i=0; i<after->count(); i++){
                 newNode->setItem(i+curr->count(), after->getItem(i));
             }
-            cout << "here" << endl;
             newNode->setMax(max);
+            newNode->print();
             if(headPtr == curr){
                 headPtr = newNode;
             }
             if(tailPtr == after){
-                cout << "triggered" << endl;
+                //cout << "triggered" << endl;
                 tailPtr = newNode;
             }
-            cout << "heasdasdre" << endl;
             delete curr;
             delete after;
             
@@ -454,8 +454,8 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-/*
 
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
@@ -480,13 +480,16 @@ int main(){
     test->remove(4);
     test->remove(7);
     test->remove(7);
-    test->remove(4);
-    test->remove(4);
-    test->remove(4);
-    test->remove(8);
     test->print();
+    cout << "exited" << endl;
+    test->remove(4);
+    test->print();
+    test->remove(4);
+    test->remove(4);
     test->remove(8);
-    cout << "maybe" << endl;
+    test->remove(8);
+    cout << "reached" << endl;
+    //test->print();
 
     //test->print();
 
