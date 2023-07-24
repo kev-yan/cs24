@@ -378,6 +378,7 @@ void MyChunkyList::insert(int index, const std::string& item){
         
         else{
             MyChunkyNode* curr = findNode(index);
+            int newInd = newIndex(index);
             //cout << index << " " <<newInd << " " << curr << endl;
             //cout << maxNum << endl;
             //cout << "current curr: " << curr << endl;
@@ -395,7 +396,7 @@ void MyChunkyList::insert(int index, const std::string& item){
                     num++;
                     headPtr = newNode;
                 }
-                else if(tailPtr == curr && index == maxNum){
+                else if(tailPtr == curr && newInd == curr->count()){
                     //int newInd = newIndex(index);
                     MyChunkyNode* newNode = new MyChunkyNode();
                     newNode->setMax(max);
