@@ -359,7 +359,7 @@ int MyChunkyList::count() const{
 }
 
 void MyChunkyList::insert(int index, const std::string& item){
-    int maxNum = ((num-1)/max+1)*max;
+    //int maxNum = ((num-1)/max+1)*max;
     
     //cout << maxNum << endl;
     if(index < 0 || index > num){
