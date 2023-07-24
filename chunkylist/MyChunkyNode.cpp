@@ -48,7 +48,6 @@ void MyChunkyNode::setItem(int index, std::string item){
             arr[index] = item;
             num++;
         }
-       // cout << arr[index] << endl;
     }
     
 
@@ -56,7 +55,6 @@ void MyChunkyNode::setItem(int index, std::string item){
 
 void MyChunkyNode::deleteItem(int index){
     if(index < 0 || index >= max){
-        //cout << "broken" << endl;
     }
     else {
        if(arr[index] != ""){
@@ -66,7 +64,6 @@ void MyChunkyNode::deleteItem(int index){
                 temp[i] = "";
             }
             for(i=0;i<index;i++){
-               // cout << "i: " << arr[i] << endl;
                 temp[i] = arr[i];
             }
             for(i=index;i<max-1;i++){
@@ -76,9 +73,7 @@ void MyChunkyNode::deleteItem(int index){
             arr = temp;
             num--;
         }
-        else{
-            //cout << "something went wrong" << endl;
-        }
+
     }
 }
 
@@ -130,24 +125,3 @@ void MyChunkyNode::setNext(MyChunkyNode* temp){
     nextPtr = temp;
 }
 
-/*
-int main(){
-    MyChunkyNode* first = new MyChunkyNode();
-
-
-    first->newNode(5);
-    //first->setMax(5);
-
-    
-
-    first->setItem(0, "A");
-    first->setItem(1, "B");
-    first->setItem(3, "C");
-    //first->setItem(2, "ASF");
-
-
-    first->print();
-}
-
-
-*/
