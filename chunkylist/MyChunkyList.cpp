@@ -4,6 +4,7 @@
 using namespace std;
 
 void MyChunkyList::clearNode(MyChunkyNode* curr){
+   // cout << "entered" << endl;
     if(headPtr == tailPtr && headPtr == curr){
         headPtr = nullptr;
         tailPtr = nullptr;
@@ -21,7 +22,8 @@ void MyChunkyList::clearNode(MyChunkyNode* curr){
         tailPtr = curr->prev();
     }
     else{
-
+        curr->prev()->setNext(curr->next());
+        curr->next()->setPrev(curr->prev());
     }
     delete curr;
 
@@ -59,7 +61,7 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
     if(curr->count() <= max){
     //if(curr->count() <= (max/2)){
         //if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
-            if(curr->prev() != nullptr && (curr->count() + curr->prev()->count()) <= max){
+            if(curr->prev() != nullptr && (curr->count() + curr->prev()->count()) <= max/2){
             MyChunkyNode* previous = curr->prev();
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(curr->next());
@@ -89,7 +91,7 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             //return newNode;
             
         }
-        else if(curr->next() != nullptr && (curr->count() + curr->next()->count()) <= max){
+        else if(curr->next() != nullptr && (curr->count() + curr->next()->count()) <= max/2){
         //else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
             //MyChunkyNode* toDelete = curr;
             //curr->print();
@@ -111,7 +113,7 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
                 newNode->setItem(i+curr->count(), after->getItem(i));
             }
             newNode->setMax(max);
-            newNode->print();
+            //newNode->print();
             if(headPtr == curr){
                 headPtr = newNode;
             }
@@ -442,7 +444,7 @@ void MyChunkyList::remove(int index){
            if(curr->count() < max){
                 merge(curr);
            }
-           else if(curr->isEmpty()){
+           if(curr->isEmpty()){
                 //cout << "entered" << endl;
                 clearNode(curr);
            }
@@ -460,51 +462,21 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-
 /*
+
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
     //MyChunkyNode* curr;
     //delete test;
-    test->insert(0, "1");
-    test->insert(0, "1");
-    test->insert(0, "1");
-    test->insert(0, "1");
-    test->insert(4, "1");
-    test->insert(4, "1");
-    test->insert(4, "1");
-    test->insert(4, "1");
-    test->insert(8, "1");
-    test->insert(8, "1");
-    test->insert(8, "1");
-    test->insert(8, "1");
-    test->remove(4);
-    test->remove(4);
-    test->remove(4);
-    test->remove(5);
-    test->print();
-    
-    test->insert(0, "1");
-    test->insert(0, "2");
-    test->insert(0, "3");
-    test->insert(0, "4");
-    test->insert(4, "a");
-    test->insert(4, "a");
-    test->insert(4, "a");
-    test->insert(4, "a");
-    test->insert(8, "b");
-    test->insert(8, "b");
-    test->insert(8, "b");
-    test->insert(8, "b");
-    test->insert(12, "c");
-    test->insert(12, "c");
-    test->insert(12, "c");
-    test->insert(12, "c");
-    test->remove(4);
-    test->remove(7);
-    test->remove(7);
-    test->remove(4);
+    test->insert(0, "a");
+    test->insert(0, "b");
+    test->insert(0, "b");
+    test->insert(0, "b");
+    test->remove(0);
+    test->remove(0);
+    test->remove(0);
+    test->remove(0);
     test->print();
    
     //test->print();
