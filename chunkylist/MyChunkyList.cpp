@@ -20,6 +20,9 @@ void MyChunkyList::clearNode(MyChunkyNode* curr){
         }
         tailPtr = curr->prev();
     }
+    else{
+
+    }
     delete curr;
 
 }
@@ -436,7 +439,7 @@ void MyChunkyList::remove(int index){
            MyChunkyNode* curr = findNode(index);
            int newInd = newIndex(index);
            curr->deleteItem(newInd);
-           if(curr->count() <= max/2){
+           if(curr->count() < max){
                 merge(curr);
            }
            else if(curr->isEmpty()){
@@ -464,6 +467,24 @@ int main(){
     MyChunkyList* test = new MyChunkyList(4);
     //MyChunkyNode* curr;
     //delete test;
+    test->insert(0, "1");
+    test->insert(0, "1");
+    test->insert(0, "1");
+    test->insert(0, "1");
+    test->insert(4, "1");
+    test->insert(4, "1");
+    test->insert(4, "1");
+    test->insert(4, "1");
+    test->insert(8, "1");
+    test->insert(8, "1");
+    test->insert(8, "1");
+    test->insert(8, "1");
+    test->remove(4);
+    test->remove(4);
+    test->remove(4);
+    test->remove(5);
+    test->print();
+    
     test->insert(0, "1");
     test->insert(0, "2");
     test->insert(0, "3");
