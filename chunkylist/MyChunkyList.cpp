@@ -343,7 +343,7 @@ MyChunkyList::~MyChunkyList(){
     //delete headPtr;
     MyChunkyNode* temp = headPtr;
     MyChunkyNode* temp2;
-    while(temp->next() != nullptr){
+    while(temp != nullptr){
         temp2 = temp->next();
         delete temp;
         MyChunkyNode* temp = temp2;                      //FIX THIS
