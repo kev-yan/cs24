@@ -433,6 +433,18 @@ int main(){
     //test->print();
     cout << endl << endl << endl;
     test->insert(2, "TEST");
+    test->insert(2, "TEST");
+    test->insert(2, "TEST");
+    test->insert(2, "TEST");
+    test->insert(5, "TEST");
+    test->insert(5, "TEST");
+    test->insert(8, "HOLD ON");
+    test->insert(8, "TEST");
+    test->insert(5, "BREAK");
+    //test->insert(5, "TEST");
+    //test->insert(8, "TEST");
+    //test->insert(8, "TEST");
+
     test->print();
     //curr = test->head();
     //curr->print();
