@@ -53,8 +53,10 @@ void MyChunkyList::printBack(){
 }
 
 void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
-    if(curr->count() <= (max/2)){
-        if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
+    if(curr->count() <= max){
+    //if(curr->count() <= (max/2)){
+        //if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
+            if(curr->prev() != nullptr && (curr->count() + curr->prev()->count()) <= max){
             MyChunkyNode* previous = curr->prev();
             MyChunkyNode* newNode = new MyChunkyNode();
             newNode->setNext(curr->next());
@@ -84,7 +86,8 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             //return newNode;
             
         }
-        else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
+        else if(curr->next() != nullptr && (curr->count() + curr->next()->count()) <= max){
+        //else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
             //MyChunkyNode* toDelete = curr;
             //curr->print();
             MyChunkyNode* after = curr->next();
