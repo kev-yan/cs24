@@ -38,16 +38,22 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
             newNode->setNext(curr->next());
             newNode->setPrev(previous->prev());
             newNode->newNode(max);
+            if(previous->prev() != nullptr){
+                previous->prev()->setNext(newNode);
+            }
+            if(newNode->next() != nullptr){
+                newNode->next()->setPrev(newNode);
+            }
             for(int i=0; i<previous->count(); i++){
-                newNode->setItem(i, newNode->getItem(i));
+                newNode->setItem(i, previous->getItem(i));
             }
 
             for(int i=0; i<curr->count(); i++){
-                newNode->setItem(i+previous->count(), curr->getItem(i+previous->count()));
+                newNode->setItem(i+previous->count(), curr->getItem(i));
             }
             newNode->setMax(max);
             delete curr;
-            delete curr->prev();
+            delete previous;
             if(headPtr == previous){
                 headPtr = newNode;
             }
@@ -64,6 +70,12 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
             newNode->setNext(after->next());
             newNode->setPrev(curr->prev());
             newNode->newNode(max);
+            if(curr->prev() != nullptr){
+                curr->prev()->setNext(newNode);
+            }
+            if(after->next() != nullptr){
+                after->next()->setPrev(newNode);
+            }
             for(int i=0; i<curr->count(); i++){
                 newNode->setItem(i, curr->getItem(i));
             }
@@ -154,7 +166,6 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
             for(int i=(max/2+1); i<max; i++){
                 node->deleteItem(max/2+1);
             }
-            node->print();
             newNode->setItem(index-node->count(), item);
         }
     }
@@ -383,6 +394,7 @@ void MyChunkyList::insert(int index, const std::string& item){
                 else{
                     int newInd = newIndex(index);
                     split2(curr, newInd, item);
+                    num++;
                 }
             }   
             else{
@@ -450,23 +462,34 @@ int main(){
     test->insert(0, "3");
     test->insert(0, "4");
     //test->print();
-    cout << "entered" << endl;
     test->insert(4, "test");
-    test->print();
+    test->insert(4, "test");
+    test->insert(4, "test");
+    test->insert(4, "test");
+    test->insert(8, "a");
+    test->insert(8, "tet");
+    test->insert(8, "st");
+    test->insert(8, "tt");
+
+    test->remove(5);
+    test->remove(5);
+    test->remove(0);
+test->print();
+    test->remove(0);
+test->print();
+    //test->remove(4);
+
+
+
+
+
     
-    test->insert(4, "e");
-    test->insert(4, "f");
-    test->insert(4, "g");
-    test->insert(4, "h");
-    test->insert(8, "i");
-    
-    
+    //test->print();
 
     //test->print();
    // test->print();
 
     
-   
 
     cout << endl << endl << endl;
     test->insert(2, "TESTa");
@@ -488,4 +511,5 @@ int main(){
     
  
 }
+
 */
