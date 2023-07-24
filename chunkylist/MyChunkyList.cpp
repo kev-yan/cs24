@@ -441,7 +441,7 @@ std::string& MyChunkyList::lookup(int index){
 }
 
 void MyChunkyList::remove(int index){
-    if(index < 0 || index > num){
+    if(index < 0 || index >= num){
         throw std::out_of_range("index not found");
     }
     else{
