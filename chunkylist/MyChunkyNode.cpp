@@ -62,6 +62,9 @@ void MyChunkyNode::deleteItem(int index){
        if(arr[index] != ""){
             int i;
             std::string* temp = new std::string[max];
+            for(int i=0; i<max; i++){
+                temp[i] = "";
+            }
             for(i=0;i<index;i++){
                // cout << "i: " << arr[i] << endl;
                 temp[i] = arr[i];
@@ -69,6 +72,7 @@ void MyChunkyNode::deleteItem(int index){
             for(i=index;i<max-1;i++){
                 temp[i] = arr[i+1]; 
             }
+            if()
             delete[] arr;
             arr = temp;
             num--;

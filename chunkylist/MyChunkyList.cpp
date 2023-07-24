@@ -69,19 +69,20 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
             for(int i=0; i<previous->count(); i++){
                 newNode->setItem(i, previous->getItem(i));
             }
-
+            cout << "here" << endl;
             for(int i=0; i<curr->count(); i++){
                 newNode->setItem(i+previous->count(), curr->getItem(i));
             }
             newNode->setMax(max);
-            delete curr;
-            delete previous;
             if(headPtr == previous){
                 headPtr = newNode;
             }
             if(tailPtr == curr){
-                tailPtr = curr;
+                tailPtr = newNode;
             }
+            delete curr;
+            delete previous;
+            cout << "here";
             //return newNode;
             
         }
@@ -105,14 +106,15 @@ void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* 
                 newNode->setItem(i+curr->count(), after->getItem(i));
             }
             newNode->setMax(max);
-            delete curr;
-            delete after;
             if(headPtr == curr){
                 headPtr = newNode;
             }
             if(tailPtr == after){
                 tailPtr = newNode;
             }
+            delete curr;
+            delete after;
+            
             //return newNode;
         }
     }
@@ -474,7 +476,7 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-/*
+
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
@@ -488,21 +490,27 @@ int main(){
     test->insert(4, "a");
     test->insert(4, "a");
     test->insert(4, "a");
-    test->insert(8, "a");
-    test->insert(8, "a");
-    test->insert(8, "a");
-    test->insert(8, "a");
-    test->insert(12, "a");
-    test->insert(12, "a");
-    test->insert(12, "a");
-    test->insert(12, "a");
+    test->insert(8, "b");
+    test->insert(8, "b");
+    test->insert(8, "b");
+    test->insert(8, "b");
+    test->insert(12, "c");
+    test->insert(12, "c");
+    test->insert(12, "c");
+    test->insert(12, "c");
+    test->remove(4);
+    test->remove(7);
+    test->remove(7);
+    test->remove(4);
+    test->remove(4);
+    test->remove(4);
+    test->remove(8);
+    test->remove(8);
 
     //test->print();
 
     test->print();
 
-    delete test;
 
 }
 
-*/
