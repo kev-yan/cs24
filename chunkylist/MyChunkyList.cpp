@@ -441,13 +441,14 @@ void MyChunkyList::remove(int index){
            MyChunkyNode* curr = findNode(index);
            int newInd = newIndex(index);
            curr->deleteItem(newInd);
-           if(curr->count() < max){
-                merge(curr);
-           }
-           if(curr->isEmpty()){
+            if(curr->isEmpty()){
                 //cout << "entered" << endl;
                 clearNode(curr);
            }
+           else if(curr->count() < max){
+                merge(curr);
+           }
+
            num--;
 
         }
@@ -462,8 +463,8 @@ MyChunkyNode* MyChunkyList::tail() const{
     return tailPtr;
 }
 
-/*
 
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
@@ -473,10 +474,25 @@ int main(){
     test->insert(0, "b");
     test->insert(0, "b");
     test->insert(0, "b");
-    test->remove(0);
-    test->remove(0);
-    test->remove(0);
-    test->remove(0);
+    test->insert(4, "asd");
+    test->insert(4, "asd");
+    test->insert(4, "asd");
+    test->insert(4, "asd");
+    test->insert(8, "anewsd");
+    test->insert(8, "anewsd");
+    test->insert(8, "anewsd");
+    test->insert(8, "anewsd");
+    test->remove(5);
+    test->remove(8);
+    test->remove(8);
+    test->remove(8);
+    test->remove(5);
+    test->remove(5);
+    cout << "here" << endl;
+
+
+
+
     test->print();
    
     //test->print();
@@ -487,5 +503,4 @@ int main(){
 
 
 }
-
 */
