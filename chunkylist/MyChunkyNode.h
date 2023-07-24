@@ -31,7 +31,7 @@ public:
   void print();
   void setItem(int index, std::string item);
   void setMax(int size);
-  std::string getItem(int index);
+  std::string getItem (int index);
   void deleteItem(int index);
   void printMax();
   //void merge();

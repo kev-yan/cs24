@@ -151,7 +151,7 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
             for(int i=max/2; i<max; i++){
                 cout << "here " << endl;
                 newNode->setItem(i-max/2, node->getItem(i));
-                //newNode->print();
+                cout << newNode;
 
             }
             for(int i=max/2; i<max; i++){
