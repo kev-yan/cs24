@@ -33,9 +33,10 @@ public:
   MyChunkyNode* head() const;
   MyChunkyNode* tail() const;
 
-  MyChunkyNode* merge(MyChunkyNode* curr);
+  void merge(MyChunkyNode* curr);
   void print();
   void printBack();
+  void clearNode(MyChunkyNode*);
   //void split(MyChunkyNode* temp);
 
   // TODO: Add any other member functions you need.

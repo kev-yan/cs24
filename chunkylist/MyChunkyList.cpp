@@ -3,6 +3,27 @@
 #include <iostream>
 using namespace std;
 
+void MyChunkyList::clearNode(MyChunkyNode* curr){
+    if(headPtr == tailPtr && headPtr == curr){
+        headPtr = nullptr;
+        tailPtr = nullptr;
+    }
+    else if(headPtr == curr){
+        headPtr = curr->next();
+        if(curr->next() != nullptr){
+            curr->next()->setPrev(nullptr);
+        }
+    }
+    else if(tailPtr == curr){
+        if(tailPtr->prev() != nullptr){
+            tailPtr->prev()->setNext(nullptr);
+        }
+        tailPtr = curr->prev();
+    }
+    delete curr;
+
+}
+
 void MyChunkyList::print(){
     MyChunkyNode* temp = headPtr;
     cout << "listNum: " << num << endl;
@@ -30,7 +51,8 @@ void MyChunkyList::printBack(){
     }    
 
 }
-MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
+
+void MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChunkyNode* or be in the MyChunkyList
     if(curr->count() <= (max/2)){
         if(curr->prev() != nullptr && (curr->prev())->count() <= max/2){
             MyChunkyNode* previous = curr->prev();
@@ -60,7 +82,7 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
             if(tailPtr == curr){
                 tailPtr = curr;
             }
-            return newNode;
+            //return newNode;
             
         }
         else if(curr->next() != nullptr && (curr->next())->count() <= max/2){
@@ -91,14 +113,8 @@ MyChunkyNode* MyChunkyList::merge(MyChunkyNode* curr){ // might have to be MyChu
             if(tailPtr == after){
                 tailPtr = newNode;
             }
-            return newNode;
+            //return newNode;
         }
-        else{
-            return curr;
-        }
-    }
-    else{
-        return curr;
     }
 }
 
@@ -436,6 +452,10 @@ void MyChunkyList::remove(int index){
            if(curr->count() <= max/2){
                 merge(curr);
            }
+           if(curr->isEmpty()){
+                cout << "entered" << endl;
+                clearNode(curr);
+           }
            num--;
 
         }
@@ -461,54 +481,18 @@ int main(){
     test->insert(0, "2");
     test->insert(0, "3");
     test->insert(0, "4");
-    //test->print();
-    test->insert(4, "test");
-    test->insert(4, "test");
-    test->insert(4, "test");
-    test->insert(4, "test");
-    test->insert(8, "a");
-    test->insert(8, "tet");
-    test->insert(8, "st");
-    test->insert(8, "tt");
+    test->insert(4, "a");
+    test->insert(4, "a");
+    test->insert(4, "a");
+    test->insert(4, "a");
 
-    test->remove(5);
-    test->remove(5);
+    //test->print();
     test->remove(0);
-test->print();
     test->remove(0);
-test->print();
-    //test->remove(4);
-
-
-
-
-
-    
-    //test->print();
-
-    //test->print();
-   // test->print();
-
-    
-
-    cout << endl << endl << endl;
-    test->insert(2, "TESTa");
-    test->insert(2, "TESTb");
-    test->insert(2, "TESTc");
-    test->insert(2, "TESTd");
-    test->insert(5, "TESTe");
-    //test->print();
-    test->insert(5, "TESTf");
-    test->insert(8, "HOLD ON");
-    test->insert(8, "TESTg");
-    test->insert(5, "BREAK");
-    //test->printBack();
+    test->remove(0);
+    test->remove(0);
     test->print();
-    //cout << test->lookup(9);
-    //test->remove(9);
-    cout << endl << endl << endl;
-    //test->print();
-    
+
  
 }
 
