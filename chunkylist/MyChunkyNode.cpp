@@ -57,7 +57,7 @@ void MyChunkyNode::deleteItem(int index){
                // cout << "i: " << arr[i] << endl;
                 temp[i] = arr[i];
             }
-            for(i=index+1;i<max;i++){
+            for(i=index+1;i<max-1;i++){
                 //cout << "i: " << arr[i] << endl;
                 temp[i-1] = arr[i]; 
             }

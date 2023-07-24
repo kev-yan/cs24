@@ -156,14 +156,19 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
             }
             for(int i=max/2; i<max; i++){
                 node->deleteItem(max/2);
+                
                 newNode->print();
             }
-            //cout << "left" << endl;
-            cout << newNode << "HEREHERHERHE" << endl;
+            //cout << "left" << endl;$
+            newNode->print(); 
+            cout << "before setItem" << endl;
             node->setItem(index, item);
+            newNode->print();
             node->print();
+            cout << newNode << "please" << endl;
             cout << "inbetween " << endl;
             newNode->print();
+            cout << newNode << " omg" << endl;
         }
         else{
             for(int i=max/2+1; i<max; i++){
@@ -190,6 +195,7 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
     cout << node->next()  << endl;
     cout << node->prev() << endl;
     cout << "here" << endl;
+    cout << newNode << endl;
     cout << newNode->count() << endl;
     cout << "new" << endl;
     cout << newNode->prev() << endl;
