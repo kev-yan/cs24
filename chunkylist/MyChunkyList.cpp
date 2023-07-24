@@ -434,11 +434,11 @@ MyChunkyNode* MyChunkyList::tail() const{
 }
 
 
-
+/*
 int main(){
     //std::cout << "test";
     MyChunkyList* test = new MyChunkyList(4);
-    MyChunkyNode* curr;
+    //MyChunkyNode* curr;
     //delete test;
     test->insert(0, "A");
     test->insert(0, "b");
@@ -451,7 +451,7 @@ int main(){
     test->insert(8, "i");
     test->print();
 
-    /*
+    
     test->insert(0, "A");
     test->insert(1, "B");
     test->insert(2, "C");
@@ -474,7 +474,8 @@ int main(){
     //test->remove(9);
     cout << endl << endl << endl;
     //test->print();
-    */
+    
  
 }
 
+*/
