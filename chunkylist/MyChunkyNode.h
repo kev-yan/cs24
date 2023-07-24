@@ -34,6 +34,7 @@ public:
   std::string getItem (int index);
   void deleteItem(int index);
   void printMax();
+  bool isEmpty();
   //void merge();
   // TODO: Add any other member functions you need.
 };

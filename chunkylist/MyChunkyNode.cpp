@@ -7,6 +7,15 @@ using namespace std;
 
 // TODO: Member Function Implementation
 
+bool MyChunkyNode::isEmpty(){
+    for(int i=0; i<max; i++){
+        if(arr[i] != ""){
+            return false;
+        }
+    }
+    return true;
+}
+
 void MyChunkyNode::printMax(){
     cout << "Max: " << max;
 }

@@ -6,6 +6,8 @@ using namespace std;
 void MyChunkyList::print(){
     MyChunkyNode* temp = headPtr;
     cout << "listNum: " << num << endl;
+    cout << "head address: " << headPtr << endl;
+    cout << "tail address: " << tailPtr << endl;
     int i = 0;
     while(temp != nullptr){
         cout << "---------------NODE " << i << "---------------" << endl;
@@ -141,7 +143,7 @@ void MyChunkyList::split2(MyChunkyNode* node, int index, std::string item){
                 newNode->setItem(i-(max/2), node->getItem(i));
             }
             for(int i=max/2; i<max; i++){
-                node->deleteItem(max/2-1);
+                node->deleteItem(max/2);
             }
             node->setItem(index, item);
         }
@@ -416,9 +418,12 @@ void MyChunkyList::remove(int index){
             throw std::out_of_range("index not found");
         }
         else{
-           MyChunkyNode* curr = new MyChunkyNode();
+           MyChunkyNode* curr = findNode(index);
            int newInd = newIndex(index);
            curr->deleteItem(newInd);
+           if(curr->count() <= max/2){
+                merge(curr);
+           }
            num--;
 
         }
@@ -440,22 +445,28 @@ int main(){
     MyChunkyList* test = new MyChunkyList(4);
     //MyChunkyNode* curr;
     //delete test;
-    test->insert(0, "A");
-    test->insert(0, "b");
-    test->insert(0, "c");
-    test->insert(0, "d");
+    test->insert(0, "1");
+    test->insert(0, "2");
+    test->insert(0, "3");
+    test->insert(0, "4");
+    //test->print();
+    cout << "entered" << endl;
+    test->insert(4, "test");
+    test->print();
+    
     test->insert(4, "e");
     test->insert(4, "f");
     test->insert(4, "g");
     test->insert(4, "h");
     test->insert(8, "i");
-    test->print();
+    
+    
+
+    //test->print();
+   // test->print();
 
     
-    test->insert(0, "A");
-    test->insert(1, "B");
-    test->insert(2, "C");
-    test->insert(3, "D");
+   
 
     cout << endl << endl << endl;
     test->insert(2, "TESTa");
@@ -468,7 +479,7 @@ int main(){
     test->insert(8, "HOLD ON");
     test->insert(8, "TESTg");
     test->insert(5, "BREAK");
-    test->printBack();
+    //test->printBack();
     test->print();
     //cout << test->lookup(9);
     //test->remove(9);
@@ -477,5 +488,4 @@ int main(){
     
  
 }
-
 */
