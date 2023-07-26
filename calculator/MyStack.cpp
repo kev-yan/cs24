@@ -31,6 +31,7 @@ MyStack::~MyStack(){
     delete list;
 }
 
+
 void MyStack::clear(){                              //IF LEAKED MEMORY ITS HERE WITH TAIL NOT BEING DELETED
     Node* temp;
     while(list->head != nullptr){
