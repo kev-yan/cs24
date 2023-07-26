@@ -4,6 +4,7 @@ using namespace std;
 
 // TODO: Implement MyStack member functions here.
 
+
 void MyStack::print(){
     Node* temp = list->head;
     int i =0;
