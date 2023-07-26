@@ -39,8 +39,8 @@ void MyStack::clear(){                              //IF LEAKED MEMORY ITS HERE 
         list->head = temp->next;
         delete temp;
     }
+    list->tail = nullptr;
 }
-
 
 bool MyStack::is_empty() const{
     if(list->head == nullptr){
