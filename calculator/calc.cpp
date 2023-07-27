@@ -49,14 +49,12 @@ bool isConvertable(string input){
       for(int i=0; i<(int)input.size(); i++){
         if(i > 0){
           if(!isdigit(input[i])){
-            if(input[i] != '.' || !seen){
+            if(input[i] != '.' || seen){
               return false;
             }
             else{
               seen = true;
             }
-          }
-          else{
           }
         }
         else{
