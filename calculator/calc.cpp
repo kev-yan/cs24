@@ -46,8 +46,9 @@ bool isConvertable(string input){
       //double temp = stod(input);
       //string test = to_string(temp);
       for(int i=0; i<(int)input.size(); i++){
-        cout << input[i] << endl;
-        if(!isdigit(input[i]) || input[i] != '.'){
+        if(isdigit(input[i]) || input[i] == '.' || input[i] == '-'){
+        }
+        else{
           return false;
         }
       }
