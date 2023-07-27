@@ -124,6 +124,6 @@ int main(){
     //cout << endl << endl << endl << endl;
     //temp->clear();
   }
-
+  delete temp;
 
 }
