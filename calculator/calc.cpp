@@ -45,11 +45,26 @@ bool isConvertable(string input){
   try{
       //double temp = stod(input);
       //string test = to_string(temp);
+      bool seen = false;
       for(int i=0; i<(int)input.size(); i++){
-        if(isdigit(input[i]) || input[i] == '.' || input[i] == '-'){
+        if(i > 0){
+          if(!isdigit(input[i])){
+            if(input[i] != '.' || !seen){
+              return false;
+            }
+            else{
+              seen = true;
+            }
+          }
+          else{
+            return false;
+          }
         }
         else{
-          return false;
+          cout << "etnerd " << (input[0] != '-') << endl;
+          if(!isdigit(input[0]) && (input[0] != '-') && (input[0] != '+')){
+            return false;
+          }
         }
       }
       return true;
