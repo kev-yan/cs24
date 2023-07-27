@@ -43,16 +43,14 @@ double doOperation(string input, double first, double second){
 
 bool isConvertable(string input){
   try{
-      double temp = stod(input);
-      string test = to_string(temp);
+      //double temp = stod(input);
+      //string test = to_string(temp);
       for(int i=0; i<(int)input.size(); i++){
-        if(!isdigit(input[i])){
-          if(input[i] != '.'){
-            return false;
-          }
+        cout << input[i] << endl;
+        if(!isdigit(input[i]) || input[i] != '.'){
+          return false;
         }
       }
-      
       return true;
   }
   catch(...){
