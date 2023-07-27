@@ -34,7 +34,6 @@ double doOperation(string input, double first, double second){
     return pow(first, second);
   }
   else if(input == "~"){
-    //cout << "ere " << endl;
     return (first * -1.0);
   }
   else {
@@ -81,7 +80,6 @@ void doMath(MyStack* list, string input, bool &broke){
 }
 
 // TODO: Calculator helper fuctions, if necessary.
-//int main(){
 int main(){
   MyStack* temp = new MyStack();
   string input;
@@ -99,18 +97,17 @@ int main(){
         if(isOperator(output)){
           doMath(temp, output, broke);
         }
-        else{
-          if(isConvertable(output)){
-            num = stod(output);
-            temp->push(num);
-            count++;
+        else if(isConvertable(output)){
+          num = stod(output);
+          temp->push(num);
+          count++;
           }
-          else{
-            broke = true;
-            cout << "Unknown token." << endl;
+        else{
+          broke = true;
+          cout << "Unknown token." << endl;
           }
         }
-      }
+      
     }
     if(!broke && exists){
       double result = temp->pop();
@@ -125,10 +122,6 @@ int main(){
       cout << "No expression." << endl;
     }
 
-    //cout << count << endl << endl << endl;
-    //temp->print();
-    //cout << endl << endl << endl << endl;
-    //temp->clear();
   }
   delete temp;
 
