@@ -61,8 +61,8 @@ bool isConvertable(string input){
           }
         }
         else{
-          cout << "etnerd " << (input[0] != '-') << endl;
-          if(!isdigit(input[0]) && (input[0] != '-') && (input[0] != '+')){
+          //cout << "etnerd " << (input[0] == '-') << endl;
+          if(!(isdigit(input[0]) || (input[0] == '-') || (input[0] != '+'))){
             return false;
           }
         }
