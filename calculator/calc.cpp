@@ -124,9 +124,7 @@ int main(){
     else if(!exists){
       cout << "No expression." << endl;
     }
-    else if(broke){
-      cout << "Too many operands." << endl;
-    }
+
     //cout << count << endl << endl << endl;
     //temp->print();
     //cout << endl << endl << endl << endl;
