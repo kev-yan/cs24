@@ -134,14 +134,13 @@ int main(){
         cout << "= " << result << endl;
         }
       else{
-        temp->clear();
         cout << "Too many operands." << endl;
       }
     }
     else if(!exists){
       cout << "No expression." << endl;
     }
-
+    temp->clear();
   }
   delete temp;
 
