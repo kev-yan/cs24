@@ -43,8 +43,12 @@ double doOperation(string input, double first, double second){
 
 bool isConvertable(string input){
   try{
-      stod(input);
-      return true;
+      double temp = stod(input);
+      string test = to_string(temp);
+      if(test == input){
+        return true;
+      }
+      return false;
   }
   catch(...){
     return false;
