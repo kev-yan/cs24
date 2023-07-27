@@ -89,10 +89,12 @@ int main(){
   int count = 0;
   double num;
   while(getline(cin, input)){
+    bool exists = false;
     stringstream ss;
     bool broke = false;
     ss << input;
     while(ss >> output){
+      exists = true;
       if(!broke){
         if(isOperator(output)){
           doMath(temp, output, broke);
@@ -110,14 +112,17 @@ int main(){
         }
       }
     }
-    if(!broke){
-    double result = temp->pop();
+    if(!broke && exists){
+      double result = temp->pop();
       if(temp->is_empty()){
         cout << "= " << result << endl;
         }
       else{
         cout << "Too many operands." << endl;
       }
+    }
+    else if(!exists){
+      cout << "No expression." << endl;
     }
     //cout << count << endl << endl << endl;
     //temp->print();
