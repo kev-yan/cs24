@@ -134,6 +134,7 @@ int main(){
         cout << "= " << result << endl;
         }
       else{
+        temp->clear();
         cout << "Too many operands." << endl;
       }
     }
