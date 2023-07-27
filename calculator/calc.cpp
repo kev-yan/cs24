@@ -43,7 +43,7 @@ double doOperation(string input, double first, double second){
 
 bool isConvertable(string input){
   try{
-      //double temp = stod(input);
+      stod(input);
       //string test = to_string(temp);
       bool seen = false;
       for(int i=0; i<(int)input.size(); i++){
@@ -57,12 +57,10 @@ bool isConvertable(string input){
             }
           }
           else{
-            return false;
           }
         }
         else{
-          //cout << "etnerd " << (input[0] == '-') << endl;
-          if(!(isdigit(input[0]) || (input[0] == '-') || (input[0] != '+'))){
+          if(!(isdigit(input[0]) || (input[0] == '-') || (input[0] == '+'))){
             return false;
           }
         }
