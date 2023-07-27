@@ -1,5 +1,7 @@
 #include "MyStack.h"
 #include <iostream>
+#include <fstream>
+using namespace std;
 
 // Use this file to test your MyStack class!
 // This file won't be graded - do whatever you want.

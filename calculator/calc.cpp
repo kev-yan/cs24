@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <sstream>
+#include <fstream>
 using namespace std;
 
 bool isOperator(string input){
@@ -82,47 +83,47 @@ void doMath(MyStack* list, string input, bool &broke){
 // TODO: Calculator helper fuctions, if necessary.
 //int main(){
 int main(){
-  //cout << doOperation("~", 2.0, 5.0) << endl << endl;
-  
   MyStack* temp = new MyStack();
   string input;
   string output;
   int count = 0;
   double num;
-  
-  while(true){
-    bool broke = false;
+  while(getline(cin, input)){
     stringstream ss;
-    getline(cin, input);
+    bool broke = false;
     ss << input;
     while(ss >> output){
-      if(isOperator(output)){
-        doMath(temp, output, broke);
-        if(broke){
-          cout << "something broke" << endl;
+      if(!broke){
+        if(isOperator(output)){
+          doMath(temp, output, broke);
         }
         else{
-         cout << "result: " << temp->top() << endl;
+          if(isConvertable(output)){
+            num = stod(output);
+            temp->push(num);
+            count++;
+          }
+          else{
+            broke = true;
+            cout << "Unknown token." << endl;
+          }
         }
-        break;
       }
+    }
+    if(!broke){
+    double result = temp->pop();
+      if(temp->is_empty()){
+        cout << "result: " << result << endl;
+        }
       else{
-        if(isConvertable(output)){
-          num = stod(output);
-          temp->push(num);
-          count++;
-        }
-        else{
-          cout << "Unknown token." << endl;
-        }
+        cout << "Too many operands." << endl;
       }
-  
     }
     //cout << count << endl << endl << endl;
     //temp->print();
     //cout << endl << endl << endl << endl;
     //temp->clear();
   }
-  
+
 
 }
