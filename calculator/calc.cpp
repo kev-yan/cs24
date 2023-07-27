@@ -44,7 +44,6 @@ double doOperation(string input, double first, double second){
 bool isConvertable(string input){
   try{
       stod(input);
-      //string test = to_string(temp);
       bool seen = false;
       for(int i=0; i<(int)input.size(); i++){
         if(i > 0){
