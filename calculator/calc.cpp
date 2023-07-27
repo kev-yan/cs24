@@ -45,10 +45,15 @@ bool isConvertable(string input){
   try{
       double temp = stod(input);
       string test = to_string(temp);
-      if(test == input){
-        return true;
+      for(int i=0; i<(int)input.size(); i++){
+        if(!isdigit(input[i])){
+          if(input[i] != '.'){
+            return false;
+          }
+        }
       }
-      return false;
+      
+      return true;
   }
   catch(...){
     return false;
