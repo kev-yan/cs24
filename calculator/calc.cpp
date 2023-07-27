@@ -113,7 +113,7 @@ int main(){
     if(!broke){
     double result = temp->pop();
       if(temp->is_empty()){
-        cout << "result: " << result << endl;
+        cout << "= " << result << endl;
         }
       else{
         cout << "Too many operands." << endl;
