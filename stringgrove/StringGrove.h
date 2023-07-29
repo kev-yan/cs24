@@ -4,10 +4,11 @@
 // This file describes the STRINGGROVE interface you need to implement.
 // Don't edit this!  Your code goes in the other files.
 
+template <class T>
 class StringGrove {
 public:
   // Create and return a new string.
-  static StringGrove* create();
+  static StringGrove* create(const char* s);
 
 public:
   // These functions are "pure virtual" functions.
@@ -15,11 +16,11 @@ public:
   // subclass (MyGrove) is required to implement them.
 
   // How long is the string?
-  virtual int len() = 0;
+  virtual int len() const = 0;
 
   // Concatenate s onto the end of this string and return the new string.
   // This should take O(1) time.
-  virtual StringGrove* concat(StringGrove* s) const = 0;
+  virtual StringGrove* concat(T* s) const = 0;
 
   // Return the character at position i.
   // This can take O(h) time, where h is the number of concatenations.

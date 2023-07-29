@@ -3,7 +3,7 @@
 
 #include "StringGrove.h"
 
-class MyGrove: public StringGrove {
+class MyGrove: public StringGrove<MyGrove> {
   // TODO: Member Variables
 public:
   // TODO: Constructor
