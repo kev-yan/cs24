@@ -11,7 +11,7 @@ int MyGrove::len() const{
 }
 
 StringGrove* MyGrove::concat(StringGrove* other) const{
-    return other;
+    return nullptr;
 }
 
 char MyGrove::charAt(int index) const{
