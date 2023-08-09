@@ -1,6 +1,6 @@
 struct Node{
     int length;
-    char* word;
+    const char* word;
     Node* parent;
     Node* left;
     Node* right;

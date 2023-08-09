@@ -7,7 +7,8 @@ using namespace std;
 // This file won't be graded - do whatever you want.
 
 int main() {
-  MyGrove* test = new MyGrove();
+  char testing[] = "testing";
+  MyGrove* test = new MyGrove(testing);
 
   // TODO: Replace this with something useful!
 

@@ -10,6 +10,8 @@ class MyGrove: public StringGrove<MyGrove> {
   Node* root;
 // create node class - w/ member variables left, right, maybe parent, length
 // create root node of tree class
+  void setWord(char* str);
+  Node* giveRoot();
 public:
   MyGrove(const char* str);
 
