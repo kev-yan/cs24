@@ -12,6 +12,11 @@ class MyGrove: public StringGrove<MyGrove> {
 // create root node of tree class
   void setWord(char* str);
   Node* giveRoot();
+  void setLength(int size);
+  void setRoot(Node* other);
+  bool isWord(Node* curr) const;
+  Node* getNode(Node* curr, int index) const;
+  int getIndex(Node* curr, int index) const;
 public:
   MyGrove(const char* str);
 
@@ -21,6 +26,8 @@ public:
   const MyGrove*    concat(MyGrove* other) const;
   char 	  charAt(int index) const;
   const MyGrove*    substr(int start, int end) const;
+  void printWord() const;
+  Node* getRoot() const;
 
   // TODO: Add helper functions if necessary.
 };
