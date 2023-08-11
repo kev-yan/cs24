@@ -3,6 +3,10 @@
 
 using namespace std;
 
+void Heap::percUp(Entry* item){
+    cout << item->value << endl;
+}
+
 Heap::Heap(size_t capacity){
     mCapacity = capacity;
     mCount = 0;
@@ -12,6 +16,7 @@ Heap::Heap(size_t capacity){
 Heap::Heap(const Heap& other){
     
     //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
+    
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){
         Entry* temp = new Entry();
@@ -27,6 +32,7 @@ Heap::Heap(const Heap& other){
 }
 
 Heap::Heap(Heap&& other){
+    /*
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){
         Entry* temp = new Entry();
@@ -37,6 +43,9 @@ Heap::Heap(Heap&& other){
         mData[i] = *temp;
     }
     //mData = other.lookup(0);                              //same thing as above
+    */
+    mData = other.mData;
+    other.mData = nullptr;
     mCount = other.count();
     mCapacity = other.capacity();
 }
@@ -53,7 +62,6 @@ size_t Heap::count() const{
 }
 
 const Heap::Entry& Heap::lookup(size_t index) const{
-
     if(index < mCount){
         return mData[index];
     }
@@ -73,36 +81,37 @@ Heap::Entry Heap::pop(){
 }
 
 Heap::Entry Heap::pushpop(const std::string& value, float score){
-    
     if(mCount == 0){
         throw std::underflow_error("underflow error");
     }
     else{
-        cout << value << " " << score << endl;
-        Entry temp;
-        return temp;
+        Entry *temp = new Entry();
+        temp->value = value;
+        temp->score = score;
+        //mData[mCount-1] = temp;
+        return *temp;
     }
-    
 }
 
-void Heap::push(const std::string& value, float score){
-    
+void Heap::push(const std::string& value, float score){    
     if(mCount == mCapacity){
         throw std::overflow_error("overflow error");
     }
     else{
-        cout << value << " " << score << endl;
+        Entry *temp = new Entry();
+        temp->value = value;
+        temp->score = score;
+        //mData[mCount] = temp;
+        mCount++;
     }
-    
 }
 
 const Heap::Entry& Heap::top() const{
-    
     if(mCount > 0){
-        return mData[mCount-1];
+        return mData[0];
     }
     else{
         throw std::underflow_error("underflow error");
     }
-    
 }
+

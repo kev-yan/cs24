@@ -21,6 +21,7 @@ private:
     size_t mCapacity;
     size_t mCount;
 
+    void percUp(Entry* item);
 public:
     Heap(size_t capacity);
     Heap(const Heap& other);
