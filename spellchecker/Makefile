@@ -23,8 +23,4 @@ Point.o: Point.cpp Point.h
 	${CXX} $(CXXFLAGS) -c -o $@ $<
 
 clean:
-<<<<<<< HEAD
 	rm -f main main.o Point.o Heap.o WordList.o
-=======
-	rm -f main main.o Point.o Heap.o WordList.o
->>>>>>> edeae5972aca669fccdad7fda81f29dc4c15aac4
