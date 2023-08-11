@@ -36,4 +36,4 @@ public:
     const Entry& top() const;
 };
 
- #endif
+#endif
