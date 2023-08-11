@@ -47,7 +47,7 @@ Heap::Heap(Heap&& other){
     */
     mData = other.mData;
     other.mData = nullptr;
-    //mCount = other.count();
+    mCount = other.count();
     //mCapacity = other.capacity();
 }
 Heap::~Heap(){
