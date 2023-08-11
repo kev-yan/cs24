@@ -5,6 +5,8 @@
 #include <iostream>
 #include <sstream>
 
+using namespace std;
+
 // This file provides an interactive loop.
 // It's much easier to use in conjunction with helper.py.
 // See the hints section in the readme for details.
@@ -28,8 +30,21 @@ std::vector<Point> read_points(const std::string& line) {
 
     return results;
 }
-
+//int main(){
 int main(int argc, char** argv) {
+    /*
+    size_t num = 8;
+    Heap test(num);
+    test.push("one", 1);
+    test.push("two", 2);
+    test.push("three", 3);
+    test.push("four", 4);
+    const Heap::Entry newTest = test.lookup(4);
+    cout << newTest.value << endl;
+    */
+    //cout << test.count() << " " << test.capacity() << endl;
+
+    
     if(argc != 2) {
         std::cout << "USAGE: " << argv[0] << " [words-file]\n";
         return 1;
@@ -88,4 +103,5 @@ int main(int argc, char** argv) {
 
     delete wordlist;
     return 0;
+    
 }

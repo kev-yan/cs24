@@ -3,14 +3,22 @@
 
 using namespace std;
 
-void percUp(Heap::Entry* item){
-    cout << item->value << endl;
+void percUp(Heap list, size_t index){
+    Entry curr = list.lookup(index);
+    if((index-1)/2 >= 0){
+        Entry parent = list.lookup((index-1)/2);
+        if(parent.score > curr.score){
+            Entry temp = parent;
+            list.pop((index-1)/2);
+            list.push()
+        }
+    }
 }
 
 Heap::Heap(size_t capacity){
     mCapacity = capacity;
     mCount = 0;
-    mData = nullptr;
+    mData = new Entry[capacity];
 }
 
 Heap::Heap(const Heap& other){
@@ -63,7 +71,7 @@ size_t Heap::count() const{
 }
 
 const Heap::Entry& Heap::lookup(size_t index) const{
-    if(index < mCount){
+    if(index < mCount && index >= 0){
         return mData[index];
     }
     else{
@@ -95,7 +103,7 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
 }
 
 void Heap::push(const std::string& value, float score){    
-    if(mCount == mCapacity){
+    if(mCount >= mCapacity){
         throw std::overflow_error("overflow error");
     }
     else{

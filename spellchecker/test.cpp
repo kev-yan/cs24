@@ -7,7 +7,8 @@ using namespace std;
 // This file won't be graded - do whatever you want.
 
 int main() {
-    Heap heap(8);
+    size_t num = 8;
+    Heap heap(num);
 
     cout << "working" << endl;
 
