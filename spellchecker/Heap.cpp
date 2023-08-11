@@ -31,6 +31,7 @@ Heap::Heap(const Heap& other){
     
 }
 
+
 Heap::Heap(Heap&& other){
     /*
     mData = new Entry[other.count()];
