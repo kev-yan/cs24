@@ -49,6 +49,7 @@ Heap::Heap(Heap&& other){
     other.mData = nullptr;
     mCount = other.count();
     mCapacity = other.capacity();
+    throw underflow_error("test");
 }
 Heap::~Heap(){
     delete[] mData;
