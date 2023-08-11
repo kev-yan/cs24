@@ -4,13 +4,13 @@
 using namespace std;
 
 void percUp(Heap list, size_t index){
-    Entry curr = list.lookup(index);
+    Heap::Entry curr = list.lookup(index);
     if((index-1)/2 >= 0){
-        Entry parent = list.lookup((index-1)/2);
+        Heap::Entry parent = list.lookup((index-1)/2);
         if(parent.score > curr.score){
-            Entry temp = parent;
-            list.pop((index-1)/2);
-            list.push()
+            Heap::Entry temp = parent;
+            //list.pop((index-1)/2);
+            //list.push();
         }
     }
 }
