@@ -102,7 +102,7 @@ void Heap::push(const std::string& value, float score){
         Entry *temp = new Entry();
         temp->value = value;
         temp->score = score;
-        mData[mCount] = temp;
+        mData[mCount] = *temp;
         mCount++;
     }
 }
