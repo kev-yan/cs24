@@ -3,6 +3,7 @@
 
 using namespace std;
 
+/*
 void percUp(Heap list, size_t index){
     Heap::Entry curr = list.lookup(index);
     if((index-1)/2 >= 0){
@@ -14,6 +15,7 @@ void percUp(Heap list, size_t index){
         }
     }
 }
+*/
 
 Heap::Heap(size_t capacity){
     mCapacity = capacity;
