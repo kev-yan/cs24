@@ -46,9 +46,9 @@ Heap::Heap(Heap&& other){
     //mData = other.lookup(0);                              //same thing as above
     */
     mData = other.mData;
-    other.mData = nullptr;
-    mCount = other.count();
-    mCapacity = other.capacity();
+    //other.mData = nullptr;
+    //mCount = other.count();
+    //mCapacity = other.capacity();
 }
 Heap::~Heap(){
     delete[] mData;
