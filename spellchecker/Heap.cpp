@@ -48,7 +48,7 @@ Heap::Heap(Heap&& other){
     mData = other.mData;
     other.mData = nullptr;
     mCount = other.count();
-    //mCapacity = other.capacity();
+    mCapacity = other.capacity();
 }
 Heap::~Heap(){
     delete[] mData;
