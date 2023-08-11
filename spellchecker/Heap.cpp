@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Heap::percUp(Entry* item){
+void percUp(Heap::Entry* item){
     cout << item->value << endl;
 }
 
