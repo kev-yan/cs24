@@ -73,7 +73,7 @@ size_t Heap::count() const{
 }
 
 const Heap::Entry& Heap::lookup(size_t index) const{
-    if(index < mCount && index >= 0){
+    if(index < mCount){
         return mData[index];
     }
     else{
