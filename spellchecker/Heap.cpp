@@ -87,7 +87,7 @@ Heap::Entry Heap::pop(){
                 mData[newIndex] = temp;
                 index = newIndex;
             }
-            else if(mData[index*2+1].score > 0 && mData[index*2+1].score < mData[index].score){
+            else if(index*2+1 < mCount && mData[index*2+1].score < mData[index].score){
                 newIndex = index*2+1;
                 temp = mData[index];
                 mData[index] = mData[newIndex];
@@ -131,7 +131,7 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
                 mData[newIndex] = newTemp;
                 index = newIndex;
             }
-            else if(mData[index*2+1].score > 0 && mData[index*2+1].score < mData[index].score){
+            else if(index*2+1 < mCount && mData[index*2+1].score < mData[index].score){
                 newIndex = index*2+1;
                 newTemp = mData[index];
                 mData[index] = mData[newIndex];
