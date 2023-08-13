@@ -63,6 +63,8 @@ Heap::Heap(Heap&& other){
 }
 Heap::~Heap(){
     delete[] mData;
+    delete mCount;
+    delete mCapacity;
 }
 
 size_t Heap::capacity() const{
