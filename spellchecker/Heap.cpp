@@ -40,8 +40,10 @@ Heap::Heap(const Heap& other){
 
 Heap::Heap(Heap&& other){
     mData = other.mData;
+    other.mData = nullptr;
     mCount = other.count();
     mCapacity = other.capacity();
+    delete other;
 }
 Heap::~Heap(){
     delete[] mData;
