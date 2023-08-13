@@ -41,9 +41,9 @@ int main(){
     size_t num = 8;
     Heap test(num);
     test.push("one", 1);
-    test.push("two", 2);
     test.push("three", 3);
-    test.push("four", 4);
+    test.push("two", 2);
+    //test.push("four", 4);
     //size_t test2 = 0;
     const Heap::Entry newTest = test.pop();
 
