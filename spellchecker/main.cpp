@@ -37,8 +37,10 @@ std::vector<Point> read_points(const std::string& line) {
 }
 /*
 int main(){
-        size_t num = 8;
+    size_t num = 8;
     Heap *test = new Heap(num);
+    size_t zero = 0;
+    Heap *newnewTest = new Heap(zero);
     test->push("one", 1);
     test->push("three", 3);
     test->push("two", 2);
@@ -46,13 +48,16 @@ int main(){
     test->push("SMALL", 0.1);
     test->push("asd", 1);
     Heap *newTest = new Heap(*test);
-    delete test;
+    cout << newTest->count() << " " << newTest->capacity() << endl;
+    cout << newnewTest->count() << " " << newnewTest->capacity() << endl;
+    //delete test;
     //test.push("four", 4);
     //size_t test2 = 0;
     //const Heap::Entry newTest = test.pop();
 
     //cout << newTest.score << endl;
     //test = percUp(test, 3);
+    print(*newnewTest);
     print(*newTest);
     //cout << test.count() << endl;
     //cout << test.lookup(test2).value;
