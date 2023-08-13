@@ -3,19 +3,15 @@
 
 using namespace std;
 
-/*
-void percUp(Heap list, size_t index){
+
+
+Heap percUp(Heap &list, size_t index){
     Heap::Entry curr = list.lookup(index);
-    if((index-1)/2 >= 0){
-        Heap::Entry parent = list.lookup((index-1)/2);
-        if(parent.score > curr.score){
-            Heap::Entry temp = parent;
-            //list.pop((index-1)/2);
-            //list.push();
-        }
-    }
+    Heap newHeap(list);
+    curr = newHeap.pop();
+    return newHeap;
 }
-*/
+
 
 Heap::Heap(size_t capacity){
     mCapacity = capacity;
@@ -26,7 +22,6 @@ Heap::Heap(size_t capacity){
 Heap::Heap(const Heap& other){
     
     //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
-    
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){
         Entry* temp = new Entry();
@@ -83,13 +78,67 @@ const Heap::Entry& Heap::lookup(size_t index) const{
 }
 
 Heap::Entry Heap::pop(){
-    Entry temp;
-    Entry popped = mData[mCount-1];
-    mData[mCount-1] = temp;
-    mCount = mCount-1;
-    return popped;
+    if(mCount > 0){
+        Entry popped(mData[0]);
+        Entry *temp = new Entry();
+        bool biggest = true;
+        mCount--;
+        size_t index = 0;
+        mData[0] = mData[mCount];
+        while(biggest && ((index*2+2) < mCapacity)){
+            Entry left = mData[index*2+1];
+            Entry right = mData[index*2+2];
+            Entry curr = mData[index];
+            if(left.score < right.score){
+                if(left.score < curr.score){
+                    temp->value = curr.value;
+                    temp->score = curr.score;
+                    mData[index] = left;
+                    mData[index*2+1] = *temp;
+                    index = index*2+1;
+                }
+                
+                else if(right.score < curr.score){
+                    temp->value = curr.value;
+                    temp->score = curr.score;
+                    mData[index] = right;
+                    mData[index*2+2] = *temp;
+                    index = index*2+2;
+                }
+                else{
+                    biggest = false;
+                }
+            }
+            else{
+                if(right.score < curr.score){
+                    temp->value = curr.value;
+                    temp->score = curr.score;
+                    mData[index] = right;
+                    mData[index*2+2] = *temp;
+                    index = index*2+2;
+                }
+                else if(left.score < curr.score){
+                    temp->value = curr.value;
+                    temp->score = curr.score;
+                    mData[index] = left;
+                    mData[index*2+1] = *temp;
+                    index = index*2+1;
+                }
+                else{
+                    biggest = false;
+                }
+                
+            }
+        }
+        cout << temp->value << endl;
+        return popped;
+    }
+    else{
+        throw std::underflow_error("underflow error");
+    }
     
 }
+
 
 Heap::Entry Heap::pushpop(const std::string& value, float score){
     if(mCount == 0){
@@ -109,11 +158,27 @@ void Heap::push(const std::string& value, float score){
         throw std::overflow_error("overflow error");
     }
     else{
+        
+        Entry *temp = new Entry();
+        temp->value = value;
+        temp->score = score;
+        
+        for(size_t i=0; i<mCapacity; i++){
+            if(mData[i].score == 0){
+                mData[mCount] = *temp;
+                i = mCapacity;
+            }
+        }
+        
+        mCount++;
+
+        /*
         Entry *temp = new Entry();
         temp->value = value;
         temp->score = score;
         mData[mCount] = *temp;
         mCount++;
+        */
     }
 }
 

@@ -11,6 +11,11 @@ using namespace std;
 // It's much easier to use in conjunction with helper.py.
 // See the hints section in the readme for details.
 
+void print(Heap list){
+    for(size_t i=0; i<list.count(); i++){
+        cout << i << ": " << list.lookup(i).value << ", " << list.lookup(i).score << endl;
+    }
+}
 
 std::vector<Point> read_points(const std::string& line) {
     Point point;
@@ -30,21 +35,27 @@ std::vector<Point> read_points(const std::string& line) {
 
     return results;
 }
-//int main(){
-int main(int argc, char** argv) {
-    /*
+int main(){
+//int main(int argc, char** argv) {
+    
     size_t num = 8;
     Heap test(num);
     test.push("one", 1);
     test.push("two", 2);
     test.push("three", 3);
     test.push("four", 4);
-    const Heap::Entry newTest = test.lookup(4);
-    cout << newTest.value << endl;
-    */
+    //size_t test2 = 0;
+    const Heap::Entry newTest = test.pop();
+
+    //cout << newTest.score << endl;
+    //test = percUp(test, 3);
+    print(test);
+    //cout << test.count() << endl;
+    //cout << test.lookup(test2).value;
+    
     //cout << test.count() << " " << test.capacity() << endl;
 
-    
+    /*
     if(argc != 2) {
         std::cout << "USAGE: " << argv[0] << " [words-file]\n";
         return 1;
@@ -103,5 +114,5 @@ int main(int argc, char** argv) {
 
     delete wordlist;
     return 0;
-    
+    */
 }
