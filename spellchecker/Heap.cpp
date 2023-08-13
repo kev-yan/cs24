@@ -29,7 +29,7 @@ Heap::Heap(const Heap& other){
     
     //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
     //cout << "does this" << endl;
-    mData = new Entry[other.count()];
+    mData = new Entry[other.capacity()];
     for(size_t i=0;i<other.count();i++){
         Entry temp;
         std::string newVal = (other.lookup(i)).value;
@@ -148,6 +148,8 @@ void Heap::push(const std::string& value, float score){
         throw std::overflow_error("overflow error");
     }
     else{
+        Entry curr;
+        Entry parent;
         int index;
         bool biggest = true;
         for(size_t i=0; i<mCapacity; i++){
@@ -159,17 +161,20 @@ void Heap::push(const std::string& value, float score){
                 i = mCapacity;
             }
         }
+        mCount++;
         while(biggest){
             if((index-1)/2 >= 0){
-                Entry parent = mData[(index-1)/2];
-                Entry curr = mData[index];
+                parent = mData[(index-1)/2];
+                curr = mData[index];
                 if(curr.score < parent.score){
+                    //cout << curr.value << ": entered" << endl;
                     Entry temp = parent;
                     mData[(index-1)/2] = curr;
                     mData[index] = parent;
                     index = (index-1)/2;
                 }
                 else{
+                    //cout << curr.value << ": entered" << endl;
                     biggest = false;
                 }
             }
@@ -177,8 +182,8 @@ void Heap::push(const std::string& value, float score){
                 biggest = false;
             }
         }
-        mCount++;
     }
+    //print();
 }
 
 const Heap::Entry& Heap::top() const{
