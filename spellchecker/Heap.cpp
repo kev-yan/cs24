@@ -146,7 +146,7 @@ void Heap::push(const std::string& value, float score){
         throw std::overflow_error("overflow error");
     }
     else{
-        size_t index;
+        int index;
         bool biggest = true;
         for(size_t i=0; i<mCapacity; i++){
             if(mData[i].score == 0){
