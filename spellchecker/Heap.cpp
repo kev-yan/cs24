@@ -28,6 +28,7 @@ Heap::Heap(size_t capacity){
 Heap::Heap(const Heap& other){
     
     //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
+    //cout << "does this" << endl;
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){
         Entry temp;
@@ -44,6 +45,7 @@ Heap::Heap(const Heap& other){
 
 
 Heap::Heap(Heap&& other){
+    //cout << "not this " << endl;
     /*
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){

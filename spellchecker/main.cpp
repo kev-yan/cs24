@@ -35,31 +35,34 @@ std::vector<Point> read_points(const std::string& line) {
 
     return results;
 }
-//int main(){
-int main(int argc, char** argv) {
-    /*
-    size_t num = 8;
-    Heap test(num);
-    test.push("one", 1);
-    test.push("three", 3);
-    test.push("two", 2);
-    test.push("BIG", 0.2);
-    test.push("SMALL", 0.1);
-    test.push("asd", 1);
-
+/*
+int main(){
+        size_t num = 8;
+    Heap *test = new Heap(num);
+    test->push("one", 1);
+    test->push("three", 3);
+    test->push("two", 2);
+    test->push("BIG", 0.2);
+    test->push("SMALL", 0.1);
+    test->push("asd", 1);
+    Heap *newTest = new Heap(*test);
+    delete test;
     //test.push("four", 4);
     //size_t test2 = 0;
     //const Heap::Entry newTest = test.pop();
 
     //cout << newTest.score << endl;
     //test = percUp(test, 3);
-    print(test);
+    print(*newTest);
     //cout << test.count() << endl;
     //cout << test.lookup(test2).value;
     
     //cout << test.count() << " " << test.capacity() << endl;
-    */
-    
+}
+*/
+
+int main(int argc, char** argv) {
+
     if(argc != 2) {
         std::cout << "USAGE: " << argv[0] << " [words-file]\n";
         return 1;
