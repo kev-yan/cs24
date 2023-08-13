@@ -20,10 +20,6 @@ Heap::Heap(size_t capacity){
 }
 
 Heap::Heap(const Heap& other){
-    
-    //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
-    //cout << "does this" << endl;
-
     mData = new Entry[other.capacity()];
     for(size_t i=0;i<other.count();i++){
         Entry temp;
@@ -122,9 +118,7 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
         bool biggest = true;
         mData[0] = temp;
         while(biggest && index*2+2 < mCapacity){
-            //cout << index*2+2 << " " << mCount << endl;
             if(index*2+2 < mCount && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
-                //cout << mData[index*2+2].score << endl;
                 newIndex = index*2+2;
                 newTemp = mData[index];
                 mData[index] = mData[newIndex];
@@ -156,16 +150,6 @@ void Heap::push(const std::string& value, float score){
         Entry parent;
         int index = mCount;
         bool biggest = true;
-        /*
-        for(size_t i=0; i<mCapacity; i++){
-            if(mData[i].score == 0){
-                //mData[i] = *temp;
-                mData[i].score = score;
-                mData[i].value = value;
-                index = i;
-                i = mCapacity;
-            }
-        }*/
         mData[mCount].score = score;
         mData[mCount].value = value;
         mCount++;
@@ -174,14 +158,12 @@ void Heap::push(const std::string& value, float score){
                 parent = mData[(index-1)/2];
                 curr = mData[index];
                 if(curr.score < parent.score){
-                    //cout << curr.value << ": entered" << endl;
                     Entry temp = parent;
                     mData[(index-1)/2] = curr;
                     mData[index] = parent;
                     index = (index-1)/2;
                 }
                 else{
-                    //cout << curr.value << ": entered" << endl;
                     biggest = false;
                 }
             }
@@ -190,7 +172,6 @@ void Heap::push(const std::string& value, float score){
             }
         }
     }
-    //print();
 }
 
 const Heap::Entry& Heap::top() const{

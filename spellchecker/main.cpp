@@ -49,10 +49,16 @@ int main(){
     test->push("inbetween", 1.5);
     test->push("ininbetween", 1.25);
     //print(*test);
-    cout << test->pop().value << endl;
+    //cout << test->pop().value << endl;
     //print(*test);
     test->pushpop("please", 1000);
-    print(*test);
+    string temp = "abcd";
+    //int newTest = temp[1];
+    for(size_t i=0; i<temp.size(); i++){
+        int newTest = temp[i];
+        cout << QWERTY[newTest-97].x << ", " << QWERTY[newTest-97].y << endl;
+    }
+    //print(*test);
     //Heap *newTest = new Heap(move(*test));
     //Heap *newnewTest = new Heap(newTest);
     //cout << newTest->count() << endl;
