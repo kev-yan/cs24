@@ -38,26 +38,36 @@ std::vector<Point> read_points(const std::string& line) {
 /*
 int main(){
     size_t num = 8;
+
     Heap *test = new Heap(num);
+    
     test->push("one", 1);
     test->push("three", 3);
     test->push("two", 2);
-    test->push("BIG", 0.2);
+    test->push("BIG", 100);
     test->push("SMALL", 0.1);
-    test->push("asd", 1);
-    Heap *newTest = new Heap(*test);
-    //Heap *newnewTest = new Heap(*newTest);
-    newTest->push("word", 10);
+    test->push("inbetween", 1.5);
+
+
+    test->pushpop("please", 1000);
+    print(*test);
     
-    print(*newTest);
+    //print(*test);
+    //Heap *newTest = new Heap(*test);
+    //Heap **newnewTest = new Heap(newTest);
+    //Heap *newnewTest = new Heap(*newTest);
+    //newTest->push("word", 10);
+    
+    //print(*newTest);
     //cout << newTest->lookup(6).value << endl;
     //cout << newTest->count() << " " << newTest->capacity() << endl;
     //delete test;
+    //delete newTest;
     //test.push("four", 4);
     //size_t test2 = 0;
     //print(*newTest);
-    const Heap::Entry popped = newTest->pop();
-    print(*newTest);
+   // const Heap::Entry popped = newTest->pop();
+    //print(*newTest);
     //cout << test->count() << " " << test->capacity() << endl;
     //cout << test->lookup(0).value << endl;
     //cout << newTest.score << endl;

@@ -39,21 +39,7 @@ Heap::Heap(const Heap& other){
 
 
 Heap::Heap(Heap&& other){
-    //cout << "not this " << endl;
-    /*
-    mData = new Entry[other.count()];
-    for(size_t i=0;i<other.count();i++){
-        Entry* temp = new Entry();
-        std::string newVal = (other.lookup(i)).value;
-        float newScore = (other.lookup(i)).score;
-        temp->value = newVal;
-        temp->score = newScore;
-        mData[i] = *temp;
-    }
-    //mData = other.lookup(0);                              //same thing as above
-    */
     mData = other.mData;
-    other.mData = nullptr;
     mCount = other.count();
     mCapacity = other.capacity();
 }
@@ -84,32 +70,26 @@ Heap::Entry Heap::pop(){
         Entry popped = mData[0];
         Entry temp;
         Entry newtemp;
-        //newtemp.score = 0;
         bool biggest = true;
         mCount--;
         size_t index = 0;
         size_t newIndex;
         mData[0] = mData[mCount];
         mData[mCount] = newtemp;
-        //while(biggest && ((index*2+2) < mCount-1)){
         while(biggest && index*2+2 < mCapacity){
-            //cout << index*2+2 << endl;
             if(mData[index*2+2].score != 0 && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
                 newIndex = index*2+2;
                 temp = mData[index];
                 mData[index] = mData[newIndex];
                 mData[newIndex] = temp;
                 index = newIndex;
-                //cout << "here" << endl;
             }
             else if(mData[index*2+1].score > 0 && mData[index*2+1].score < mData[index].score){
-                //cout << mData[index*2+1].score << "ASDA" << endl;
                 newIndex = index*2+1;
                 temp = mData[index];
                 mData[index] = mData[newIndex];
                 mData[newIndex] = temp;
                 index = newIndex;
-                //cout << "here2" << endl;
             }
             else{
                 biggest = false;
@@ -129,11 +109,35 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
         throw std::underflow_error("underflow error");
     }
     else{
+        Entry popped = mData[0];
         Entry temp;
         temp.value = value;
         temp.score = score;
-        //mData[mCount-1] = temp;
-        return temp;
+        size_t index = 0;
+        size_t newIndex;
+        bool biggest = true;
+        mData[0] = temp;
+        while(biggest && index*2+2 < mCapacity){
+            if(mData[index*2+2].score != 0 && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
+                newIndex = index*2+2;
+                temp = mData[index];
+                mData[index] = mData[newIndex];
+                mData[newIndex] = temp;
+                index = newIndex;
+            }
+            else if(mData[index*2+1].score > 0 && mData[index*2+1].score < mData[index].score){
+                newIndex = index*2+1;
+                temp = mData[index];
+                mData[index] = mData[newIndex];
+                mData[newIndex] = temp;
+                index = newIndex;
+            }
+            else{
+                biggest = false;
+            }
+        }
+
+        return popped;
     }
 }
 
