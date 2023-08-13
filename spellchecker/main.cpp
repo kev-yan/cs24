@@ -49,7 +49,6 @@ int main(){
     //Heap *newnewTest = new Heap(*newTest);
     newTest->push("word", 10);
     
-    cout << "got here" << endl;
     print(*newTest);
     //cout << newTest->lookup(6).value << endl;
     //cout << newTest->count() << " " << newTest->capacity() << endl;
@@ -57,7 +56,8 @@ int main(){
     //test.push("four", 4);
     //size_t test2 = 0;
     //print(*newTest);
-    //const Heap::Entry popped = test->pop();
+    const Heap::Entry popped = newTest->pop();
+    print(*newTest);
     //cout << test->count() << " " << test->capacity() << endl;
     //cout << test->lookup(0).value << endl;
     //cout << newTest.score << endl;
@@ -70,7 +70,7 @@ int main(){
     //cout << test.count() << " " << test.capacity() << endl;
 }
 */
-/*
+
 int main(int argc, char** argv) {
 
     if(argc != 2) {
@@ -133,4 +133,3 @@ int main(int argc, char** argv) {
     return 0;
     
 }
-*/

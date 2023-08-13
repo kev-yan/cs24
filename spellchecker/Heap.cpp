@@ -11,12 +11,6 @@ void Heap::print(){
     cout << "-------------------" << endl;
 }
 */
-Heap percUp(Heap &list, size_t index){
-    Heap::Entry curr = list.lookup(index);
-    Heap newHeap(list);
-    curr = newHeap.pop();
-    return newHeap;
-}
 
 
 Heap::Heap(size_t capacity){
@@ -87,10 +81,10 @@ const Heap::Entry& Heap::lookup(size_t index) const{
 
 Heap::Entry Heap::pop(){
     if(mCount > 0){
-        Entry popped(mData[0]);
+        Entry popped = mData[0];
         Entry temp;
         Entry newtemp;
-        newtemp.score = 0;
+        //newtemp.score = 0;
         bool biggest = true;
         mCount--;
         size_t index = 0;
