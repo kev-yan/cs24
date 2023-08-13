@@ -150,9 +150,14 @@ void Heap::push(const std::string& value, float score){
         Entry parent;
         int index = mCount;
         bool biggest = true;
-        mData[mCount].score = score;
-        mData[mCount].value = value;
-        mCount++;
+        if(score > 0){
+            mData[mCount].score = score;
+            mData[mCount].value = value;
+            mCount++;
+        }
+        else{
+            biggest = false;
+        }
         while(biggest){
             if((index-1)/2 >= 0){
                 parent = mData[(index-1)/2];

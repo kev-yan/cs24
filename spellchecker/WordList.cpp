@@ -13,11 +13,7 @@ WordList::WordList(std::istream& stream){
 }
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
-    //cout << "x and y: " << points.at(0).x << " " << maxcount << cutoff << endl;
-    //cout << "cutoff: " << cutoff << points.at(0).x << endl;
     Heap *temp = new Heap(maxcount);
-    //Point tempPoint;
-    
     for(size_t i=0; i<mWords.size(); i++){
         if(mWords.at(i).length() == points.size()){
             string word = mWords.at(i);

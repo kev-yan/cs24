@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
     }
 
     // Change these to test different cases!
-    size_t maxcount = 5;
+    size_t maxcount = 1;
     float  cutoff   = 0;
 
     // Read in the words file
