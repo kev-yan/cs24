@@ -80,7 +80,7 @@ Heap::Entry Heap::pop(){
         mData[0] = mData[mCount];
         mData[mCount] = newtemp;
         while(biggest && index*2+2 < mCapacity){
-            if(mData[index*2+2].score != 0 && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
+            if(index*2+2 < mCount && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
                 newIndex = index*2+2;
                 temp = mData[index];
                 mData[index] = mData[newIndex];
@@ -114,6 +114,7 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
     else{
         Entry popped = mData[0];
         Entry temp;
+        Entry newTemp;
         temp.value = value;
         temp.score = score;
         size_t index = 0;
@@ -121,18 +122,20 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
         bool biggest = true;
         mData[0] = temp;
         while(biggest && index*2+2 < mCapacity){
-            if(mData[index*2+2].score != 0 && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
+            //cout << index*2+2 << " " << mCount << endl;
+            if(index*2+2 < mCount && mData[index*2+2].score < mData[index*2+1].score && mData[index*2+1].score < mData[index].score){
+                //cout << mData[index*2+2].score << endl;
                 newIndex = index*2+2;
-                temp = mData[index];
+                newTemp = mData[index];
                 mData[index] = mData[newIndex];
-                mData[newIndex] = temp;
+                mData[newIndex] = newTemp;
                 index = newIndex;
             }
             else if(mData[index*2+1].score > 0 && mData[index*2+1].score < mData[index].score){
                 newIndex = index*2+1;
-                temp = mData[index];
+                newTemp = mData[index];
                 mData[index] = mData[newIndex];
-                mData[newIndex] = temp;
+                mData[newIndex] = newTemp;
                 index = newIndex;
             }
             else{
@@ -151,8 +154,9 @@ void Heap::push(const std::string& value, float score){
     else{
         Entry curr;
         Entry parent;
-        int index;
+        int index = mCount;
         bool biggest = true;
+        /*
         for(size_t i=0; i<mCapacity; i++){
             if(mData[i].score == 0){
                 //mData[i] = *temp;
@@ -161,7 +165,9 @@ void Heap::push(const std::string& value, float score){
                 index = i;
                 i = mCapacity;
             }
-        }
+        }*/
+        mData[mCount].score = score;
+        mData[mCount].value = value;
         mCount++;
         while(biggest){
             if((index-1)/2 >= 0){

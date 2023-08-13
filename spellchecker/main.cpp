@@ -47,15 +47,16 @@ int main(){
     test->push("BIG", 100);
     test->push("SMALL", 0.1);
     test->push("inbetween", 1.5);
+    test->push("ininbetween", 1.25);
+    //print(*test);
     cout << test->pop().value << endl;
-
+    //print(*test);
     test->pushpop("please", 1000);
-    Heap *newTest = new Heap(move(*test));
+    print(*test);
+    //Heap *newTest = new Heap(move(*test));
     //Heap *newnewTest = new Heap(newTest);
-    cout << newTest->count() << endl;
-    print(*newTest);
-    delete test;
-    delete newTest;
+    //cout << newTest->count() << endl;
+    //print(*newTest);
     //print(*test);
     
     //print(*test);
