@@ -13,7 +13,7 @@ WordList::WordList(std::istream& stream){
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
     //cout << "x and y: " << points.at(0).x << " " << maxcount << cutoff << endl;
-    cutoff++;
+    cout << "cutoff: " << cutoff << endl;
     cout << points.size() << endl;
     //Point tempPoint;
     for(size_t i=0; i<mWords.size(); i++){
