@@ -52,12 +52,9 @@ int main(){
     //cout << test->pop().value << endl;
     //print(*test);
     test->pushpop("please", 1000);
-    string temp = "abcd";
-    //int newTest = temp[1];
-    for(size_t i=0; i<temp.size(); i++){
-        int newTest = temp[i];
-        cout << QWERTY[newTest-97].x << ", " << QWERTY[newTest-97].y << endl;
-    }
+    cout << test->count() << endl;
+    test->push("test", -1);
+    cout << test->count() << endl;
     //print(*test);
     //Heap *newTest = new Heap(move(*test));
     //Heap *newnewTest = new Heap(newTest);
@@ -70,24 +67,7 @@ int main(){
     //Heap **newnewTest = new Heap(newTest);
     //Heap *newnewTest = new Heap(*newTest);
     //newTest->push("word", 10);
-    
-    //print(*newTest);
-    //cout << newTest->lookup(6).value << endl;
-    //cout << newTest->count() << " " << newTest->capacity() << endl;
-    //delete test;
-    //delete newTest;
-    //test.push("four", 4);
-    //size_t test2 = 0;
-    //print(*newTest);
-   // const Heap::Entry popped = newTest->pop();
-    //print(*newTest);
-    //cout << test->count() << " " << test->capacity() << endl;
-    //cout << test->lookup(0).value << endl;
-    //cout << newTest.score << endl;
-    //test = percUp(test, 3);
-    //print(*newnewTest);
-    //print(*newTest);
-    //cout << test.count() << endl;
+   
     //cout << test.lookup(test2).value;
     
     //cout << test.count() << " " << test.capacity() << endl;

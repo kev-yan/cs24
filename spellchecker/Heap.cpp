@@ -104,7 +104,7 @@ Heap::Entry Heap::pop(){
 
 
 Heap::Entry Heap::pushpop(const std::string& value, float score){
-    if(mCount == 0 || score < 0){
+    if(mCount == 0){
         throw std::underflow_error("underflow error");
     }
     else{
