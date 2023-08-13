@@ -30,12 +30,12 @@ Heap::Heap(const Heap& other){
     //mData = other.lookup(0);                       //does it make a copy or does it point to the same array
     mData = new Entry[other.count()];
     for(size_t i=0;i<other.count();i++){
-        Entry* temp = new Entry();
+        Entry temp;
         std::string newVal = (other.lookup(i)).value;
         float newScore = (other.lookup(i)).score;
-        temp->value = newVal;
-        temp->score = newScore;
-        mData[i] = *temp;
+        temp.value = newVal;
+        temp.score = newScore;
+        mData[i] = temp;
     }
     mCount = other.count();
     mCapacity = other.capacity();
@@ -133,11 +133,11 @@ Heap::Entry Heap::pushpop(const std::string& value, float score){
         throw std::underflow_error("underflow error");
     }
     else{
-        Entry *temp = new Entry();
-        temp->value = value;
-        temp->score = score;
+        Entry temp;
+        temp.value = value;
+        temp.score = score;
         //mData[mCount-1] = temp;
-        return *temp;
+        return temp;
     }
 }
 
