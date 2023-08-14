@@ -41,12 +41,12 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 newScore += distance;
             }
             newScore = newScore / size;
-            if(temp->count() < maxcount && newScore > cutoff && lower){
+            if(temp->count() < maxcount && newScore >= cutoff && lower){
                 //temp->push(word, newScore);
                 temp->push(word, newScore);
                 words.push_back(word);
             }
-            else if(lower && newScore > cutoff && temp->lookup(0).score < newScore){
+            else if(lower && newScore >= cutoff && temp->lookup(0).score < newScore){
                 temp->pushpop(word, newScore);
                 words.push_back(word);
             }
