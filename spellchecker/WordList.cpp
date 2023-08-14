@@ -36,8 +36,8 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 float inY = points.at(j).y;
                 float wordX = QWERTY[temp].x;
                 float wordY = QWERTY[temp].y;
-                distance = sqrt((inX-wordX)*(inX-wordX) + (inY-wordY)*(inY-wordY));
-                distance = 1/(10*pow(distance,2)+1);
+                distance = sqrt(pow(inX-wordX, 2) + pow(inY-wordY, 2));
+                distance = 1/((10*pow(distance,2))+1);
                 newScore += distance;
             }
             newScore = newScore / size;
