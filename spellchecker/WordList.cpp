@@ -16,7 +16,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
     Heap *temp = new Heap(maxcount);
     vector<string> words;
     for(size_t i=0; i<mWords.size(); i++){
-        if(mWords.at(i).length() == points.size()){ //a little confused
+        if(mWords.at(i).length() == points.size()){ 
             string word = mWords.at(i);
             float newScore = 0;
             float distance;
@@ -31,7 +31,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 if(!islower(word[j])){
                     lower = false;
                 }
-                int temp = word[j]-97; //feel like you would have to cast this
+                int temp = word[j]-97; 
                 float inX = points.at(j).x;
                 float inY = points.at(j).y;
                 float wordX = QWERTY[temp].x;
@@ -42,7 +42,8 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
             }
             newScore = newScore / size;
             if(temp->count() < maxcount && newScore > cutoff && lower){
-                temp->push(word, newScore);
+                //temp->push(word, newScore);
+                temp->push("test", newScore);
                 words.push_back(word);
             }
             else if(lower && newScore > cutoff && temp->lookup(0).score < newScore){
