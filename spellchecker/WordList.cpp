@@ -27,7 +27,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 if(!islower(word[j])){
                     lower = false;
                 }
-                else if(find(words.begin(), words.end(), word) != words.end())
+                else if(std::find(words.begin(), words.end(), word) != words.end())
                 {
                     lower = false;
                 }
