@@ -54,6 +54,7 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
             }
         }
     }
-    
-    return *temp;
+    Heap *ret = temp;
+    delete temp;
+    return *ret;
 }

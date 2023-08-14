@@ -16,6 +16,8 @@ void Heap::print(){
 Heap::Heap(size_t capacity){
     mCapacity = capacity;
     mCount = 0;
+    //Entry temp[capacity];
+    //mData[capacity];
     mData = new Entry[capacity];
 }
 
