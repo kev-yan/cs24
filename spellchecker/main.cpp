@@ -105,6 +105,8 @@ int main(int argc, char** argv) {
     std::cout << std::setprecision(3);
     std::cout << std::fixed;
 
+    std::cout << maxcount << " and " << cutoff << endl;
+
     // Interactive loop
     std::string line;
     std::cout << "> ";
