@@ -35,45 +35,41 @@ std::vector<Point> read_points(const std::string& line) {
 
     return results;
 }
-/*
+
 int main(){
-    size_t num = 8;
+    size_t num = 20;
 
     Heap *test = new Heap(num);
     
-    test->push("one", 1);
-    test->push("three", 3);
-    test->push("two", 2);
-    test->push("BIG", 100);
-    test->push("SMALL", 0.1);
-    test->push("inbetween", 1.5);
-    test->push("ininbetween", 1.25);
+    test->push("test1", -1);
+    test->push("test2", -2);
+    test->push("test3", -2);
+    test->push("test4", -3);
+    test->push("test5", -3);
+    test->push("test6", -3);
+    test->push("test7", -5);
+    test->push("test8", -6);
+    test->push("test9", -1);
+    test->push("test10", -8);
+    print(*test);
+
+
     //print(*test);
     //cout << test->pop().value << endl;
     //print(*test);
-    test->pushpop("please", 1000);
+    //test->pushpop("please", -1000);
     cout << test->count() << endl;
-    test->push("test", -1);
-    cout << test->count() << endl;
-    //print(*test);
-    //Heap *newTest = new Heap(move(*test));
-    //Heap *newnewTest = new Heap(newTest);
-    //cout << newTest->count() << endl;
-    //print(*newTest);
-    //print(*test);
-    
-    //print(*test);
-    //Heap *newTest = new Heap(*test);
-    //Heap **newnewTest = new Heap(newTest);
-    //Heap *newnewTest = new Heap(*newTest);
-    //newTest->push("word", 10);
-   
-    //cout << test.lookup(test2).value;
-    
-    //cout << test.count() << " " << test.capacity() << endl;
-}
-*/
+    //test->push("test", -1.1);
+    for(size_t i=0; i<num-1; i++){
+        cout << test->pop().score << endl;
+        print(*test);
+    }
 
+    
+    print(*test);
+}
+
+/*
 int main(int argc, char** argv) {
 
     if(argc != 2) {
@@ -137,3 +133,4 @@ int main(int argc, char** argv) {
     return 0;
     
 }
+*/
