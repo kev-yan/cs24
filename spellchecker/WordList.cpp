@@ -47,10 +47,13 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 words.push_back(word);
             }
             else if(lower && newScore >= cutoff && temp->lookup(0).score < newScore){
-                temp->pushpop(word, newScore);
+                //temp->pushpop(word, newScore);
+                const Heap::Entry newTemp = temp->pop();
+                temp->push(word, newScore);
                 words.push_back(word);
             }
         }
     }
+    
     return *temp;
 }
