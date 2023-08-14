@@ -22,13 +22,13 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
             float distance;
             float size = points.size();
             bool lower = true;
-            
-            for(size_t j=0; j<size; j++){
-                if(!islower(word[j])){
+            for(size_t i=0; i<words.size();i++){
+                if(words.at(i) == word){
                     lower = false;
                 }
-                else if(std::find(words.begin(), words.end(), word) != words.end())
-                {
+            }
+            for(size_t j=0; j<size; j++){
+                if(!islower(word[j])){
                     lower = false;
                 }
                 int temp = word[j]-97;
