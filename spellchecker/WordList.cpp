@@ -14,7 +14,7 @@ WordList::WordList(std::istream& stream){
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
     Heap *temp = new Heap(maxcount);
-    vector <string> words;
+    vector<string> words;
     for(size_t i=0; i<mWords.size(); i++){
         if(mWords.at(i).length() == points.size()){
             string word = mWords.at(i);
@@ -41,11 +41,11 @@ Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float 
                 newScore += distance;
             }
             newScore = newScore / size;
-            if(temp->count() < maxcount && newScore >= cutoff && lower){
+            if(temp->count() < maxcount && newScore > cutoff && lower){
                 temp->push(word, newScore);
                 words.push_back(word);
             }
-            else if(lower && newScore >= cutoff && temp->lookup(0).score < newScore){
+            else if(lower && newScore > cutoff && temp->lookup(0).score < newScore){
                 temp->pushpop(word, newScore);
                 words.push_back(word);
             }
