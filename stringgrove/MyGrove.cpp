@@ -141,40 +141,15 @@ char MyGrove::charAt(int index) const{
         return curr->word[newIndex];
         
     }
-    /*
-    if(isWord(root)){
-        return root->word[index];
-    }
-    else{
-        Node* curr = root;
-        while(curr->length > index && !(isWord(curr))){
-            curr = curr->left;
-        }
-        if(index >= curr->length){
-            int newLength = curr->length;
-            curr = curr->parent->right;
-            if(isWord(curr)){
-                return curr->word[index-newLength];
-            }
-            else{
-                index = index-newLength;
-                curr = getNode(curr, index);
-                index = getIndex(curr, index);
-                return curr->word[index];
-
-            }
-        }
-        else{
-            return curr->word[index];
-        }
-        
-    }
-    */
 }
 
 const MyGrove* MyGrove::substr(int start, int end) const{
     int newLength = end - start+1;
-    char newString [newLength];
+    if(newLength > length){
+        throw std::out_of_range("out of range");
+    }
+    //char newString[newLength];
+    char *newString = new char[newLength+1];
     Node* first = getNode(root, start);
     Node* second = getNode(root, end);
     int firstIndex = getIndex(root, start);
@@ -183,28 +158,46 @@ const MyGrove* MyGrove::substr(int start, int end) const{
     if(first == second){
         for(int i=firstIndex; i<=secondIndex; i++){
             newString[i-firstIndex] = first->word[i];
-            //cout << first->word[i] << endl;
         }
         const char* newnewString = newString;
         MyGrove* newGrove = new MyGrove(newnewString);
         return newGrove;
     }
     else{
-        for(int i=firstIndex; i<first->length; i++){
-            newString[i-firstIndex] = first->word[i];
-            temp++;
-            //cout << newString[i-firstIndex] << endl;
+        int len1 = first->length - firstIndex;
+        int totalLength = secondIndex+len1+1;
+        if((totalLength) < newLength){
+            //find middle nodes and add them
+            for(int i=firstIndex; i<first->length; i++){
+                newString[i-firstIndex] = first->word[i];
+                temp++;
+            }
+            Node* tempNode = getNode(root, start+len1);
+            int tempLength = tempNode->length;
+            while(totalLength+tempLength <= newLength){ //might be able to just add this inbetween the original for i loops
+                for(int i=0; i<tempNode->length; i++){
+                    newString[temp+i] = tempNode->word[i];
+                }
+                temp += tempNode->length;
+                tempNode = getNode(root, start+len1+tempLength);
+                tempLength += tempNode->length;
+            }
+            for(int i=0; i<=secondIndex; i++){
+                newString[i+temp] = second->word[i];
+            }
         }
-        cout << newString << endl;
-        //cout << "-----------------" << temp << "-----------" << endl;
-        for(int i=0; i<secondIndex; i++){
-            newString[i+temp] = second->word[i];
-            //cout << newString << endl;
+        
+        else{
+            for(int i=firstIndex; i<first->length; i++){
+                newString[i-firstIndex] = first->word[i];
+                temp++;
+            }
+            for(int i=0; i<=secondIndex; i++){
+                newString[i+temp] = second->word[i];
+            }
         }
-        cout << newString << endl;
-        const char* newnewString = newString;
-        cout << newString << endl;                      //if I remove this cout statement, it prints trash values
-        MyGrove* newGrove = new MyGrove(newnewString);
+        newString[newLength+1] = '\0';
+        MyGrove* newGrove = new MyGrove(newString);
         return newGrove;
     }
     
