@@ -37,8 +37,52 @@ Person* Person::father() {
 }
 
 std::set<Person*> Person::ancestors(PMod pmod){
-   std::set<Person*> test;
-   return test;
+    std::set<Person*> ancestors;
+    std::set<Person*> parents;
+    Person* parent;
+    if(pmod == PMod::PATERNAL){
+        parent = mFather;
+        if(parent != nullptr){
+            ancestors.insert(parent);
+        }
+        while(parent != nullptr){
+            parents = parent->parents(PMod::ANY);
+            ancestors.merge(parents);
+            parent = parent->mFather;
+        }
+    }
+    else if(pmod == PMod::MATERNAL){
+        parent = mMother;
+        if(parent != nullptr){
+            ancestors.insert(parent);
+        }
+        while(parent != nullptr){
+            parents = parent->parents(PMod::ANY);
+            ancestors.merge(parents);
+            parent = parent->mMother;
+        }
+    }
+    else{
+        parent = mFather;
+        if(parent != nullptr){
+            ancestors.insert(parent);
+        }
+        while(parent != nullptr){
+            parents = parent->parents(PMod::ANY);
+            ancestors.merge(parents);
+            parent = parent->mFather;
+        }
+        parent = mMother;
+        if(parent != nullptr){
+            ancestors.insert(parent);
+        }
+        while(parent != nullptr){
+            parents = parent->parents(PMod::ANY);
+            ancestors.merge(parents);
+            parent = parent->mMother;
+        }
+    }
+    return ancestors;
 }
 std::set<Person*> Person::aunts(PMod pmod, SMod smod){
    std::set<Person*> test;
