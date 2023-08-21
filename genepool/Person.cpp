@@ -46,6 +46,9 @@ std::set<Person*> Person::brothers(PMod pmod, SMod smod){
 }
 std::set<Person*> Person::children(){
     std::set<Person*> test;
+    for(size_t i=0; i<mChildren.size(); i++){
+        test.insert(mChildren.at(i));
+    }
     return test;
 }
 std::set<Person*> Person::cousins(PMod pmod, SMod smod){
