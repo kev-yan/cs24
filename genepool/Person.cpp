@@ -45,22 +45,32 @@ std::set<Person*> Person::ancestors(PMod pmod){
         if(parent != nullptr){
             ancestors.insert(parent);
         }
+        /*
         while(parent != nullptr){
             parents = parent->parents(PMod::ANY);
             ancestors.merge(parents);
             parent = parent->mFather;
         }
+        */
+        parents = mFather->ancestors(PMod::ANY);
+        ancestors.merge(parents);
     }
     else if(pmod == PMod::MATERNAL){
         parent = mMother;
         if(parent != nullptr){
             ancestors.insert(parent);
         }
+
+        parents = parent->ancestors(PMod::ANY);
+        ancestors.merge(parents);
+
+        /*
         while(parent != nullptr){
             parents = parent->parents(PMod::ANY);
             ancestors.merge(parents);
             parent = parent->mMother;
         }
+        */
     }
     else{
         parent = mFather;
