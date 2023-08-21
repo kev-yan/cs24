@@ -61,3 +61,21 @@ GenePool::~GenePool(){
     }
     people.clear();
 }
+
+std::set<Person*> GenePool::everyone() const{
+    set<Person*> list;
+    for(auto [name, person]: people){
+        list.insert(person);
+    }
+    return list;
+}
+
+Person* GenePool::find(const std::string& name) const{
+    for(auto [newName, person]: people){
+        if(name == newName){
+            return person;
+        }
+    }
+    return nullptr;
+
+}
