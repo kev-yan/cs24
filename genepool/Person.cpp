@@ -258,7 +258,8 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
         if(mMother == nullptr){
             return test;
         }
-        if(smod == SMod::FULL){
+        else{
+                    if(smod == SMod::FULL){
             for(size_t i=0; i<mMother->mChildren.size(); i++){
                 if(mMother->mChildren.at(i)->mName != mName){
                     if(mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother == mMother){
@@ -287,6 +288,8 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
                 }
             }
         }
+        }
+        
     }
     else{
         if(smod == SMod::FULL){
