@@ -221,23 +221,31 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
      if(pmod == PMod::PATERNAL && mFather != nullptr){
         if(smod == SMod::FULL){
             for(size_t i=0; i<mFather->mChildren.size(); i++){
-                if(mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother == mMother){
-                    test.insert(mFather->mChildren.at(i));
+                if(mFather->mChildren.at(i)->mName != mName){
+                    if(mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother == mMother){
+                        test.insert(mFather->mChildren.at(i));
+                    }
                 }
             }
         }
         else if(smod == SMod::HALF){
             for(size_t i=0; i<mFather->mChildren.size(); i++){
-                if((mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother != mMother) || (mFather->mChildren.at(i)->mFather != mFather && mFather->mChildren.at(i)->mMother == mMother)){
+                if(mFather->mChildren.at(i)->mName != mName){
+                     if((mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother != mMother) || (mFather->mChildren.at(i)->mFather != mFather && mFather->mChildren.at(i)->mMother == mMother)){
                     test.insert(mFather->mChildren.at(i));
                 }
+                }
+               
             }
         }
         else{
             for(size_t i=0; i<mFather->mChildren.size(); i++){
-                if(mFather->mChildren.at(i)->mFather == mFather || mFather->mChildren.at(i)->mMother == mMother){
+                if(mFather->mChildren.at(i)->mName != mName){
+                    if(mFather->mChildren.at(i)->mFather == mFather || mFather->mChildren.at(i)->mMother == mMother){
                     test.insert(mFather->mChildren.at(i));
                 }
+                }
+                
             }
         }
             
@@ -245,42 +253,102 @@ std::set<Person*> Person::siblings(PMod pmod, SMod smod){
     if(pmod == PMod::MATERNAL && mMother != nullptr){
         if(smod == SMod::FULL){
             for(size_t i=0; i<mMother->mChildren.size(); i++){
-                if(mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother == mMother){
+                if(mMother->mChildren.at(i)->mName != mName){
+                    if(mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother == mMother){
                     test.insert(mMother->mChildren.at(i));
                 }
+            }
+                
             }
         }
         else if(smod == SMod::HALF){
             for(size_t i=0; i<mMother->mChildren.size(); i++){
-                if((mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother != mMother) || (mMother->mChildren.at(i)->mFather != mFather && mMother->mChildren.at(i)->mMother == mMother)){
-                    test.insert(mMother->mChildren.at(i));
+                if(mMother->mChildren.at(i)->mName != mName){
+                    if((mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother != mMother) || (mMother->mChildren.at(i)->mFather != mFather && mMother->mChildren.at(i)->mMother == mMother)){
+                        test.insert(mMother->mChildren.at(i));
+                    }
                 }
             }
         }
         else{
+            
             for(size_t i=0; i<mMother->mChildren.size(); i++){
-                if(mMother->mChildren.at(i)->mFather == mFather || mMother->mChildren.at(i)->mMother == mMother){
-                    test.insert(mMother->mChildren.at(i));
+                if(mMother->mChildren.at(i)->mName != mName){
+                    if(mMother->mChildren.at(i)->mFather == mFather || mMother->mChildren.at(i)->mMother == mMother){
+                        test.insert(mMother->mChildren.at(i));
+                    }
                 }
             }
         }
     }
     else{
-        if(mMother != nullptr){
-            for(size_t i=0; i<mMother->mChildren.size(); i++){
-                if(mMother->mChildren.at(i)->mFather == mFather || mMother->mChildren.at(i)->mMother == mMother){
-                    test.insert(mMother->mChildren.at(i));
+        if(smod == SMod::FULL){
+            if(mFather != nullptr){
+               for(size_t i=0; i<mFather->mChildren.size(); i++){
+                if(mFather->mChildren.at(i)->mName != mName){
+                    if(mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother == mMother){
+                    test.insert(mFather->mChildren.at(i));
+                    }
                 }
+                } 
             }
+            if(mMother != nullptr){
+               for(size_t i=0; i<mMother->mChildren.size(); i++){
+                if(mMother->mChildren.at(i)->mName != mName){
+                    if(mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother == mMother){
+                    test.insert(mMother->mChildren.at(i));
+                    }
+                }
+                } 
+            }
+            
         }
-        if(mFather != nullptr){
-            for(size_t i=0; i<mFather->mChildren.size(); i++){
-                if(mFather->mChildren.at(i)->mFather == mFather || mFather->mChildren.at(i)->mMother == mMother){
+        else if(smod == SMod::HALF){
+            if(mFather != nullptr){
+               for(size_t i=0; i<mFather->mChildren.size(); i++){
+                if(mFather->mChildren.at(i)->mName != mName){
+                     if((mFather->mChildren.at(i)->mFather == mFather && mFather->mChildren.at(i)->mMother != mMother) || (mFather->mChildren.at(i)->mFather != mFather && mFather->mChildren.at(i)->mMother == mMother)){
                     test.insert(mFather->mChildren.at(i));
                 }
+                }
+               
+                }
             }
+            if(mMother != nullptr){
+               for(size_t i=0; i<mMother->mChildren.size(); i++){
+                if(mMother->mChildren.at(i)->mName != mName){
+                    if((mMother->mChildren.at(i)->mFather == mFather && mMother->mChildren.at(i)->mMother != mMother) || (mMother->mChildren.at(i)->mFather != mFather && mMother->mChildren.at(i)->mMother == mMother)){
+                        test.insert(mMother->mChildren.at(i));
+                    }
+                }
+                }
+            }
+            
+        }
+        else{
+            if(mMother != nullptr){
+                for(size_t i=0; i<mMother->mChildren.size(); i++){
+                    if(mMother->mChildren.at(i)->mName != mName){
+                        if(mMother->mChildren.at(i)->mFather == mFather || mMother->mChildren.at(i)->mMother == mMother){
+                        test.insert(mMother->mChildren.at(i));
+                    }
+                    }
+                
+                }
+            }
+            if(mFather != nullptr){
+                for(size_t i=0; i<mFather->mChildren.size(); i++){
+                    if(mFather->mChildren.at(i)->mName != mName){
+                        if(mFather->mChildren.at(i)->mFather == mFather || mFather->mChildren.at(i)->mMother == mMother){
+                        test.insert(mFather->mChildren.at(i));
+                    }
+                    }
+                    
+                }
+           }
         }
     }
+
     return test;
 }
 std::set<Person*> Person::sisters(PMod pmod, SMod smod){
