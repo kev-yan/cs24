@@ -42,6 +42,26 @@ std::set<Person*> Person::ancestors(PMod pmod){
 }
 std::set<Person*> Person::aunts(PMod pmod, SMod smod){
    std::set<Person*> test;
+   std::set<Person*> tempList;
+   if(pmod == PMod::PATERNAL){
+    if(mFather != nullptr){
+        test = mFather->sisters(PMod::ANY, smod);
+    }
+   }
+   else if(pmod == PMod::MATERNAL){
+    if(mMother != nullptr){
+        test = mMother->sisters(PMod::ANY, smod);
+    }
+   }
+   else{
+    if(mFather != nullptr){
+        test = mFather->sisters(PMod::ANY, smod);
+    }
+    if(mMother != nullptr){
+        tempList = mMother->sisters(PMod::ANY, smod);
+    }
+    test.merge(tempList);
+   }
    return test;
 }
 std::set<Person*> Person::brothers(PMod pmod, SMod smod){
@@ -367,8 +387,28 @@ std::set<Person*> Person::sons(){
     return test;
  }
 std::set<Person*> Person::uncles(PMod pmod, SMod smod){
-        std::set<Person*> test;
-    return test;
+    std::set<Person*> test;
+   std::set<Person*> tempList;
+   if(pmod == PMod::PATERNAL){
+    if(mFather != nullptr){
+        test = mFather->brothers(PMod::ANY, smod);
+    }
+   }
+   else if(pmod == PMod::MATERNAL){
+    if(mMother != nullptr){
+        test = mMother->brothers(PMod::ANY, smod);
+    }
+   }
+   else{
+    if(mFather != nullptr){
+        test = mFather->brothers(PMod::ANY, smod);
+    }
+    if(mMother != nullptr){
+        tempList = mMother->brothers(PMod::ANY, smod);
+    }
+    test.merge(tempList);
+   }
+   return test;
 }
 
 
