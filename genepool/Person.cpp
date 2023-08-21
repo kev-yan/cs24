@@ -45,13 +45,6 @@ std::set<Person*> Person::ancestors(PMod pmod){
         if(parent != nullptr){
             ancestors.insert(parent);
         }
-        /*
-        while(parent != nullptr){
-            parents = parent->parents(PMod::ANY);
-            ancestors.merge(parents);
-            parent = parent->mFather;
-        }
-        */
         parents = mFather->ancestors(PMod::ANY);
         ancestors.merge(parents);
     }
@@ -60,17 +53,9 @@ std::set<Person*> Person::ancestors(PMod pmod){
         if(parent != nullptr){
             ancestors.insert(parent);
         }
-
         parents = parent->ancestors(PMod::ANY);
         ancestors.merge(parents);
 
-        /*
-        while(parent != nullptr){
-            parents = parent->parents(PMod::ANY);
-            ancestors.merge(parents);
-            parent = parent->mMother;
-        }
-        */
     }
     else{
         parent = mFather;
@@ -186,8 +171,16 @@ std::set<Person*> Person::daughters(){
     return test;
 }
 std::set<Person*> Person::descendants(){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> kids;
+    std::set<Person*> newKids;   
+    if(mChildren.size() != 0){
+        for(size_t i=0; i<mChildren.size(); i++){
+            kids.insert(mChildren.at(i));
+            newKids = mChildren.at(i)->descendants();
+            kids.merge(newKids);
+        }
+    }
+    return kids;
 }
 std::set<Person*> Person::grandchildren(){
     std::set<Person*> list;
