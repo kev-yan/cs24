@@ -100,12 +100,26 @@ std::set<Person*> Person::descendants(){
     return test;
 }
 std::set<Person*> Person::grandchildren(){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> list;
+    std::set<Person*> sons;
+    std::set<Person*> daughters;
+    for(size_t i=0; i<mChildren.size(); i++){
+        daughters = mChildren.at(i)->daughters();
+        sons = mChildren.at(i)->sons();
+        sons.merge(daughters);
+        list.merge(sons);
+    }
+    return list;
+
 }
 std::set<Person*> Person::granddaughters(){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> list;
+    std::set<Person*> kids;
+    for(size_t i=0; i<mChildren.size(); i++){
+        kids = mChildren.at(i)->daughters();
+        list.merge(kids);
+    }
+    return list;
 }
 std::set<Person*> Person::grandfathers(PMod pmod){
     std::set<Person*> test;
@@ -186,8 +200,13 @@ std::set<Person*> Person::grandparents(PMod pmod){
     return test;
 }
 std::set<Person*> Person::grandsons(){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> list;
+    std::set<Person*> kids;
+    for(size_t i=0; i<mChildren.size(); i++){
+        kids = mChildren.at(i)->sons();
+        list.merge(kids);
+    }
+    return list;
 }
 std::set<Person*> Person::nephews(PMod pmod, SMod smod){
     std::set<Person*> siblings;
