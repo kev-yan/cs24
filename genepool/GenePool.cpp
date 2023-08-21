@@ -5,6 +5,12 @@
 
 using namespace std;
 
+void GenePool::print() const{
+    for(auto [name, person]: people){
+        cout << name << ": " << endl;
+    }
+}
+
 // GenePool Member Functions
 GenePool::GenePool(std::istream& stream){
     if(stream.fail()){
@@ -12,7 +18,7 @@ GenePool::GenePool(std::istream& stream){
     }
     string input;
     while(std::getline(stream, input)){
-        if(input.substr(0, 1) != "#"){
+        if(input.substr(0, 1) != "#" && input.substr(0,1) != ""){
             string newName;
             string genderName;
             Gender gender;
@@ -20,9 +26,16 @@ GenePool::GenePool(std::istream& stream){
             string motherName;
             Person* father;
             Person* mother;
+            bool temp = true;
             std::stringstream ss(input);
             getline(ss, newName, '\t');
-            
+            /*
+            if(newName == ""){
+                temp = false;
+                cout << "worked" << endl;
+            }
+            cout << newName << endl;
+            */
             //std::getline(ss, newName, '\t');
             getline(ss, genderName, '\t');
             if(genderName == "male"){
@@ -45,11 +58,14 @@ GenePool::GenePool(std::istream& stream){
             else{
                 mother = nullptr;
             }
-            Person *newPerson = new Person(newName, gender, mother, father);
-            people[newName] = newPerson;
+            if(temp){
+                Person *newPerson = new Person(newName, gender, mother, father);
+                people[newName] = newPerson;
+            }
         }
         
     }
+
 
 }
 

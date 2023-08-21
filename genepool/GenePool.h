@@ -19,6 +19,7 @@ class GenePool {
   std::map<std::string, Person*> people;
 
   // Helper Functions
+  
 
 public:
   // Build a database of people from a TSV file.
@@ -33,6 +34,8 @@ public:
   // Find a person in the database by name.
   // Return nullptr if there is no such person.
   Person* find(const std::string& name) const;
+
+  void print() const;
 };
 
 #endif
