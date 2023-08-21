@@ -190,12 +190,28 @@ std::set<Person*> Person::grandsons(){
     return test;
 }
 std::set<Person*> Person::nephews(PMod pmod, SMod smod){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> siblings;
+    std::set<Person*> list;
+    std::set<Person*> kids;
+    siblings = this->siblings(pmod, smod);
+    for(Person* parent: siblings){
+        kids = parent->sons();
+        list.merge(kids);
+    }
+
+    return list;
 }
 std::set<Person*> Person::nieces(PMod pmod, SMod smod){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> siblings;
+    std::set<Person*> list;
+    std::set<Person*> kids;
+    siblings = this->siblings(pmod, smod);
+    for(Person* parent: siblings){
+        kids = parent->daughters();
+        list.merge(kids);
+    }
+
+    return list;
 }
 std::set<Person*> Person::parents(PMod pmod){
     std::set<Person*> test;
