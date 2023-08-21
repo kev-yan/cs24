@@ -118,16 +118,16 @@ std::set<Person*> Person::grandparents(PMod pmod){
         if(mFather != nullptr && mFather->mother() != nullptr){
             test.insert(mFather->mother());
         }
-        if(mMother != nullptr && mMother->father() != nullptr){
-            test.insert(mMother->father());
+        if(mFather != nullptr && mFather->father() != nullptr){
+            test.insert(mFather->father());
         }
     }
     else if(pmod == PMod::MATERNAL){
         if(mMother != nullptr && mMother->mother() != nullptr){
             test.insert(mMother->mother());
         }
-        if(mFather != nullptr && mFather->father() != nullptr){
-            test.insert(mFather->father());
+        if(mMother != nullptr && mMother->father() != nullptr){
+            test.insert(mMother->father());
         }
     }
     else{
