@@ -83,8 +83,44 @@ std::set<Person*> Person::children(){
     return test;
 }
 std::set<Person*> Person::cousins(PMod pmod, SMod smod){
-    std::set<Person*> test;
-    return test;
+    std::set<Person*> siblings;
+    std::set<Person*> kids;
+    std::set<Person*> cousins;
+    if(pmod == PMod::PATERNAL){
+        if(mFather != nullptr){
+            siblings = mFather->siblings(PMod::ANY, smod);
+            for(Person* person: siblings){
+                kids = person->children();
+                cousins.merge(kids);
+            }
+        }
+    }
+    else if(pmod == PMod::MATERNAL){
+        if(mMother != nullptr){
+            siblings = mMother->siblings(PMod::ANY, smod);
+            for(Person* person: siblings){
+                kids = person->children();
+                cousins.merge(kids);
+            }
+        }
+    }
+    else{
+        if(mFather != nullptr){
+            siblings = mFather->siblings(PMod::ANY, smod);
+            for(Person* person: siblings){
+                kids = person->children();
+                cousins.merge(kids);
+            }
+        }
+        if(mMother != nullptr){
+            siblings = mMother->siblings(PMod::ANY, smod);
+            for(Person* person: siblings){
+                kids = person->children();
+                cousins.merge(kids);
+            }
+        }
+    }
+    return cousins;
 }
 std::set<Person*> Person::daughters(){
     std::set<Person*> test;
