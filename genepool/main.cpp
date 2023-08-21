@@ -44,12 +44,6 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  pool->print();
-/*
-  cout << pool->find("Kind")->mother()->name() << endl;
-  cout << pool->find("Kind")->father()->name() << endl;
-  cout << pool->find("Kind")->name() << endl;
-
 
   std::string line;
   std::cout << "> ";
@@ -87,5 +81,4 @@ int main(int argc, char** argv) {
   std::cout << '\n';
   delete pool;
   return 0;
-  */
 }

@@ -44,19 +44,19 @@ GenePool::GenePool(std::istream& stream){
             else{
                 gender = Gender::FEMALE;
             }
-            getline(ss, fatherName, '\t');
-            if(fatherName != "???"){
-                father = people[fatherName];
-            }
-            else{
-                father = nullptr;
-            }
             getline(ss, motherName, '\t');
             if(motherName != "???"){
                 mother = people[motherName];
             }
             else{
                 mother = nullptr;
+            }
+            getline(ss, fatherName, '\t');
+            if(fatherName != "???"){
+                father = people[fatherName];
+            }
+            else{
+                father = nullptr;
             }
             if(temp){
                 Person *newPerson = new Person(newName, gender, mother, father);
