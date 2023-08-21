@@ -11,6 +11,7 @@ void GenePool::print() const{
     }
 }
 
+
 // GenePool Member Functions
 GenePool::GenePool(std::istream& stream){
     if(stream.fail()){
@@ -26,6 +27,8 @@ GenePool::GenePool(std::istream& stream){
             string motherName;
             Person* father;
             Person* mother;
+            Person* newPerson;
+            //cout << "before: " << newPerson << endl;
             bool temp = true;
             std::stringstream ss(input);
             getline(ss, newName, '\t');
@@ -59,7 +62,13 @@ GenePool::GenePool(std::istream& stream){
                 father = nullptr;
             }
             if(temp){
-                Person *newPerson = new Person(newName, gender, mother, father);
+                newPerson = new Person(newName, gender, mother, father);
+                if(father != nullptr){
+                    father->addChild(newPerson);
+                }
+                if(mother != nullptr){
+                    mother->addChild(newPerson);
+                }
                 people[newName] = newPerson;
             }
         }

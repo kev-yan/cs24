@@ -8,6 +8,10 @@ void Person::getName() const{
     cout << mName << endl;
 }
 
+void Person::addChild(Person* person){
+    mChildren.push_back(person);
+}
+
 Person::Person(std::string newName, Gender newGender, Person* newMother, Person* newFather){
     mName = newName;
     mGender = newGender;
@@ -42,6 +46,12 @@ std::set<Person*> Person::aunts(PMod pmod, SMod smod){
 }
 std::set<Person*> Person::brothers(PMod pmod, SMod smod){
     std::set<Person*> test;
+    if(pmod == PMod::PATERNAL && mFather != nullptr){
+        if(smod == SMod::FULL){
+            //for(size_t i=0; i<mFather->)
+        }
+            
+    }
     return test;
 }
 std::set<Person*> Person::children(){

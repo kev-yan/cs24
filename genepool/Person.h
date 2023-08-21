@@ -27,7 +27,7 @@ public:
   Person(std::string newName, Gender newGender, Person* newMother, Person* newFather);
   // Destructor?
 
-
+  void addChild(Person* person);
   // Required Getter Functions
   const std::string& name()   const;
   Gender             gender() const;
