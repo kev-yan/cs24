@@ -84,39 +84,6 @@ std::set<Person*> Person::ancestors(PMod pmod){
             }
             parent = parent->mMother;
         } 
-        /*
-        parent = mFather;
-        
-        if(parent != nullptr){
-            ancestors.insert(parent);
-            if(parent->mFather != nullptr){
-                temp = parent->mFather->ancestors();
-                ancestors.merge(temp);
-            }
-            if(parent->mMother != nullptr){
-                temp = parent->mMother->ancestors();
-                ancestors.merge(temp);
-            }
-
-            
-            parents = parent->mMother->ancestors(PMod::ANY);
-            ancestors.merge(parents);
-            parents = parent->mFather->ancestors(PMod::ANY);
-            ancestors.merge(parents);
-            
-            while(parent != nullptr){
-                parents = parent->parents(PMod::ANY);
-                ancestors.merge(parents);
-                parent = parent->mFather;
-            }
-            
-        }
-            }
-            
-        }
-    }
-    
-    */
     }
     return ancestors;
 }
@@ -570,13 +537,3 @@ std::set<Person*> Person::uncles(PMod pmod, SMod smod){
    return test;
 }
 
-
-/*
-int main(){
-    string newName = "dave";
-    Gender test = Gender::MALE;
-    Person* newFather = new Person(newName, test, nullptr, nullptr);
-    newFather->getName();
-
-}
-*/
