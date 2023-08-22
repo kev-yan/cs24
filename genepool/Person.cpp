@@ -39,13 +39,14 @@ Person* Person::father() {
 std::set<Person*> Person::ancestors(PMod pmod){
     std::set<Person*> ancestors;
     std::set<Person*> parents;
+    std::set<Person*> temp;
     Person* parent;
     if(pmod == PMod::PATERNAL){
         parent = mFather;
         if(parent != nullptr){
             ancestors.insert(parent);
         }
-        parents = mFather->ancestors(PMod::ANY);
+        parents = parent->ancestors(PMod::ANY);
         ancestors.merge(parents);
     }
     else if(pmod == PMod::MATERNAL){
@@ -65,6 +66,9 @@ std::set<Person*> Person::ancestors(PMod pmod){
         while(parent != nullptr){
             parents = parent->parents(PMod::ANY);
             ancestors.merge(parents);
+            if(parent->mMother != nullptr){
+                ancestors.merge(parent->mMother->ancestors());
+            }
             parent = parent->mFather;
         }
         parent = mMother;
@@ -74,8 +78,45 @@ std::set<Person*> Person::ancestors(PMod pmod){
         while(parent != nullptr){
             parents = parent->parents(PMod::ANY);
             ancestors.merge(parents);
+            if(parent->mFather != nullptr){
+                
+                ancestors.merge(parent->mFather->ancestors());
+            }
             parent = parent->mMother;
+        } 
+        /*
+        parent = mFather;
+        
+        if(parent != nullptr){
+            ancestors.insert(parent);
+            if(parent->mFather != nullptr){
+                temp = parent->mFather->ancestors();
+                ancestors.merge(temp);
+            }
+            if(parent->mMother != nullptr){
+                temp = parent->mMother->ancestors();
+                ancestors.merge(temp);
+            }
+
+            
+            parents = parent->mMother->ancestors(PMod::ANY);
+            ancestors.merge(parents);
+            parents = parent->mFather->ancestors(PMod::ANY);
+            ancestors.merge(parents);
+            
+            while(parent != nullptr){
+                parents = parent->parents(PMod::ANY);
+                ancestors.merge(parents);
+                parent = parent->mFather;
+            }
+            
         }
+            }
+            
+        }
+    }
+    
+    */
     }
     return ancestors;
 }
