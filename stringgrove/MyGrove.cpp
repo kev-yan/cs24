@@ -105,6 +105,7 @@ int MyGrove::len() const{
 }
 
 
+
 const MyGrove* MyGrove::concat(MyGrove* other) const{
     if(root != nullptr){
         if(other->giveRoot() != nullptr){
