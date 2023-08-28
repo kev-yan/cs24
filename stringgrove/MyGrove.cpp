@@ -86,6 +86,9 @@ void MyGrove::printWord() const{
     if(isWord(root)){
         cout << root->word << endl;
     }
+    else{
+        cout << "not root" << endl;
+    }
 }
 
 MyGrove::MyGrove(const char* str){
