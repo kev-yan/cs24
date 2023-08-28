@@ -9,7 +9,7 @@ WordList::WordList(std::istream& stream){
     while(stream >> temp){
         mWords.push_back(temp);
     }
-    cout << "length: " << mWords.size() << endl;
+    //cout << "length: " << mWords.size() << endl;
 }
 
 Heap WordList::correct(const std::vector<Point>& points, size_t maxcount, float cutoff) const{
