@@ -109,7 +109,7 @@ int MyGrove::len() const{
 
 
 
-const MyGrove* MyGrove::concat(MyGrove* other) const{
+const MyGrove* MyGrove::concat(const MyGrove* other) const{
     if(root != nullptr){
         if(other->giveRoot() != nullptr){
             MyGrove* newGrove = new MyGrove(nullptr);
