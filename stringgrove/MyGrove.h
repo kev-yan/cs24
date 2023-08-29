@@ -23,7 +23,7 @@ public:
   // Required StringGrove functions.
   // See StringGrove.h for descriptions.
   int     len() const;
-  const MyGrove*    concat(const MyGrove* other) const;
+  const MyGrove*    concat(MyGrove* other) const;
   char 	  charAt(int index) const;
   const MyGrove*    substr(int start, int end) const;
   void printWord() const;
