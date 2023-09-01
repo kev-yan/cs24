@@ -26,6 +26,7 @@ public:
   const MyGrove*    concat(MyGrove* other) const;
   char 	  charAt(int index) const;
   const MyGrove*    substr(int start, int end) const;
+  
   void printWord() const;
   Node* getRoot() const;
 
