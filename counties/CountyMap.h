@@ -2,6 +2,7 @@
 #define COUNTYMAP_H
 
 #include <vector>
+#include <map>
 #include "County.h"
 
 using namespace std;
@@ -12,7 +13,12 @@ class CountyMap {
 
 		//add private variables here
 		vector<County> counties;
-		vector<vector<bool> > adjMatrix;
+		
+		//std::map<std::string, County> counties;
+		vector<LinkedList *> adjList;
+
+		void addNode(LinkedList *ll, Node *newNode);
+		//bool findNode(LinkedList list, int countyID);		
 	public:
 		//constructor
 		//performance: O(n^2), n = number of counties
@@ -38,7 +44,8 @@ class CountyMap {
 		bool checkValidItinerary(vector<int> itinerary);
 
 		void printMatrix();
-		void setEdge(int first, int second);
+		//void setEdge(int first, int second);
+
 };
 
 #endif
