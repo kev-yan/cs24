@@ -89,6 +89,17 @@ void MyGrove::printWord() const{
     }
     else{
         cout << "not root" << endl;
+        Node* temp = nullptr;
+        Node* old = nullptr;
+        for(int i=0; i<length; i++){
+            temp = getNode(root, i);
+            if(temp != old){
+                cout << (int*) &(temp->word[0]) << endl;
+                cout << temp->word;
+            }
+            old = temp;
+            
+        }
     }
 }
 
@@ -116,15 +127,22 @@ int MyGrove::len() const{
 
 const MyGrove* MyGrove::concat(const MyGrove* other) const{
     if(root != nullptr){
+        /*
+        if(other->giveRoot() = root){
+            MyGrove* newGrove = new myGrove();
+            Node* newRoot = new Node();
+            newRoot->left = root
+        }
+    */
         if(other->giveRoot() != nullptr){
             //MyGrove* newGrove = new MyGrove(nullptr); //fix this maybe!
             MyGrove* newGrove = new MyGrove();
             Node* newRoot = new Node();
             newRoot->left = root;
-            newRoot->left->parent = newRoot;
+            root->parent = newRoot;
         // root->parent = newRoot;
             newRoot->right = other->giveRoot();
-            newRoot->right->parent = newRoot;
+            other->giveRoot()->parent = newRoot;
             newRoot->length = root->length + other->giveRoot()->length;
             //newRoot->right = newRoot;
             newGrove->setLength(length+other->len());
