@@ -205,9 +205,9 @@ const MyGrove* MyGrove::substr(int start, int end) const{
             newString[i-firstIndex] = first->word[i];
         }
         newString[newLength+1] = '\0';
-        const char* newnewString = newString;
+        //const char* newnewString = newString;
         //cout << strlen(newnewString) << " before" << endl;
-        MyGrove* newGrove = new MyGrove(newnewString);
+        MyGrove* newGrove = new MyGrove(newString);
         return newGrove;
     }
     else{
