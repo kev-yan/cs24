@@ -92,6 +92,10 @@ void MyGrove::printWord() const{
     }
 }
 
+MyGrove::MyGrove(){
+}
+
+
 MyGrove::MyGrove(const char* str){
     root = new Node();
     if(str != nullptr){
@@ -113,7 +117,8 @@ int MyGrove::len() const{
 const MyGrove* MyGrove::concat(const MyGrove* other) const{
     if(root != nullptr){
         if(other->giveRoot() != nullptr){
-            MyGrove* newGrove = new MyGrove(nullptr);
+            //MyGrove* newGrove = new MyGrove(nullptr); //fix this maybe!
+            MyGrove* newGrove = new MyGrove();
             Node* newRoot = new Node();
             newRoot->left = root;
             newRoot->left->parent = newRoot;

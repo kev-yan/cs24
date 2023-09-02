@@ -19,7 +19,7 @@ class MyGrove: public StringGrove<MyGrove> {
   int getIndex(Node* curr, int index) const;
 public:
   MyGrove(const char* str);
-
+  MyGrove();
   // Required StringGrove functions.
   // See StringGrove.h for descriptions.
   int     len() const;
