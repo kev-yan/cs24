@@ -134,6 +134,7 @@ const MyGrove* MyGrove::concat(const MyGrove* other) const{
             newRoot->left = root
         }
     */
+    
         if(other->giveRoot() != nullptr){
             //MyGrove* newGrove = new MyGrove(nullptr); //fix this maybe!
             MyGrove* newGrove = new MyGrove();
