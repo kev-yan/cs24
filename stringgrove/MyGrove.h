@@ -11,7 +11,7 @@ class MyGrove: public StringGrove<MyGrove> {
 // create node class - w/ member variables left, right, maybe parent, length
 // create root node of tree class
   void setWord(char* str);
-  Node* giveRoot();
+  Node* giveRoot() const;
   void setLength(int size);
   void setRoot(Node* other);
   bool isWord(Node* curr) const;
@@ -23,10 +23,10 @@ public:
   // Required StringGrove functions.
   // See StringGrove.h for descriptions.
   int     len() const;
-  const MyGrove*    concat(MyGrove* other) const;
+  const MyGrove*    concat(const MyGrove* other) const;
   char 	  charAt(int index) const;
   const MyGrove*    substr(int start, int end) const;
-  
+
   void printWord() const;
   Node* getRoot() const;
 
