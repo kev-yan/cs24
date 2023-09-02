@@ -113,7 +113,7 @@ MyGrove::MyGrove(const char* str, bool check){
         if(str != nullptr){
             length = strlen(str);
             root->length = strlen(str);
-            cout << length << ": length" << endl;
+            //cout << length << ": length" << endl;
             root->word = str;
         }
         else {
@@ -127,7 +127,7 @@ MyGrove::MyGrove(const char* str){
     if(str != nullptr){
         length = strlen(str);
         root->length = strlen(str);
-        cout << length << ": length" << endl;
+        //cout << length << ": length" << endl;
         root->word = str;
     }
     else {
