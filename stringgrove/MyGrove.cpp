@@ -134,7 +134,7 @@ const MyGrove* MyGrove::concat(const MyGrove* other) const{
             newRoot->left = root
         }
     */
-    
+
         if(other->giveRoot() != nullptr){
             //MyGrove* newGrove = new MyGrove(nullptr); //fix this maybe!
             MyGrove* newGrove = new MyGrove();
@@ -188,6 +188,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
         for(int i=firstIndex; i<=secondIndex; i++){
             newString[i-firstIndex] = first->word[i];
         }
+        newString[newLength+1] = '\0';
         const char* newnewString = newString;
         MyGrove* newGrove = new MyGrove(newnewString);
         return newGrove;
