@@ -1,5 +1,6 @@
 #include "MyGrove.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 Node* MyGrove::giveRoot() const{
