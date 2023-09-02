@@ -20,6 +20,7 @@ class MyGrove: public StringGrove<MyGrove> {
 public:
   MyGrove(const char* str);
   MyGrove();
+  MyGrove(const char* str, bool check);
   // Required StringGrove functions.
   // See StringGrove.h for descriptions.
   int     len() const;

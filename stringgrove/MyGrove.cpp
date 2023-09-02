@@ -88,15 +88,16 @@ void MyGrove::printWord() const{
         cout << root->word << endl;
     }
     else{
-        cout << "not root" << endl;
+        //cout << "not root" << endl;
         Node* temp = nullptr;
         Node* old = nullptr;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
             if(temp != old){
-                cout << (int*) &(temp->word[0]) << endl;
+                //cout << (int*) &(temp->word[0]) << endl;
                 cout << temp->word;
             }
+
             old = temp;
             
         }
@@ -106,12 +107,27 @@ void MyGrove::printWord() const{
 MyGrove::MyGrove(){
 }
 
+MyGrove::MyGrove(const char* str, bool check){
+    if(check == true){
+        root = new Node();
+        if(str != nullptr){
+            length = strlen(str);
+            root->length = strlen(str);
+            cout << length << ": length" << endl;
+            root->word = str;
+        }
+        else {
+            length = 0;
+        }
+    }
+}
 
 MyGrove::MyGrove(const char* str){
     root = new Node();
     if(str != nullptr){
         length = strlen(str);
         root->length = strlen(str);
+        cout << length << ": length" << endl;
         root->word = str;
     }
     else {
@@ -190,6 +206,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
         }
         newString[newLength+1] = '\0';
         const char* newnewString = newString;
+        //cout << strlen(newnewString) << " before" << endl;
         MyGrove* newGrove = new MyGrove(newnewString);
         return newGrove;
     }
@@ -227,6 +244,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
             }
         }
         newString[newLength+1] = '\0';
+        //cout << strlen(newString) << " before" << endl;
         MyGrove* newGrove = new MyGrove(newString);
         return newGrove;
     }

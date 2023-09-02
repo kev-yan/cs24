@@ -24,6 +24,7 @@ int main() {
   //MyGrove* test = new MyGrove(test4);
   const MyGrove* newFirst;
   const MyGrove* newSecond;
+  const MyGrove* newThird;
 
   
 
@@ -32,5 +33,11 @@ int main() {
   newSecond = newFirst->concat(second);
 
   newSecond->printWord();
+  cout << endl;
+  newThird = first->substr(0, 4);
+  newThird->printWord();
+  
+  cout << newThird->len() << endl;
+  
   return 0;
 }
