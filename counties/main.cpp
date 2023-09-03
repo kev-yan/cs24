@@ -9,6 +9,7 @@ int main(){
     vector<bool> third = {1, 1, 0, 1};
     vector<bool> fourth = {0, 1, 1, 0};
     vector<int> test = {0, 3, 1, 2};
+    
     County one;
     one.population = 1;
     one.name = "one";

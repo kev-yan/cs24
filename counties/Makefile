@@ -15,4 +15,4 @@ CountyMap.o: CountyMap.cpp CountyMap.h County.h
 	${CXX} $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	rm -f test test.o CountyMap.o
+	rm -f main main.o CountyMap.o
