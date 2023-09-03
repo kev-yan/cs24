@@ -15,7 +15,7 @@ int main() {
   //char testing[] = "";
   MyGrove* first = new MyGrove(testing);
    MyGrove* second = new MyGrove(testing);
-  // MyGrove* third = new MyGrove(test3);
+   MyGrove* third = new MyGrove(testing);
   // MyGrove* fourth = new MyGrove(test4);
   //MyGrove* fifth = new MyGrove("s");
   MyGrove* fifth = new MyGrove(testing);
@@ -25,6 +25,7 @@ int main() {
   const MyGrove* newFirst;
   const MyGrove* newSecond;
   const MyGrove* newThird;
+  const MyGrove* newFourth;
 
   
 
@@ -34,10 +35,14 @@ int main() {
 
   newSecond->printWord();
   cout << endl;
-  newThird = first->substr(0, 4);
+  newFourth = newSecond->concat(third);
+  newFourth->printWord();
+  cout << endl;
+  newThird = newSecond->substr(2, 7);
+
   newThird->printWord();
   
-  cout << newThird->len() << endl;
+  //cout << newThird->len() << endl;
   
   return 0;
 }

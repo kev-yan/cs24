@@ -17,10 +17,11 @@ class MyGrove: public StringGrove<MyGrove> {
   bool isWord(Node* curr) const;
   Node* getNode(Node* curr, int index) const;
   int getIndex(Node* curr, int index) const;
+  Node* concatNode(Node* first, Node* second) const;
 public:
   MyGrove(const char* str);
   MyGrove();
-  MyGrove(const char* str, bool check);
+  MyGrove(Node* node);
   // Required StringGrove functions.
   // See StringGrove.h for descriptions.
   int     len() const;
