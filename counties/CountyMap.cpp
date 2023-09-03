@@ -136,8 +136,15 @@ vector<int> CountyMap::getAdjacentCounties(int index) {
     vector<int> newCounties;
     LinkedList *list = adjList.at(index);
     Node *curr = list->head;
+    if(curr == nullptr){
+        return newCounties;
+    }
+    else{
+        
+    }
     while(curr != nullptr){
         newCounties.push_back(curr->countyID);
+        curr = curr->next;
     }
     return newCounties;
     // TODO

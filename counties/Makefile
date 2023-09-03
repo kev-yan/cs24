@@ -3,12 +3,12 @@ CXX      = g++
 
 .PHONY: all clean
 
-all: test
+all: main
 
-test: test.o CountyMap.o
+main: main.o CountyMap.o
 	${CXX} $(CXXFLAGS) -o $@ $+
 
-test.o: test.cpp CountyMap.h CountyMap.cpp County.h
+main.o: main.cpp CountyMap.h CountyMap.cpp County.h
 	${CXX} $(CXXFLAGS) -c -o $@ $<
 
 CountyMap.o: CountyMap.cpp CountyMap.h County.h
