@@ -33,12 +33,12 @@ int main() {
   //newFirst->printWord();
   newSecond = newFirst->concat(second);
 
-  newSecond->printWord();
+  //newSecond->printWord();
   cout << endl;
   newFourth = newSecond->concat(third);
-  newFourth->printWord();
+  //newFourth->printWord();
   cout << endl;
-  newThird = newSecond->substr(2, 14);
+  newThird = newFourth->substr(2, 14);
   cout << newThird->len() << endl;
   newThird->printWord();
   

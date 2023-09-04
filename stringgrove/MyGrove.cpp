@@ -104,8 +104,10 @@ void MyGrove::printWord() const{
         int count = 0;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
+            cout << i << endl;
             if(temp != old){
                 //cout << (int*) &(temp->word[0]) << endl;
+
                 cout << temp->word;
                 count++;
             }
@@ -175,8 +177,6 @@ const MyGrove* MyGrove::concat(const MyGrove* other) const{
     else{
         return other;
     }
-    
-    return nullptr;
 
 }
 
