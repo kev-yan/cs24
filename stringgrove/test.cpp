@@ -38,8 +38,8 @@ int main() {
   newFourth = newSecond->concat(third);
   newFourth->printWord();
   cout << endl;
-  newThird = newSecond->substr(2, 7);
-
+  newThird = newSecond->substr(2, 14);
+  cout << newThird->len() << endl;
   newThird->printWord();
   
   //cout << newThird->len() << endl;

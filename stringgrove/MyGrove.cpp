@@ -101,16 +101,20 @@ void MyGrove::printWord() const{
         //cout << "not root" << endl;
         Node* temp = nullptr;
         Node* old = nullptr;
+        int count = 0;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
             if(temp != old){
                 //cout << (int*) &(temp->word[0]) << endl;
                 cout << temp->word;
+                count++;
             }
 
             old = temp;
             
         }
+        cout << endl;
+        cout << "nodes: " << count << endl;
     }
 }
 
@@ -227,36 +231,31 @@ const MyGrove* MyGrove::substr(int start, int end) const{
                 left = first;
                 hold = false;
             }
+            
             //MyGrove* left = new MyGrove(newString);
             if(hold){
+                left = new Node();
                 left->word = newString;
                 left->length = strlen(newString);
             }
             //MyGrove* right;
+            //cout << left->word << endl;
             Node* newRoot;
             Node* right = getNode(root, start+len1);
             int tempLength = right->length;
-            while(totalLength+tempLength <= newLength){ //might be able to just add this inbetween the original for i loops
-
+            while(totalLength+tempLength <= (newLength)){ //might be able to just add this inbetween the original for i loops
                 newRoot = concatNode(left, right);
                 right = getNode(root, start+len1+tempLength);
+                //cout << "middle: " << right->word << endl;
                 temp += right->length;
                 left = newRoot;
-                tempLength = right->length;
-            /*
-                for(int i=0; i<tempNode->length; i++){
-                    newString[temp+i] = tempNode->word[i];
-                }
-                temp += tempNode->length;
-                tempNode = getNode(root, start+len1+tempLength);
-                tempLength += tempNode->length;
-                */
-                
-            }
-            
-            if(secondIndex != second->length){
+                tempLength += right->length;
+            }    
+            char* newnewString;
+            if(secondIndex < second->length){
+                newnewString = new char[secondIndex];
                 for(int i=0; i<=secondIndex; i++){
-                    newString[i+temp] = second->word[i];
+                    newnewString[i] = second->word[i];
                 }
                 hold = true;
             }
@@ -264,16 +263,18 @@ const MyGrove* MyGrove::substr(int start, int end) const{
                 right = second;
                 hold = false;
             }    
-
             if(hold){
                 right = new Node();
-                right->word = newString;
-                right->length = strlen(newString);
+                right->word = newnewString;
+                right->length = strlen(newnewString);
+                //cout << "here: " << right->word << endl;
                 newRoot = concatNode(left, right);
                 finalGrove = new MyGrove(newRoot);
                 return finalGrove;
             }
             else{
+                //cout << "maybe here" << endl;
+                //cout << right->word << endl;
                 newRoot = concatNode(left, right);
                 finalGrove = new MyGrove(newRoot);
                 return finalGrove;
