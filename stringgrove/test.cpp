@@ -18,7 +18,7 @@ int main() {
    MyGrove* third = new MyGrove(testing);
   // MyGrove* fourth = new MyGrove(test4);
   //MyGrove* fifth = new MyGrove("s");
-  MyGrove* fifth = new MyGrove(testing);
+  //MyGrove* fifth = new MyGrove(testing);
 
 
   //MyGrove* test = new MyGrove(test4);
@@ -29,7 +29,8 @@ int main() {
 
   
 
-  newFirst = first->concat(fifth);
+  newFirst = first->concat(first);
+  newFirst->printWord();
   //newFirst->printWord();
   newSecond = newFirst->concat(second);
 

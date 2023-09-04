@@ -206,13 +206,17 @@ const MyGrove* MyGrove::substr(int start, int end) const{
     int secondIndex = getIndex(root, end);
     int temp = 0;
     if(first == second){
-        for(int i=firstIndex; i<=secondIndex; i++){
+        if(newLength != first->length){
+            for(int i=firstIndex; i<=secondIndex; i++){
             newString[i-firstIndex] = first->word[i];
         }
         newString[newLength+1] = '\0';
         const char* newnewString = newString;
         MyGrove* newGrove = new MyGrove(newnewString);
         return newGrove;
+        }
+        const MyGrove *temp = new MyGrove(first);
+        return temp;
     }
     else{
         int len1 = first->length - firstIndex;
