@@ -177,6 +177,7 @@ const MyGrove* MyGrove::concat(const MyGrove* other) const{
     else{
         return other;
     }
+    return nullptr;
 
 }
 
