@@ -34,7 +34,7 @@ Node* MyGrove::getNode(Node* newNode, int index) const{
                 curr = left;
             }
             else{
-                index = index-left->length;
+                index = index-(left->length);
                 curr = right;
             }
         }
@@ -74,7 +74,7 @@ int MyGrove::getIndex(Node* newNode, int index) const{
                 curr = left;
             }
             else{
-                index = index-left->length;
+                index = index-(left->length);
                 curr = right;
             }
         }
@@ -132,7 +132,7 @@ void MyGrove::printWord() const{
         int count = 0;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
-            cout << i << endl;
+            //cout << i << endl;
             if(temp != old){
                 //cout << (int*) &(temp->word[0]) << endl;
 
