@@ -228,7 +228,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
     int secondIndex = getIndex(root, end);
     int temp = 0;
     if(first == second){
-        if(newLength != first->length){
+        if(firstIndex != 0 || secondIndex != second->length){
             
             for(int i=firstIndex; i<=secondIndex; i++){
                 newString[i-firstIndex] = first->word[i];
@@ -313,12 +313,48 @@ const MyGrove* MyGrove::substr(int start, int end) const{
         }
         
         else{
-            for(int i=firstIndex; i<first->length; i++){
-                newString[i-firstIndex] = first->word[i];
-                temp++;
+            if(firstIndex == 0 || secondIndex == second->length){
+                Node* left;
+                Node* right;
+                if(firstIndex == 0){
+                    left = first;
+                }
+                else{
+                    char* tempString = new char[first->length-firstIndex];
+                    for(int i=firstIndex; i<first->length; i++){
+                        tempString[i-firstIndex] = first->word[i];
+                        temp++;
+                    }
+                    left = new Node();
+                    left->word = tempString;
+                    left->length = strlen(newString);
+                }
+                if(secondIndex == second->length){
+                    right = second;
+                }
+                else{
+                    char* tempString2 = new char[secondIndex];
+                    for(int i=0; i<=secondIndex; i++){
+                        tempString2[i] = second->word[i];
+                    }
+                    right = new Node();
+                    right->word = tempString2;
+                    right->length = strlen(tempString2);
+                }
+                Node* newRoot = concatNode(left, right);
+                MyGrove* newGrove = new MyGrove();
+                newGrove->root = newRoot;
+                newGrove->length = newRoot->length;
+                return newGrove;
             }
-            for(int i=0; i<=secondIndex; i++){
-                newString[i+temp] = second->word[i];
+            else{
+                for(int i=firstIndex; i<first->length; i++){
+                    newString[i-firstIndex] = first->word[i];
+                    temp++;
+                }
+                for(int i=0; i<=secondIndex; i++){
+                    newString[i+temp] = second->word[i];
+                }
             }
         }
         //newString[newLength+1] = '\0';
