@@ -27,13 +27,26 @@ Node* MyGrove::getNode(Node* newNode, int index) const{
     }
     else{
         Node* curr = newNode;
+        while(!(isWord(curr))){
+            Node* left = curr->left;
+            Node* right = curr->right;
+            if(index < left->length){
+                curr = left;
+            }
+            else{
+                index = index-left->length;
+                curr = right;
+            }
+        }
+        return curr;
+        /*
         while(curr->length > index && !(isWord(curr))){
                 curr = curr->left;
             }
-            if(index >= curr->length){
-                int newLength = curr->length;
-                curr = curr->parent->right;
-                if(isWord(curr)){
+        if(index >= curr->length){
+            int newLength = curr->length;
+            curr = curr->parent->right;
+            if(isWord(curr)){
                     return curr;
                 }
                 else{
@@ -44,6 +57,7 @@ Node* MyGrove::getNode(Node* newNode, int index) const{
             else{
                 return curr;
             }
+            */
     }
 }
 
@@ -53,6 +67,19 @@ int MyGrove::getIndex(Node* newNode, int index) const{
     }
     else{
         Node* curr = newNode;
+        while(!(isWord(curr))){
+            Node* left = curr->left;
+            Node* right = curr->right;
+            if(index < left->length){
+                curr = left;
+            }
+            else{
+                index = index-left->length;
+                curr = right;
+            }
+        }
+        return index;
+        /*
         while(curr->length > index && !(isWord(curr))){
                 curr = curr->left;
             }
@@ -70,6 +97,7 @@ int MyGrove::getIndex(Node* newNode, int index) const{
             else{
                 return index;
             }
+            */
     }
 }
 
@@ -104,7 +132,7 @@ void MyGrove::printWord() const{
         int count = 0;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
-            //cout << i << endl;
+            cout << i << endl;
             if(temp != old){
                 //cout << (int*) &(temp->word[0]) << endl;
 
@@ -155,10 +183,10 @@ const MyGrove* MyGrove::concat(const MyGrove* other) const{
             MyGrove* newGrove = new MyGrove();
             Node* newRoot = new Node();
             newRoot->left = root;
-            root->parent = newRoot;
+            //root->parent = newRoot;
         // root->parent = newRoot;
             newRoot->right = other->giveRoot();
-            other->giveRoot()->parent = newRoot;
+            //ther->giveRoot()->parent = newRoot;
             newRoot->length = root->length + other->giveRoot()->length;
             //newRoot->right = newRoot;
             newGrove->setLength(length+other->len());

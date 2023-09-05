@@ -31,14 +31,16 @@ int main() {
 
   newFirst = first->concat(first);
   newFirst->printWord();
+  newSecond = first->substr(0, 4);
+  newSecond->printWord();
+  cout << "------------" << endl;
   //newFirst->printWord();
   newSecond = newFirst->concat(second);
 
   //newSecond->printWord();
-  cout << endl;
   newFourth = newSecond->concat(third);
   //newFourth->printWord();
-  cout << endl;
+
   newThird = newFourth->substr(2, 14);
   cout << newThird->len() << endl;
   newThird->printWord();
