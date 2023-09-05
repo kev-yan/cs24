@@ -104,7 +104,7 @@ void MyGrove::printWord() const{
         int count = 0;
         for(int i=0; i<length; i++){
             temp = getNode(root, i);
-            cout << i << endl;
+            //cout << i << endl;
             if(temp != old){
                 //cout << (int*) &(temp->word[0]) << endl;
 
@@ -149,13 +149,6 @@ int MyGrove::len() const{
 
 const MyGrove* MyGrove::concat(const MyGrove* other) const{
     if(root != nullptr){
-        /*
-        if(other->giveRoot() = root){
-            MyGrove* newGrove = new myGrove();
-            Node* newRoot = new Node();
-            newRoot->left = root
-        }
-    */
 
         if(other->giveRoot() != nullptr){
             //MyGrove* newGrove = new MyGrove(nullptr); //fix this maybe!
@@ -199,7 +192,8 @@ const MyGrove* MyGrove::substr(int start, int end) const{
         throw std::out_of_range("out of range");
     }
     //char newString[newLength];
-    char *newString = new char[newLength+1];
+    //char *newString = new char[newLength+1];
+    char *newString = new char[newLength];
     Node* first = getNode(root, start);
     Node* second = getNode(root, end);
     int firstIndex = getIndex(root, start);
@@ -207,10 +201,11 @@ const MyGrove* MyGrove::substr(int start, int end) const{
     int temp = 0;
     if(first == second){
         if(newLength != first->length){
+            
             for(int i=firstIndex; i<=secondIndex; i++){
-            newString[i-firstIndex] = first->word[i];
-        }
-            newString[newLength+1] = '\0';
+                newString[i-firstIndex] = first->word[i];
+            }
+            //newString[newLength+1] = '\0';
             const char* newnewString = newString;
             MyGrove* newGrove = new MyGrove(newnewString);
             return newGrove;
@@ -298,7 +293,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
                 newString[i+temp] = second->word[i];
             }
         }
-        newString[newLength+1] = '\0';
+        //newString[newLength+1] = '\0';
         MyGrove* newGrove = new MyGrove(newString);
         return newGrove;
     }
