@@ -226,7 +226,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
     Node* second = getNode(root, end);
     int firstIndex = getIndex(root, start);
     int secondIndex = getIndex(root, end);
-    int temp = 0;
+    //int temp = 0;
     if(first == second){
         if(firstIndex != 0 || secondIndex != second->length){
             
@@ -244,6 +244,53 @@ const MyGrove* MyGrove::substr(int start, int end) const{
         }
     }
     else{
+        Node* left;
+        Node* right;
+        if(firstIndex == 0 || secondIndex == second->length){
+            if(firstIndex == 0){
+                left = first;
+            }
+            else{
+                char* tempString = new char[first->length - firstIndex];
+                for(int i=firstIndex; i<first->length; i++){
+                    tempString[i-firstIndex] = first->word[i];
+                }
+                left = new Node();
+                left->word = tempString;
+                left->length = strlen(tempString);
+            }
+            if(secondIndex == second->length){
+                right = second;
+            }
+            else{
+                char* tempString2 = new char[first->length - secondIndex];
+                for(int i=0; i<= secondIndex; i++){
+                    tempString2[i] = second->word[i];
+                }
+                right = new Node();
+                right->word = tempString2;
+                right->length = strlen(tempString2);
+            }
+            MyGrove* newGrove = new MyGrove();
+            if(left->length + right->length == start-end+1){
+                Node* newLeft = concatNode(left, right);
+                newGrove->root = newLeft;
+                newGrove->length = newLeft->length;
+                return newGrove;
+            }
+            else{
+                const MyGrove* temp = this->substr(start+left->length, end-right->length);
+                Node* temp2 = temp->root;
+                Node* newLeft = concatNode(left, temp2);
+                Node* newRight = concatNode(newLeft, right);
+                MyGrove* newGrove = new MyGrove();
+                newGrove->root = newRight;
+                newGrove->length = newRight->length;
+                return newGrove;
+            }
+
+        }
+        /*
         int len1 = first->length - firstIndex;
         int totalLength = secondIndex+len1+1;
         bool hold;
@@ -357,6 +404,7 @@ const MyGrove* MyGrove::substr(int start, int end) const{
                 }
             }
         }
+        */
         //newString[newLength+1] = '\0';
         MyGrove* newGrove = new MyGrove(newString);
         return newGrove;
